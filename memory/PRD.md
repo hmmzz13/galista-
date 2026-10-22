@@ -54,6 +54,11 @@ Refonte complète du site officiel de Galista Café (46 Rue du Faubourg-National
 - P1 : canonical + sitemap.xml + hreflang dès que le domaine de production est connu.
 - P2 : formulaire de contact éventuel (Resend), JSON-LD horaires/aggregateRating après vérification.
 
+## Itération v5 (22/10/2026, retour client)
+- Carte 3D animée : rotation automatique douce en continu (pattern moveend MapLibre), pause à l'interaction et reprise après 4 s, bouton pause/reprise, désactivée si prefers-reduced-motion.
+- État ouvert/fermé relié partout : badge vert « Ouvert · jusqu'à HH:MM » (ou terracotta « Fermé · ouvre… ») superposé sur la carte, anneau de la carte vert quand ouvert / terracotta quand fermé, marqueur tasse bordé de la même couleur, ligne du jour courant surlignée dans le tableau des horaires avec badge « Aujourd'hui » (vert si ouvert, terracotta si fermé).
+- Hook useOpenState partagé (rafraîchi chaque minute, fuseau Europe/Paris).
+
 
 ## Décisions validées par l'utilisateur (ask_human)
 1. Pas de formulaire de contact — contact par téléphone, adresse, itinéraire uniquement.

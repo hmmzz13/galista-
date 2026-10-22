@@ -1,14 +1,20 @@
 import { useEffect, useRef, useState } from "react";
-import { Instagram, MapPin, Phone } from "lucide-react";
+import { Instagram, MapPin, Pause, Phone, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SITE } from "@/data/site";
 import SectionHeading, { Reveal } from "@/components/SectionHeading";
-import OpenBadge from "@/components/OpenBadge";
+import OpenBadge, { useOpenState } from "@/components/OpenBadge";
 import { BeanMark } from "@/components/Nav";
 
-function Map3D() {
+// Carte interactive en 3D (vue inclinée) avec rotation automatique douce.
+// La rotation se met en pause à l'interaction et reprend ensuite.
+function Map3D({ openState, reduced }) {
   const containerRef = useRef(null);
+  const mapRef = useRef(null);
+  const spinRef = useRef({ enabled: true, interacting: false });
+  const [spinOn, setSpinOn] = useState(true);
   const [failed, setFailed] = useState(false);
+  const open = openState.open;
 
   useEffect(() => {
     let map = null;
@@ -29,7 +35,6 @@ function Map3D() {
         ensureMapCss();
         const maplibregl = await import("maplibre-gl");
         const center = SITE.coords;
-        const zoom = 16.5;
         if (cancelled) return;
 
         map = new maplibregl.Map({
@@ -47,19 +52,40 @@ function Map3D() {
             layers: [{ id: "osm", type: "raster", source: "osm" }],
           },
           center,
-          zoom,
+          zoom: 16.5,
           pitch: 55,
           bearing: -16,
+          interactive: true,
         });
+        mapRef.current = map;
         map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
         map.on("error", () => {});
         map.on("load", () => {
           if (cancelled) return;
           const el = document.createElement("div");
-          el.style.cssText = "width:44px;height:44px;background:#FFFCF7;border:2px solid #2F8B89;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(75,48,38,0.4);";
+          const edge = open ? "#3E9B63" : "#C26A3D";
+          el.style.cssText = `width:46px;height:46px;background:#FFFCF7;border:3px solid ${edge};border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(75,48,38,0.4);`;
           el.innerHTML = '<svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><g fill="none" stroke="#2F8B89" stroke-width="3" stroke-linecap="round"><path d="M27 7 c-2.5 3.5 2.5 5.5 0 9"/><path d="M35 7 c-2.5 3.5 2.5 5.5 0 9"/></g><path d="M13 27 h36 v6 a13 13 0 0 1 -13 13 h-10 a13 13 0 0 1 -13 -13 z" fill="#2F8B89"/><ellipse cx="31" cy="53" rx="19" ry="3.4" fill="#2F8B89" opacity="0.75"/></svg>';
           new maplibregl.Marker({ element: el }).setLngLat(center).addTo(map);
-          map.easeTo({ pitch: 60, bearing: -28, duration: 2600 });
+          if (!reduced) {
+            map.easeTo({ pitch: 60, bearing: -34, duration: 2600 });
+            // Rotation automatique : pause à l'interaction, reprise après 4 s.
+            const spin = () => {
+              const s = spinRef.current;
+              if (cancelled || !s.enabled || s.interacting) return;
+              map.easeTo({ bearing: map.getBearing() - 0.45, duration: 100, easing: (n) => n });
+            };
+            map.on("moveend", spin);
+            setTimeout(spin, 2700);
+            const pause = () => { spinRef.current.interacting = true; };
+            const resume = () => { spinRef.current.interacting = false; };
+            map.on("mousedown", pause);
+            map.on("touchstart", pause);
+            map.on("mouseup", resume);
+            map.on("touchend", resume);
+            map.on("dragstart", pause);
+            map.on("dragend", () => { setTimeout(resume, 4000); });
+          }
         });
       } catch (e) {
         console.error("Map3D init error:", e);
@@ -83,22 +109,42 @@ function Map3D() {
       io.disconnect();
       if (map) map.remove();
     };
-  }, []);
+  }, [open, reduced]);
+
+  const toggleSpin = () => {
+    const next = !spinOn;
+    setSpinOn(next);
+    spinRef.current.enabled = next;
+  };
+
+  const edgeColor = open ? "ring-[#3E9B63]/60" : "ring-terracotta/60";
 
   return (
-    <div className="img-soft relative h-[420px] w-full md:h-[480px]" data-testid="map-3d-wrapper">
+    <div className={`relative h-[420px] w-full rounded-[22px] shadow-[0_24px_50px_-24px_rgba(75,48,38,0.45)] ring-2 ${edgeColor} transition-colors duration-700 md:h-[480px]`} data-testid="map-3d-wrapper">
       {failed ? (
         <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-beige p-8 text-center">
           <BeanMark className="h-10 w-10" />
-          <p className="text-sm text-cafemuted">{SITE.address.street}, {SITE.address.zip} {SITE.address.city}</p>
+          <p className="text-sm text-cafemuted">
+            {SITE.address.street}, {SITE.address.zip} {SITE.address.city}
+          </p>
         </div>
       ) : (
-        <div ref={containerRef} className="h-full w-full [&.maplibregl-map]:rounded-[22px]" data-testid="map-3d" />
+        <div ref={containerRef} className="h-full w-full overflow-hidden rounded-[20px]" data-testid="map-3d" />
       )}
-      <div
-        className="pointer-events-none absolute inset-0 rounded-[22px] ring-1 ring-inset ring-brun/10"
-        aria-hidden="true"
-      />
+      <div className="pointer-events-none absolute inset-0 rounded-[22px] ring-1 ring-inset ring-brun/10" aria-hidden="true" />
+
+      <div className="absolute left-3 top-3 z-10 rounded-full bg-blanccasse/95 p-1 shadow-[0_8px_20px_rgba(75,48,38,0.25)]">
+        <OpenBadge state={openState} />
+      </div>
+
+      <button
+        onClick={toggleSpin}
+        data-testid="map-spin-toggle"
+        aria-label={spinOn ? "Pause rotation" : "Reprendre rotation"}
+        className="absolute bottom-4 left-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-brun/15 bg-blanccasse/95 text-brun shadow-[0_8px_20px_rgba(75,48,38,0.25)] transition-colors hover:border-iznik hover:text-iznik-fonce"
+      >
+        {spinOn ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+      </button>
     </div>
   );
 }
@@ -106,6 +152,8 @@ function Map3D() {
 export default function Infos() {
   const { t } = useTranslation();
   const days = t("infos.days", { returnObjects: true }) || [];
+  const openStateNow = useOpenState();
+  const reduced = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   return (
     <section id="infos" className="scroll-mt-16 bg-blanccasse py-20 md:py-28">
@@ -117,7 +165,7 @@ export default function Infos() {
             <div className="mt-10 space-y-9">
               <Reveal delay={0.08}>
                 <div className="flex flex-wrap items-center gap-3">
-                  <OpenBadge />
+                  <OpenBadge state={openStateNow} />
                   <span className="text-xs italic text-cafemuted">{t("infos.hours_note")}</span>
                 </div>
               </Reveal>
@@ -162,14 +210,38 @@ export default function Infos() {
                 <div>
                   <p className="text-[0.68rem] font-bold uppercase tracking-[0.25em] text-iznik-fonce">{t("infos.hours_label")}</p>
                   <dl className="mt-3 max-w-sm" data-testid="opening-hours">
-                    {SITE.hours.map((h, i) => (
-                      <div key={i} className="flex items-baseline justify-between border-b border-brun/10 py-1.5 text-sm">
-                        <dt className="text-cafemuted">{days[i]}</dt>
-                        <dd className="font-price text-brun/90">
-                          {h.open} – {h.close}
-                        </dd>
-                      </div>
-                    ))}
+                    {SITE.hours.map((h, i) => {
+                      const isToday = i === openStateNow.day;
+                      return (
+                        <div
+                          key={i}
+                          className={`flex items-baseline justify-between rounded-lg border-b border-brun/10 px-2.5 py-1.5 text-sm ${
+                            isToday
+                              ? openStateNow.open
+                                ? "bg-[#3E9B63]/15 font-semibold text-[#2E6E48]"
+                                : "bg-terracotta/15 font-semibold text-terracotta-fonce"
+                              : ""
+                          }`}
+                          data-testid={isToday ? "hours-today-row" : undefined}
+                        >
+                          <dt className="flex items-center gap-2">
+                            {days[i]}
+                            {isToday && (
+                              <span
+                                className={`rounded-full px-2 py-0.5 text-[0.58rem] font-bold uppercase tracking-[0.12em] ${
+                                  openStateNow.open ? "bg-[#3E9B63] text-blanccasse" : "bg-terracotta text-blanccasse"
+                                }`}
+                              >
+                                {t("practical.today")}
+                              </span>
+                            )}
+                          </dt>
+                          <dd className="font-price text-brun/90">
+                            {h.open} – {h.close}
+                          </dd>
+                        </div>
+                      );
+                    })}
                   </dl>
                 </div>
               </Reveal>
@@ -198,7 +270,7 @@ export default function Infos() {
           <Reveal delay={0.15}>
             <div>
               <p className="mb-3 text-[0.68rem] font-bold uppercase tracking-[0.25em] text-iznik-fonce">{t("practical.map_title")}</p>
-              <Map3D />
+              <Map3D openState={openStateNow} reduced={reduced} />
               <p className="mt-3 text-xs text-cafemuted">{t("practical.map_note")}</p>
               <a
                 href={SITE.mapsUrl}

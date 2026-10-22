@@ -242,6 +242,7 @@
     "map_note": "Interaktive Karte mit geneigter Ansicht — drehen und zoomen Sie. © OpenStreetMap",
     "quotes_note": "Auszüge aus Google-Bewertungen vermittelt über",
     "quotes_lang_note": "Die Bewertungen werden in ihrer Originalsprache unverändert veröffentlicht.",
-    "anonymous": "Google-Kunde"
+    "anonymous": "Google-Kunde",
+    "today": "Heute"
   }
 }

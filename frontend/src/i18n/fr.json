@@ -242,6 +242,7 @@
     "map_note": "Carte interactive en vue inclinée — faites-la pivoter et zoomez. © OpenStreetMap",
     "quotes_note": "Extraits d'avis Google relayés par",
     "quotes_lang_note": "Les avis sont publiés dans leur langue d'origine, sans modification.",
-    "anonymous": "Client Google"
+    "anonymous": "Client Google",
+    "today": "Aujourd'hui"
   }
 }
