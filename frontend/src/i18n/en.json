@@ -27,8 +27,8 @@
     "title_line1": "The art of coffee,",
     "title_line2": "pure and simple.",
     "subtitle": "Welcome to Galista Café, a place devoted to coffee, sweet pleasures and beautiful moments in Strasbourg.",
-    "cta_menu": "Discover our menu",
-    "cta_find": "Find us",
+    "cta_menu": "View the menu",
+    "cta_find": "Directions",
     "scroll_cue": "Scroll down",
     "fallback_note": "Your browser doesn't support WebGL — here's the classic version of our welcome."
   },
@@ -230,5 +230,16 @@
     "privacy_title": "Privacy policy",
     "privacy_body": "This showcase website collects no personal data: no forms, no accounts, no trackers placed by the site. Only technical hosting data may be recorded.\n\nThis policy will be completed by the establishment if necessary.",
     "close": "Close"
+  },
+  "practical": {
+    "open_badge_open": "Open · until {{time}}",
+    "open_badge_closed": "Closed · opens {{when}}",
+    "photo_note": "Illustrative image",
+    "photo_replace": "official photographs coming soon",
+    "gallery_intro": "A glimpse of the atmosphere, drinks and treats — illustrative images, official photographs coming soon.",
+    "instagram": "Instagram",
+    "map_title": "We are here",
+    "map_note": "Interactive map with a tilted 3D view — rotate and zoom in. © OpenStreetMap",
+    "quotes_note": "Excerpts of Google reviews relayed by"
   }
 }

@@ -27,8 +27,8 @@
     "title_line1": "Die Kunst des Kaffees,",
     "title_line2": "ganz einfach.",
     "subtitle": "Willkommen im Galista Café, einem Ort, der dem Kaffee, den Genüssen und den schönen Momenten in Straßburg gewidmet ist.",
-    "cta_menu": "Unsere Karte entdecken",
-    "cta_find": "So finden Sie uns",
+    "cta_menu": "Zur Karte",
+    "cta_find": "Route",
     "scroll_cue": "Weiter scrollen",
     "fallback_note": "Ihr Browser unterstützt kein WebGL — hier die klassische Version unseres Willkommens."
   },
@@ -230,5 +230,16 @@
     "privacy_title": "Datenschutzerklärung",
     "privacy_body": "Diese Showcase-Website erhebt keine persönlichen Daten: kein Formular, kein Konto, keine vom Website-Betreiber gesetzten Tracker. Lediglich technische Daten des Hostings können gespeichert werden.\n\nDiese Richtlinie wird bei Bedarf vom Betrieb ergänzt.",
     "close": "Schließen"
+  },
+  "practical": {
+    "open_badge_open": "Geöffnet · bis {{time}}",
+    "open_badge_closed": "Geschlossen · öffnet {{when}}",
+    "photo_note": "Symbolbild",
+    "photo_replace": "offizielle Fotografien folgen in Kürze",
+    "gallery_intro": "Ein Eindruck von Atmosphäre, Getränken und Genüssen — Symbolbilder, offizielle Fotografien folgen in Kürze.",
+    "instagram": "Instagram",
+    "map_title": "Hier finden Sie uns",
+    "map_note": "Interaktive Karte mit geneigter Ansicht — drehen und zoomen Sie. © OpenStreetMap",
+    "quotes_note": "Auszüge aus Google-Bewertungen vermittelt über"
   }
 }

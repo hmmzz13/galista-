@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import SectionHeading, { Reveal } from "@/components/SectionHeading";
-import PlaceholderFrame from "@/components/PlaceholderFrame";
 
 const SPANS = [
   "col-span-2 row-span-2",
@@ -16,6 +15,41 @@ const SPANS = [
   "col-span-2",
 ];
 
+const PHOTOS = [
+  {
+    src: "https://images.unsplash.com/photo-1613274554329-70f997f5789f?auto=format&fit=crop&w=1200&q=80",
+    key: 0,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1200&q=80",
+    key: 1,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1583577612013-4fecf7bf8f13?auto=format&fit=crop&w=1200&q=80",
+    key: 2,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1766852566302-b54c388a2bb9?auto=format&fit=crop&w=1200&q=80",
+    key: 3,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1768319920501-2d124ccfd8dc?auto=format&fit=crop&w=1200&q=80",
+    key: 4,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1506778020041-0ea35027d019?auto=format&fit=crop&w=1200&q=80",
+    key: 5,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1593443320739-77f74939d0da?auto=format&fit=crop&w=1200&q=80",
+    key: 6,
+  },
+  {
+    src: "https://images.pexels.com/photos/6747870/pexels-photo-6747870.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    key: 7,
+  },
+];
+
 export default function Galerie() {
   const { t } = useTranslation();
   const frames = t("galerie.frames", { returnObjects: true }) || [];
@@ -25,28 +59,41 @@ export default function Galerie() {
     if (open === null) return undefined;
     const onKey = (e) => {
       if (e.key === "Escape") setOpen(null);
-      if (e.key === "ArrowRight") setOpen((o) => (o === null ? null : (o + 1) % frames.length));
-      if (e.key === "ArrowLeft") setOpen((o) => (o === null ? null : (o - 1 + frames.length) % frames.length));
+      if (e.key === "ArrowRight") setOpen((o) => (o === null ? null : (o + 1) % PHOTOS.length));
+      if (e.key === "ArrowLeft") setOpen((o) => (o === null ? null : (o - 1 + PHOTOS.length) % PHOTOS.length));
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, frames.length]);
+  }, [open]);
 
   return (
-    <section id="galerie" className="bg-creme py-24 md:py-32 scroll-mt-16">
+    <section id="galerie" className="scroll-mt-16 bg-creme py-20 md:py-28">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <SectionHeading kicker={t("galerie.kicker")} title={t("galerie.title")} intro={t("galerie.intro")} />
+        <SectionHeading
+          kicker={t("galerie.kicker")}
+          title={t("galerie.title")}
+          intro={t("practical.gallery_intro")}
+        />
 
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] sm:auto-rows-[180px] md:auto-rows-[210px] gap-4">
-          {frames.map((label, i) => (
-            <Reveal key={i} delay={i * 0.05} className={SPANS[i % SPANS.length]}>
-              <PlaceholderFrame
-                label={label}
-                caption={t("galerie.pending")}
-                ratio="h-full"
-                testid={`gallery-frame-${i}`}
+        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 md:auto-rows-[210px] auto-rows-[150px] sm:auto-rows-[180px]">
+          {PHOTOS.map((p, i) => (
+            <Reveal key={p.key} delay={i * 0.04} className={SPANS[i % SPANS.length]}>
+              <button
                 onClick={() => setOpen(i)}
-              />
+                data-testid={`gallery-frame-${i}`}
+                aria-label={`${frames[p.key]} — ${t("galerie.open")}`}
+                className="img-soft group relative block h-full w-full text-left"
+              >
+                <img
+                  src={p.src}
+                  alt={`${frames[p.key]} — ${t("practical.photo_note")}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+                <span className="absolute inset-x-0 bottom-0 rounded-b-[22px] bg-gradient-to-t from-brun/70 to-transparent p-3 pt-8 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-creme opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  {frames[p.key]}
+                </span>
+              </button>
             </Reveal>
           ))}
         </div>
@@ -59,73 +106,61 @@ export default function Galerie() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[80] bg-noir/95 flex items-center justify-center p-5 md:p-10"
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-brunprofond/95 p-5 md:p-10"
             onClick={() => setOpen(null)}
             data-testid="lightbox"
             role="dialog"
             aria-modal="true"
-            aria-label={frames[open]}
+            aria-label={frames[PHOTOS[open].key]}
           >
             <button
               onClick={() => setOpen(null)}
               data-testid="lightbox-close"
               aria-label={t("galerie.close")}
-              className="absolute top-5 right-5 p-2.5 rounded-full border border-creme/30 text-creme hover:bg-caramel hover:border-caramel transition-colors"
+              className="absolute right-5 top-5 rounded-full border border-creme/30 p-2.5 text-creme transition-colors hover:border-iznik hover:bg-iznik"
             >
               <X className="h-5 w-5" />
             </button>
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setOpen((o) => (o - 1 + frames.length) % frames.length);
+                setOpen((o) => (o - 1 + PHOTOS.length) % PHOTOS.length);
               }}
               aria-label={t("galerie.prev")}
               data-testid="lightbox-prev"
-              className="absolute left-3 md:left-8 p-2.5 rounded-full border border-creme/30 text-creme hover:bg-caramel hover:border-caramel transition-colors"
+              className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-creme/30 p-2.5 text-creme transition-colors hover:border-iznik hover:bg-iznik md:left-8"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setOpen((o) => (o + 1) % frames.length);
+                setOpen((o) => (o + 1) % PHOTOS.length);
               }}
               aria-label={t("galerie.next")}
               data-testid="lightbox-next"
-              className="absolute right-3 md:right-8 p-2.5 rounded-full border border-creme/30 text-creme hover:bg-caramel hover:border-caramel transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-creme/30 p-2.5 text-creme transition-colors hover:border-iznik hover:bg-iznik md:right-8"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
-            <motion.div
+            <motion.figure
               key={open}
-              initial={{ opacity: 0, scale: 0.96 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-3xl"
+              className="w-full max-w-4xl"
             >
-              <div className="photo-frame aspect-[16/10] w-full" style={{ border: "none" }}>
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center">
-                  <svg viewBox="0 0 64 64" className="h-12 w-12 opacity-80" aria-hidden="true">
-                    <g fill="none" stroke="#2F8B89" strokeWidth="2.6" strokeLinecap="round">
-                      <path d="M27 7 c-2.5 3.5 2.5 5.5 0 9" />
-                      <path d="M35 7 c-2.5 3.5 2.5 5.5 0 9" />
-                    </g>
-                    <path d="M13 27 h36 v6 a13 13 0 0 1 -13 13 h-10 a13 13 0 0 1 -13 -13 z" fill="#2F8B89" />
-                    <path d="M49 29 h3.5 a6 6 0 0 1 0 12 h-5" fill="none" stroke="#2F8B89" strokeWidth="2.6" />
-                    <path d="M19 31 h24" stroke="#E8D8B8" strokeWidth="2" opacity="0.85" />
-                    <ellipse cx="31" cy="53" rx="19" ry="3.4" fill="#2F8B89" opacity="0.75" />
-                  </svg>
-                  <p className="font-serif text-2xl text-brun">{frames[open]}</p>
-                  <p className="text-[0.7rem] uppercase tracking-[0.22em]" style={{ color: "var(--iznik-fonce)" }}>
-                    {t("galerie.pending")}
-                  </p>
-                </div>
-              </div>
-              <p className="mt-4 text-center text-sm text-creme/70">
-                {open + 1} / {frames.length} — {frames[open]}
-              </p>
-            </motion.div>
+              <img
+                src={PHOTOS[open].src.replace("w=1200", "w=1600")}
+                alt={`${frames[PHOTOS[open].key]} — ${t("practical.photo_note")}`}
+                className="img-soft max-h-[76vh] w-full object-contain"
+                data-testid="lightbox-image"
+              />
+              <figcaption className="mt-4 text-center text-sm text-creme/80">
+                {open + 1} / {PHOTOS.length} — {frames[PHOTOS[open].key]}
+              </figcaption>
+            </motion.figure>
           </motion.div>
         )}
       </AnimatePresence>

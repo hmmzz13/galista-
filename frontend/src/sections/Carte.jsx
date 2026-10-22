@@ -12,16 +12,16 @@ function MenuRow({ item, t, i18n }) {
     : formatPrice(i18n.language, item.price);
 
   return (
-    <article data-testid={`menu-item-${item.id}`} className="group">
+    <article data-testid={`menu-item-${item.id}`}>
       <div className="flex items-baseline">
-        <h3 className="font-serif text-xl sm:text-2xl text-brun leading-snug">{meta.name}</h3>
+        <h3 className="font-serif text-xl text-brun sm:text-2xl">{meta.name}</h3>
         <span className="leader" aria-hidden="true" />
-        <span className="font-price text-[0.95rem] text-caramel-fonce whitespace-nowrap" data-testid={`menu-price-${item.id}`}>
+        <span className="whitespace-nowrap font-price text-[0.95rem] text-terracotta-fonce" data-testid={`menu-price-${item.id}`}>
           {priceStr}
         </span>
       </div>
 
-      {meta.desc && <p className="mt-2 text-sm text-cafemuted leading-relaxed">{meta.desc}</p>}
+      {meta.desc && <p className="mt-2 text-sm leading-relaxed text-cafemuted">{meta.desc}</p>}
 
       {item.variants && (
         <ul className="mt-3 space-y-1.5">
@@ -29,7 +29,7 @@ function MenuRow({ item, t, i18n }) {
             <li key={v.key} className="flex items-baseline text-sm">
               <span className="text-brun/80">{t(`carte.glaces.${v.key}`)}</span>
               <span className="leader" aria-hidden="true" />
-              <span className="font-price text-sm text-caramel-fonce whitespace-nowrap">
+              <span className="whitespace-nowrap font-price text-sm text-terracotta-fonce">
                 {formatPrice(i18n.language, v.price)}
               </span>
             </li>
@@ -48,8 +48,7 @@ function MenuRow({ item, t, i18n }) {
 
       {item.confirm && (
         <span
-          className="inline-block rounded-full border border-iznik/50 px-3 py-1 mt-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.14em]"
-          style={{ color: "var(--iznik-fonce)" }}
+          className="mt-2.5 inline-block rounded-full border border-terracotta/50 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-terracotta-fonce"
         >
           {t("carte.confirm_badge")}
         </span>
@@ -71,20 +70,20 @@ export default function Carte({ lenisRef }) {
   const cat = CATEGORIES.find((c) => c.id === active) || CATEGORIES[0];
 
   return (
-    <section id="carte" className="bg-blanccasse py-24 md:py-32 scroll-mt-16">
+    <section id="carte" className="scroll-mt-16 bg-blanccasse py-20 md:py-28">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <SectionHeading kicker={t("carte.kicker")} title={t("carte.title")} intro={t("carte.subtitle")} />
           <Reveal delay={0.2} className="md:max-w-xs md:shrink-0">
             <div className="space-y-2 md:text-right">
-              <p className="text-xs text-cafemuted leading-relaxed">{t("carte.prices_note")}</p>
-              <p className="text-xs text-cafemuted leading-relaxed">{t("carte.allergens_note")}</p>
+              <p className="text-xs leading-relaxed text-cafemuted">{t("carte.prices_note")}</p>
+              <p className="text-xs leading-relaxed text-cafemuted">{t("carte.allergens_note")}</p>
             </div>
           </Reveal>
         </div>
 
-        <div className="sticky top-16 z-30 -mx-6 px-6 md:mx-0 md:px-0 py-4 mt-12 bg-blanccasse/95 backdrop-blur-sm">
-          <div className="flex lg:flex-wrap justify-start lg:justify-center gap-2 overflow-x-auto no-scrollbar" role="tablist" aria-label={t("carte.kicker")}>
+        <div className="no-scrollbar sticky top-16 z-30 -mx-6 mt-10 overflow-x-auto bg-blanccasse/95 px-6 py-4 backdrop-blur-sm md:mx-0 md:px-0">
+          <div className="flex gap-2 lg:flex-wrap lg:justify-center" role="tablist" aria-label={t("carte.kicker")}>
             {CATEGORIES.map((c) => (
               <button
                 key={c.id}
@@ -107,38 +106,58 @@ export default function Carte({ lenisRef }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10"
+            className="mt-10 grid items-start gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16"
             data-testid="menu-category-panel"
           >
-            <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
+            <div className="lg:sticky lg:top-40">
+              <motion.div
+                key={`${active}-photo`}
+                initial={{ opacity: 0, scale: 0.985 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                className="img-soft relative aspect-[4/3] w-full lg:aspect-[4/5]"
+              >
+                <img
+                  src={cat.photo}
+                  alt={`${t(`carte.categories.${cat.id}`)} — ${t("practical.photo_note")}`}
+                  className="h-full w-full object-cover"
+                  data-testid="menu-category-photo"
+                  loading="lazy"
+                />
+                <span className="img-tag">{t("practical.photo_note")}</span>
+              </motion.div>
+              <p className="mt-4 font-serif text-2xl italic text-brun">{t(`carte.categories.${cat.id}`)}</p>
+            </div>
+
+            <div className="grid gap-x-12 gap-y-9 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               {cat.items.map((item) => (
                 <MenuRow key={item.id} item={item} t={t} i18n={i18n} />
               ))}
-            </div>
 
-            {cat.flavorsNote && (
-              <div className="mt-12 rounded-2xl border border-brun/10 bg-creme p-6 md:p-8">
-                <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--caramel-fonce)" }}>
-                  {t("carte.flavors_label")}
-                </p>
-                <p className="mt-3 text-sm text-cafemuted leading-relaxed">{t("carte.flavors")}</p>
-              </div>
-            )}
+              {cat.flavorsNote && (
+                <div className="self-start rounded-2xl border border-iznik/25 bg-creme p-6 sm:col-span-2 lg:col-span-1 xl:col-span-2">
+                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--iznik-fonce)" }}>
+                    {t("carte.flavors_label")}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-cafemuted">{t("carte.flavors")}</p>
+                </div>
+              )}
+            </div>
           </motion.div>
         </AnimatePresence>
 
-        <div className="mt-20 border-t border-brun/10 pt-12">
+        <div className="mt-16 border-t border-brun/10 pt-10">
           <Reveal>
-            <h3 className="font-serif text-2xl sm:text-3xl text-brun">{t("carte.glossary_title")}</h3>
+            <h3 className="font-serif text-2xl text-brun sm:text-3xl">{t("carte.glossary_title")}</h3>
           </Reveal>
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {["simit", "acma", "borek", "menemen", "sucuk", "kavurma", "pogaca"].map((k, i) => (
               <Reveal key={k} delay={i * 0.05}>
-                <div className="border-l-2 border-caramel/50 pl-4">
-                  <p className="font-serif italic text-lg text-brun">
+                <div className="border-l-2 border-iznik/40 pl-4">
+                  <p className="font-serif text-lg italic text-brun">
                     {k === "acma" ? "Açma" : k === "borek" ? "Börek" : k === "pogaca" ? "Poğaça" : k.charAt(0).toUpperCase() + k.slice(1)}
                   </p>
-                  <p className="mt-1 text-sm text-cafemuted leading-relaxed">{t(`carte.glossary.${k}`)}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-cafemuted">{t(`carte.glossary.${k}`)}</p>
                 </div>
               </Reveal>
             ))}

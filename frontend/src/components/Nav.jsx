@@ -7,12 +7,10 @@ import { SITE, scrollToHash } from "@/data/site";
 import { LANGS } from "@/i18n";
 
 const LINKS = [
-  { hash: "#univers", key: "nav.univers", testid: "nav-link-univers" },
   { hash: "#carte", key: "nav.carte", testid: "nav-link-carte" },
-  { hash: "#specialites", key: "nav.specialites", testid: "nav-link-specialites" },
   { hash: "#galerie", key: "nav.galerie", testid: "nav-link-galerie" },
   { hash: "#avis", key: "nav.avis", testid: "nav-link-avis" },
-  { hash: "#contact", key: "nav.contact", testid: "nav-link-contact" },
+  { hash: "#infos", key: "nav.contact", testid: "nav-link-contact" },
 ];
 
 export function BeanMark({ className = "" }) {
@@ -34,15 +32,7 @@ export default function Nav({ lenisRef }) {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
   const navigate = useNavigate();
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const go = (e, hash) => {
     e.preventDefault();
@@ -63,14 +53,8 @@ export default function Nav({ lenisRef }) {
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-          scrolled
-            ? "bg-creme/90 backdrop-blur-md text-brun shadow-[0_1px_0_rgba(75,48,38,0.1)]"
-            : "bg-transparent text-creme"
-        }`}
-      >
-        <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:h-[72px] md:px-12">
+      <header className="fixed inset-x-0 top-0 z-50 bg-creme/90 text-brun shadow-[0_1px_0_rgba(75,48,38,0.08)] backdrop-blur-md">
+        <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-5 md:h-[72px] md:px-12">
           <a
             href="#accueil"
             onClick={goTop}
@@ -100,9 +84,7 @@ export default function Nav({ lenisRef }) {
 
           <div className="flex items-center gap-3 md:gap-4">
             <div
-              className={`hidden items-center rounded-full border p-0.5 sm:flex ${
-                scrolled ? "border-brun/20" : "border-creme/25"
-              }`}
+              className="hidden items-center rounded-full border border-brun/20 p-0.5 sm:flex"
               role="group"
               aria-label={t("a11y.lang_switch")}
             >
@@ -128,9 +110,7 @@ export default function Nav({ lenisRef }) {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="nav-find-btn"
-              className={`hidden md:inline-flex btn !py-2.5 !px-5 !text-[0.8rem] ${
-                scrolled ? "btn-dark" : "btn-ghost"
-              }`}
+              className="btn btn-dark hidden !py-2.5 !px-5 !text-[0.8rem] md:inline-flex"
             >
               <MapPin className="h-4 w-4" />
               <span>{t("nav.find_us")}</span>
@@ -156,7 +136,7 @@ export default function Nav({ lenisRef }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="fixed inset-0 z-[60] flex flex-col bg-brunprofond text-creme"
+            className="fixed inset-0 z-[60] flex flex-col bg-creme text-brun"
             role="dialog"
             aria-modal="true"
             data-testid="mobile-menu"
@@ -186,7 +166,7 @@ export default function Nav({ lenisRef }) {
                     href={l.hash}
                     onClick={(e) => go(e, l.hash)}
                     data-testid={l.testid}
-                    className="block py-2 font-serif text-3xl text-creme transition-colors duration-300 hover:text-iznik sm:text-4xl"
+                    className="block py-2 font-serif text-3xl text-brun transition-colors duration-300 hover:text-iznik-fonce sm:text-4xl"
                   >
                     {t(l.key)}
                   </a>
@@ -210,7 +190,7 @@ export default function Nav({ lenisRef }) {
                     className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
                       i18n.language === lng
                         ? "border-iznik bg-iznik text-blanccasse"
-                        : "border-creme/30 text-creme/80"
+                        : "border-brun/25 text-brun/80"
                     }`}
                   >
                     {lng}
@@ -220,7 +200,7 @@ export default function Nav({ lenisRef }) {
               <a
                 href={SITE.phoneHref}
                 data-testid="mobile-phone-link"
-                className="inline-flex items-center gap-3 text-creme/80"
+                className="inline-flex items-center gap-3 text-brun/80"
               >
                 <Phone className="h-4 w-4 text-iznik" /> {SITE.phoneDisplay}
               </a>

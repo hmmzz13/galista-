@@ -27,8 +27,8 @@
     "title_line1": "L'art du café,",
     "title_line2": "tout simplement.",
     "subtitle": "Bienvenue chez Galista Café, un lieu dédié au café, aux plaisirs gourmands et aux beaux moments à Strasbourg.",
-    "cta_menu": "Découvrir notre carte",
-    "cta_find": "Nous trouver",
+    "cta_menu": "Voir la carte",
+    "cta_find": "Itinéraire",
     "scroll_cue": "Faire défiler",
     "fallback_note": "Votre navigateur ne prend pas en charge WebGL — voici la version classique de notre accueil."
   },
@@ -230,5 +230,16 @@
     "privacy_title": "Politique de confidentialité",
     "privacy_body": "Ce site vitrine ne collecte aucune donnée personnelle : pas de formulaire, pas de compte, pas de traceur déposé par le site. Seules les données techniques de l'hébergement peuvent être enregistrées.\n\nCette politique sera complétée par l'établissement si nécessaire.",
     "close": "Fermer"
+  },
+  "practical": {
+    "open_badge_open": "Ouvert · jusqu'à {{time}}",
+    "open_badge_closed": "Fermé · ouvre {{when}}",
+    "photo_note": "Image d'illustration",
+    "photo_replace": "photographies officielles à venir",
+    "gallery_intro": "Un aperçu de l'ambiance, des boissons et des douceurs — images d'illustration, photographies officielles à venir.",
+    "instagram": "Instagram",
+    "map_title": "Nous sommes ici",
+    "map_note": "Carte interactive en vue inclinée — faites-la pivoter et zoomez. © OpenStreetMap",
+    "quotes_note": "Extraits d'avis Google relayés par"
   }
 }

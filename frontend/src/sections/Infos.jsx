@@ -1,118 +1,243 @@
-import { MapPin, Phone } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Instagram, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SITE } from "@/data/site";
 import SectionHeading, { Reveal } from "@/components/SectionHeading";
+import OpenBadge from "@/components/OpenBadge";
 import { BeanMark } from "@/components/Nav";
+
+function Map3D() {
+  const containerRef = useRef(null);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    let map = null;
+    let cancelled = false;
+
+    const ensureMapCss = () => {
+      if (!document.getElementById("maplibre-css")) {
+        const l = document.createElement("link");
+        l.id = "maplibre-css";
+        l.rel = "stylesheet";
+        l.href = "https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.css";
+        document.head.appendChild(l);
+      }
+    };
+
+    const init = async () => {
+      try {
+        ensureMapCss();
+        const maplibregl = await import("maplibre-gl");
+        const center = SITE.coords;
+        const zoom = 16.5;
+        if (cancelled) return;
+
+        map = new maplibregl.Map({
+          container: containerRef.current,
+          style: {
+            version: 8,
+            sources: {
+              osm: {
+                type: "raster",
+                tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+                tileSize: 256,
+                attribution: "© OpenStreetMap contributors",
+              },
+            },
+            layers: [{ id: "osm", type: "raster", source: "osm" }],
+          },
+          center,
+          zoom,
+          pitch: 55,
+          bearing: -16,
+        });
+        map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
+        map.on("error", () => {});
+        map.on("load", () => {
+          if (cancelled) return;
+          const el = document.createElement("div");
+          el.style.cssText = "width:44px;height:44px;background:#FFFCF7;border:2px solid #2F8B89;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(75,48,38,0.4);";
+          el.innerHTML = '<svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><g fill="none" stroke="#2F8B89" stroke-width="3" stroke-linecap="round"><path d="M27 7 c-2.5 3.5 2.5 5.5 0 9"/><path d="M35 7 c-2.5 3.5 2.5 5.5 0 9"/></g><path d="M13 27 h36 v6 a13 13 0 0 1 -13 13 h-10 a13 13 0 0 1 -13 -13 z" fill="#2F8B89"/><ellipse cx="31" cy="53" rx="19" ry="3.4" fill="#2F8B89" opacity="0.75"/></svg>';
+          new maplibregl.Marker({ element: el }).setLngLat(center).addTo(map);
+          map.easeTo({ pitch: 60, bearing: -28, duration: 2600 });
+        });
+      } catch (e) {
+        console.error("Map3D init error:", e);
+        setFailed(true);
+      }
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          init();
+          io.disconnect();
+        }
+      },
+      { rootMargin: "400px" }
+    );
+    if (containerRef.current) io.observe(containerRef.current);
+
+    return () => {
+      cancelled = true;
+      io.disconnect();
+      if (map) map.remove();
+    };
+  }, []);
+
+  return (
+    <div className="img-soft relative h-[420px] w-full md:h-[480px]" data-testid="map-3d-wrapper">
+      {failed ? (
+        <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-beige p-8 text-center">
+          <BeanMark className="h-10 w-10" />
+          <p className="text-sm text-cafemuted">{SITE.address.street}, {SITE.address.zip} {SITE.address.city}</p>
+        </div>
+      ) : (
+        <div ref={containerRef} className="h-full w-full [&.maplibregl-map]:rounded-[22px]" data-testid="map-3d" />
+      )}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-[22px] ring-1 ring-inset ring-brun/10"
+        aria-hidden="true"
+      />
+    </div>
+  );
+}
 
 export default function Infos() {
   const { t } = useTranslation();
   const days = t("infos.days", { returnObjects: true }) || [];
 
   return (
-    <section id="infos" className="bg-noir py-24 md:py-32 text-creme scroll-mt-16">
+    <section id="infos" className="scroll-mt-16 bg-blanccasse py-20 md:py-28">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <div className="grid md:grid-cols-2 gap-14 md:gap-20">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <SectionHeading kicker={t("infos.kicker")} title={t("infos.title")} dark />
+            <SectionHeading kicker={t("infos.kicker")} title={t("infos.title")} />
 
-            <div className="mt-12 space-y-10">
-              <Reveal delay={0.1}>
-                <div>
-                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.25em] text-caramel">{t("infos.address_label")}</p>
-                  <p className="mt-3 font-serif text-2xl text-creme" data-testid="address-line">
-                    {SITE.address.street}
-                  </p>
-                  <p className="mt-1 text-creme/60">
-                    {SITE.address.zip} {SITE.address.city}, {SITE.address.country}
-                  </p>
+            <div className="mt-10 space-y-9">
+              <Reveal delay={0.08}>
+                <div className="flex flex-wrap items-center gap-3">
+                  <OpenBadge />
+                  <span className="text-xs italic text-cafemuted">{t("infos.hours_note")}</span>
                 </div>
               </Reveal>
 
-              <Reveal delay={0.15}>
-                <div>
-                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.25em] text-caramel">{t("infos.phone_label")}</p>
-                  <a
-                    href={SITE.phoneHref}
-                    className="mt-3 inline-block font-serif text-2xl text-creme hover:text-caramel transition-colors duration-300"
-                    data-testid="phone-link"
-                  >
-                    {SITE.phoneDisplay}
-                  </a>
+              <Reveal delay={0.12}>
+                <div className="grid gap-8 sm:grid-cols-2">
+                  <div>
+                    <p className="text-[0.68rem] font-bold uppercase tracking-[0.25em] text-iznik-fonce">{t("infos.address_label")}</p>
+                    <p className="mt-3 font-serif text-xl text-brun" data-testid="address-line">
+                      {SITE.address.street}
+                    </p>
+                    <p className="mt-1 text-sm text-cafemuted">
+                      {SITE.address.zip} {SITE.address.city}, {SITE.address.country}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[0.68rem] font-bold uppercase tracking-[0.25em] text-iznik-fonce">{t("infos.phone_label")}</p>
+                    <a
+                      href={SITE.phoneHref}
+                      className="mt-3 inline-block font-serif text-xl text-brun transition-colors duration-300 hover:text-iznik-fonce"
+                      data-testid="phone-link"
+                    >
+                      {SITE.phoneDisplay}
+                    </a>
+                    <p className="mt-4">
+                      <a
+                        href={SITE.instagramUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid="instagram-link"
+                        className="inline-flex items-center gap-2.5 rounded-full border border-brun/15 bg-creme px-4 py-2.5 text-sm font-semibold text-brun transition-all duration-300 hover:-translate-y-0.5 hover:border-iznik hover:text-iznik-fonce"
+                      >
+                        <Instagram className="h-4 w-4" />
+                        {t("practical.instagram")}
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </Reveal>
 
-              <Reveal delay={0.2}>
+              <Reveal delay={0.16}>
                 <div>
-                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.25em] text-caramel">{t("infos.hours_label")}</p>
+                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.25em] text-iznik-fonce">{t("infos.hours_label")}</p>
                   <dl className="mt-3 max-w-sm" data-testid="opening-hours">
                     {SITE.hours.map((h, i) => (
-                      <div key={i} className="flex items-baseline justify-between py-1.5 border-b border-creme/10 text-sm">
-                        <dt className="text-creme/70">{days[i]}</dt>
-                        <dd className="font-price text-creme/90">
+                      <div key={i} className="flex items-baseline justify-between border-b border-brun/10 py-1.5 text-sm">
+                        <dt className="text-cafemuted">{days[i]}</dt>
+                        <dd className="font-price text-brun/90">
                           {h.open} – {h.close}
                         </dd>
                       </div>
                     ))}
                   </dl>
-                  <p className="mt-3 text-xs italic text-creme/45">{t("infos.hours_note")}</p>
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.2}>
+                <div className="hidden flex-wrap gap-4 md:flex">
+                  <a href={SITE.phoneHref} className="btn btn-primary" data-testid="call-btn">
+                    <Phone className="h-4 w-4" />
+                    <span>{t("contact.call_cta")}</span>
+                  </a>
+                  <a
+                    href={SITE.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    data-testid="maps-btn"
+                  >
+                    <MapPin className="h-4 w-4" />
+                    <span>{t("infos.maps_cta")}</span>
+                  </a>
                 </div>
               </Reveal>
             </div>
           </div>
 
-          <Reveal delay={0.2}>
-            <div className="md:sticky md:top-28 rounded-3xl border border-creme/15 bg-brunprofond/70 p-8 md:p-12 flex flex-col items-start gap-8 overflow-hidden relative">
-              <div className="absolute -right-10 -top-10 opacity-[0.1]">
-                <BeanMark className="h-56 w-56" />
-              </div>
-              <img src="/logo.png" alt="" className="h-12 w-auto" data-testid="infos-logo" />
-              <div>
-                <p className="font-serif text-3xl leading-snug text-creme">
-                  {SITE.name}
-                  <span className="text-caramel"> — {SITE.address.city}</span>
-                </p>
-                <p className="mt-3 text-sm text-creme/60 leading-relaxed">
-                  {SITE.address.street}, {SITE.address.zip} {SITE.address.city}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-4 mt-2">
-                <a
-                  href={SITE.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                  data-testid="maps-btn"
-                >
-                  <MapPin className="h-4 w-4" />
-                  <span>{t("infos.maps_cta")}</span>
-                </a>
-                <a href={SITE.phoneHref} className="btn btn-ghost" data-testid="call-btn">
-                  <Phone className="h-4 w-4" />
-                  <span>{t("infos.call_cta")}</span>
-                </a>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-
-        <div id="contact" className="mt-24 md:mt-32 border-t border-creme/10 pt-16 md:pt-20 grid md:grid-cols-2 gap-12 scroll-mt-20">
-          <SectionHeading kicker={t("contact.kicker")} title={t("contact.title")} intro={t("contact.text")} dark />
-          <Reveal delay={0.2}>
-            <div className="flex flex-col sm:flex-row md:justify-end gap-4 md:pt-14">
-              <a href={SITE.phoneHref} className="btn btn-primary" data-testid="contact-call-btn">
-                <Phone className="h-4 w-4" />
-                <span>{t("contact.call_cta")}</span>
-              </a>
+          <Reveal delay={0.15}>
+            <div>
+              <p className="mb-3 text-[0.68rem] font-bold uppercase tracking-[0.25em] text-iznik-fonce">{t("practical.map_title")}</p>
+              <Map3D />
+              <p className="mt-3 text-xs text-cafemuted">{t("practical.map_note")}</p>
               <a
                 href={SITE.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-ghost"
-                data-testid="contact-maps-btn"
+                className="btn btn-outline mt-4 w-full justify-center md:hidden"
+                data-testid="maps-btn-mobile"
               >
                 <MapPin className="h-4 w-4" />
-                <span>{t("contact.maps_cta")}</span>
+                <span>{t("infos.maps_cta")}</span>
               </a>
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="mt-16 rounded-3xl border border-brun/10 bg-creme p-8 md:p-10">
+          <Reveal>
+            <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+              <div>
+                <p className="kicker">{t("contact.kicker")}</p>
+                <p className="mt-4 font-serif text-2xl text-brun sm:text-3xl">{t("contact.title")}</p>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-cafemuted">{t("contact.text")}</p>
+              </div>
+              <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+                <a href={SITE.phoneHref} className="btn btn-primary" data-testid="contact-call-btn">
+                  <Phone className="h-4 w-4" />
+                  <span>{t("contact.call_cta")}</span>
+                </a>
+                <a
+                  href={SITE.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline"
+                  data-testid="contact-instagram-btn"
+                >
+                  <Instagram className="h-4 w-4" />
+                  <span>{t("practical.instagram")}</span>
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>

@@ -5,10 +5,21 @@ Refonte complète du site officiel de Galista Café (46 Rue du Faubourg-National
 
 ## Itération v2 (22/10/2026, retour client)
 - Suppression complète de l'expérience 3D « Du grain à la tasse » (jugée trop animée) : le client doit accéder à la carte le plus vite possible.
-- Hero simple : logo officiel fourni par le client (tasse turquoise + lettrage sable) mis en scène sur fond brun profond avec motif étoile de Seldjouk, titre officiel, sous-titre, 2 CTA, et une rangée de raccourcis vers la carte (Petits déjeuners, Café turc, Böreks, Pâtisseries, Glaces) qui ouvrent la carte directement sur la bonne catégorie.
-- Identité « stambouliote » : turquoise Iznik #2F8B89 (extrait du logo) en accent principal (boutons, kickers, pills actifs, marquee, cadres), caramel conservé pour les prix/étoiles, motifs ottomans (étoile à huit branches) en ornement et trame de fond, marque cup SVG dérivée du logo.
+- Hero simple : logo officiel fourni par le client (tasse turquoise + lettrage sable), titre officiel, sous-titre, 2 CTA.
+- Identité « stambouliote » : turquoise Iznik #2F8B89 (extrait du logo) en accent principal, caramel conservé pour les prix/étoiles.
 - Favicon PNG dérivé du logo officiel ; logo intégré dans la navigation, le hero, le footer et la carte d'informations.
 - Animations réduites : révélations rapides au chargement, plus de scroll piloté par la 3D, lenis et reveals conservés (discrets).
+
+## Itération v3 (22/10/2026, retour client) — direction artistique claire + 5 sections
+- DA refondue : fond crème clair #FAF5EC, texte brun chocolat #4B3026, accents teal logo + terracotta #C26A3D. Plus aucun aplat marron foncé (hero, avis, infos, footer désormais clairs).
+- Structure 5 sections max : 1. Hero plein écran (split : contenu crème + grande photo petit déjeuner turc, badge d'ouverture en direct, « Voir la carte » + « Itinéraire »), 2. La carte (onglets sticky, photo grand format par catégorie, prix terracotta, ingrédients), 3. Galerie mosaïque (8 photos, lightbox clavier), 4. Avis Google (4,8/5, ≈275 avis, 3 extraits AUTHENTIQUES relayés par strasbourg.food avec attribution exacte : Bhye T., Eda E., Çiğdem S.), 5. Infos pratiques (adresse, téléphone, Instagram, horaires, badge ouvert/fermé, carte 3D).
+- Supprimé : Notre univers, Nos spécialités, marquee, placeholders « photo à venir ». Vraies photos (Unsplash/Pexels) marquées « image d'illustration » — remplaçables par les photos officielles.
+- Badge horaire : calcul fiable fuseau Europe/Paris (Intl), état ouvert/fermé + prochaine ouverture, rafraîchi chaque minute, mention « horaires à confirmer ».
+- Carte 3D : MapLibre GL (pitch 55-60, bearing animé, contrôles), tuiles OSM raster + attribution, marqueur tasse du logo, coordonnées exactes au numéro (7.735894, 48.582427 via api-adresse.data.gouv.fr, hardcodées — pas de géocodage runtime, Nominatim bloqué CORS). Import dynamique (lazy) + fallback statique.
+- Instagram officiel https://www.instagram.com/galistacafe/ : infos pratiques, contact, footer.
+- Mobile first : barre d'action fixe en bas « Appeler / Itinéraire » toujours accessible.
+- Nav claire permanente, liens réduits (La carte, Galerie, Avis clients, Contact).
+- CTAs mis à jour : « Voir la carte » / « Itinéraire » (FR/DE/EN).
 
 ## Décisions validées par l'utilisateur
 1. Pas de formulaire de contact — contact par téléphone, adresse, itinéraire uniquement.

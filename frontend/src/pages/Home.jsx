@@ -5,10 +5,8 @@ import Lenis from "lenis";
 import { LANG_STORAGE_KEY, isValidLang } from "@/i18n";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
-import Univers from "@/sections/Univers";
+import MobileActionBar from "@/components/MobileActionBar";
 import Carte from "@/sections/Carte";
-import Specialites from "@/sections/Specialites";
 import Galerie from "@/sections/Galerie";
 import Avis from "@/sections/Avis";
 import Infos from "@/sections/Infos";
@@ -60,7 +58,7 @@ export default function Home() {
     <div className="App relative bg-creme text-brunprofond">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:top-3 focus:left-3 focus:px-4 focus:py-2 focus:bg-brun focus:text-creme focus:rounded-full focus:text-sm"
+        className="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:left-3 focus:top-3 focus:rounded-full focus:bg-brun focus:px-4 focus:py-2 focus:text-sm focus:text-creme"
         data-testid="skip-to-content"
       >
         {t("a11y.skip")}
@@ -68,15 +66,13 @@ export default function Home() {
       <Nav lenisRef={lenisRef} />
       <main id="main">
         <Hero lenisRef={lenisRef} />
-        <Univers />
-        <Marquee />
         <Carte lenisRef={lenisRef} />
-        <Specialites lenisRef={lenisRef} />
         <Galerie />
         <Avis />
         <Infos />
       </main>
       <Footer lenisRef={lenisRef} />
+      <MobileActionBar />
       <div className="grain" aria-hidden="true" />
     </div>
   );
