@@ -1,0 +1,122 @@
+{
+  "project_name": "Galista Café Strasbourg - Official Website Redesign",
+  "app_type": "marketing_site",
+  "archetype": "LUXURY_ORGANIC_EARTHY",
+  "language_support": ["fr", "de", "en"],
+  "default_language": "fr",
+  "tech_stack": {
+    "framework": "React (JavaScript .js/.jsx)",
+    "styling": "Tailwind CSS + Custom CSS Variables",
+    "motion": "Framer Motion",
+    "three_3d": "@react-three/fiber + @react-three/drei + Three.js",
+    "icons": "lucide-react",
+    "notifications": "sonner"
+  },
+  "colors": {
+    "creme": "#F7F2E9",
+    "beige_naturel": "#E8DED0",
+    "brun_cafe": "#4B3026",
+    "brun_profond": "#241A16",
+    "blanc_casse": "#FFFCF7",
+    "caramel": "#B78352",
+    "caramel_hover": "#9E6F42",
+    "noir_chaud": "#17120F",
+    "text_dark": "#241A16",
+    "text_muted": "#6E5B53",
+    "border_light": "rgba(75, 48, 38, 0.12)",
+    "border_dark": "rgba(232, 222, 208, 0.15)",
+    "overlay_dark": "rgba(24, 18, 15, 0.65)"
+  },
+  "typography": {
+    "font_headings": "Cormorant Garamond, Playfair Display, serif",
+    "font_body": "Inter, Manrope, sans-serif",
+    "font_prices": "JetBrains Mono, Manrope, sans-serif",
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-serif tracking-tight leading-tight",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-serif tracking-tight leading-snug",
+      "h3": "text-xl sm:text-2xl font-serif font-medium",
+      "h4": "text-lg sm:text-xl font-sans font-semibold",
+      "body": "text-base font-sans leading-relaxed",
+      "body_small": "text-sm font-sans text-muted",
+      "price": "text-lg font-mono font-bold text-caramel tracking-wider",
+      "caption": "text-xs font-sans uppercase tracking-[0.2em]"
+    }
+  },
+  "layouts_and_grids": {
+    "hero_section": "Dark theme container (#241A16) with canvas R3F overlay + fallback image. Sticky viewport height with progressive scroll transition.",
+    "editorial_sections": "Light theme (#F7F2E9 and #E8DED0) with generous spacing (py-24 to py-32), asymmetrical bento containers, high-contrast serif headers.",
+    "menu_section": "Filter tabs navigation + 13 categories bento grid / list toggle. Desktop: 2-column editorial card with image, title, price, badges, expandable ingredient drawer. Mobile: clean list with aligned right prices.",
+    "specialties_carousel_grid": "3-column highlight bento grid with high-resolution imagery, subtle warm hover lift, caramel accent borders.",
+    "gallery_grid": "Masonry/bento style with lightbox modal trigger, keyboard traps, image metadata.",
+    "practical_info_card": "Split section: dark roasted coffee backdrop for map/info (+33 6 31 11 95 83, 46 Rue du Faubourg-National 67000 Strasbourg) + cream background for contact form."
+  },
+  "experience_3d_du_grain_a_la_tasse": {
+    "library": "@react-three/fiber",
+    "scenery_flow": [
+      {
+        "scene": 1,
+        "description": "Photorealistic 3D roasted coffee bean floating in deep espresso space (#241A16), slow rotation, soft ambient warm lighting, subtle cursor tilt reaction. Progressive emergence of GALISTA CAFÉ logo."
+      },
+      {
+        "scene": 2,
+        "description": "Scroll progression: coffee bean dissolves into floating roast particles, espresso swirl particles, caramel reflections, steam micro-geometry."
+      },
+      {
+        "scene": 3,
+        "description": "Particle convergence reveals a cream ceramic cup & saucer with delicate cappuccino latte art and GALISTA CAFÉ insignia on cup wall. Slow orbit, reveal of core hero copy: 'L'art du café, tout simplement.' and CTA buttons."
+      },
+      {
+        "scene": 4,
+        "description": "Further scroll: cup glides gracefully to the right side, background blends into editorial cream (#F7F2E9) universe section seamlessly."
+      }
+    ],
+    "fallback_requirements": "WebGL detection: if unsupported or prefers-reduced-motion is active, render cinematic fallback image overlay with smooth CSS parallax.",
+    "mobile_optimization": "Simplified particle count (max 80 particles), locked frame rate cap, passive touch scroll listeners so 3D never captures or blocks scroll gesture."
+  },
+  "menu_categories_data": [
+    "Petits déjeuners",
+    "Œufs et omelettes",
+    "Sandwichs",
+    "Böreks",
+    "Toasts",
+    "Viennoiseries",
+    "Salades",
+    "Pâtisseries",
+    "Glaces",
+    "Milk-shakes",
+    "Cafés",
+    "Boissons chaudes",
+    "Boissons froides"
+  ],
+  "image_urls": {
+    "hero_latte_art": "https://images.unsplash.com/photo-1593443320739-77f74939d0da?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "latte_art_pour": "https://images.pexels.com/photos/29261560/pexels-photo-29261560.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "barista_latte": "https://images.pexels.com/photos/39475008/pexels-photo-39475008.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "french_breakfast_table": "https://images.pexels.com/photos/14139354/pexels-photo-14139354.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "pastry_display": "https://images.unsplash.com/photo-1701943519106-825e04f687f0?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "cafe_dessert_table": "https://images.pexels.com/photos/38975923/pexels-photo-38975923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "hands_coffee": "https://images.unsplash.com/photo-1670404161009-29548c027d06?crop=entropy&cs=srgb&fm=jpg&q=85"
+  },
+  "instructions_to_main_agent": [
+    "Use JavaScript (.js / .jsx) components as per project setup.",
+    "Maintain strict data-testid attributes on every interactive element (e.g. data-testid='lang-switcher-de', data-testid='category-filter-boreks', data-testid='cta-discover-menu', data-testid='contact-form-submit').",
+    "Ensure total responsive layout from 390px mobile screens to 1440px+ desktop.",
+    "Never block touch/scroll gestures on 3D canvas (use pointer-events-none on canvas container or handle non-interfering camera controls).",
+    "Include full French content as default with German (DE) and English (EN) dictionary support for all text strings.",
+    "Implement Sonner toast notifications upon contact form submission or address copy action.",
+    "Ensure high text contrast ratios across cream (#F7F2E9) and dark espresso (#241A16) backgrounds.",
+    "Do NOT use transparent backgrounds on fixed headers after scrolling — apply glassmorphism backdrop-blur-md with creme bg."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: transition: all. Always add transitions for specific interactive elements.",
+    "You MUST NOT center align the app container (.App { text-align: center; }).",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "All interactive and key informational elements MUST include a data-testid attribute."
+  ]
+}
