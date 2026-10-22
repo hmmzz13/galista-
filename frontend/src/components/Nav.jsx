@@ -18,16 +18,14 @@ const LINKS = [
 export function BeanMark({ className = "" }) {
   return (
     <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
-      <g transform="rotate(24 32 32)">
-        <ellipse cx="32" cy="32" rx="15" ry="21" fill="#4B3026" />
-        <path
-          d="M32 12 C 26.5 20, 37.5 25, 32 32 C 26.5 39, 37.5 44, 32 52"
-          stroke="#B78352"
-          strokeWidth="3.4"
-          fill="none"
-          strokeLinecap="round"
-        />
+      <g fill="none" stroke="#2F8B89" strokeWidth="2.6" strokeLinecap="round">
+        <path d="M27 7 c-2.5 3.5 2.5 5.5 0 9" />
+        <path d="M35 7 c-2.5 3.5 2.5 5.5 0 9" />
       </g>
+      <path d="M13 27 h36 v6 a13 13 0 0 1 -13 13 h-10 a13 13 0 0 1 -13 -13 z" fill="#2F8B89" />
+      <path d="M49 29 h3.5 a6 6 0 0 1 0 12 h-5" fill="none" stroke="#2F8B89" strokeWidth="2.6" />
+      <path d="M19 31 h24" stroke="#E8D8B8" strokeWidth="2" opacity="0.85" />
+      <ellipse cx="31" cy="53" rx="19" ry="3.4" fill="#2F8B89" opacity="0.75" />
     </svg>
   );
 }
@@ -72,28 +70,28 @@ export default function Nav({ lenisRef }) {
             : "bg-transparent text-creme"
         }`}
       >
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 md:px-12 h-16 md:h-[72px]">
+        <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:h-[72px] md:px-12">
           <a
             href="#accueil"
             onClick={goTop}
-            className="flex items-center gap-2.5 select-none"
+            className="flex select-none items-center gap-2.5"
             data-testid="nav-logo"
             aria-label="Galista Café — accueil"
           >
-            <BeanMark className="h-7 w-7" />
-            <span className="font-serif text-xl md:text-2xl tracking-[0.16em]">
-              GALISTA <span className={scrolled ? "text-caramel-fonce" : "text-caramel"}>CAFÉ</span>
+            <img src="/favicon.png" alt="" className="h-9 w-9" />
+            <span className="font-serif text-xl tracking-[0.16em] md:text-2xl">
+              GALISTA <span className="text-iznik">CAFÉ</span>
             </span>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-7" aria-label="Navigation principale">
+          <nav className="hidden items-center gap-7 lg:flex" aria-label="Navigation principale">
             {LINKS.map((l) => (
               <a
                 key={l.hash}
                 href={l.hash}
                 onClick={(e) => go(e, l.hash)}
                 data-testid={l.testid}
-                className="relative text-[0.8rem] font-semibold tracking-wide opacity-80 hover:opacity-100 transition-opacity duration-300 after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-caramel after:transition-all after:duration-300 hover:after:w-full"
+                className="relative text-[0.8rem] font-semibold tracking-wide opacity-80 transition-opacity duration-300 after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-iznik after:transition-all after:duration-300 hover:opacity-100 hover:after:w-full"
               >
                 {t(l.key)}
               </a>
@@ -102,7 +100,7 @@ export default function Nav({ lenisRef }) {
 
           <div className="flex items-center gap-3 md:gap-4">
             <div
-              className={`hidden sm:flex items-center rounded-full border p-0.5 ${
+              className={`hidden items-center rounded-full border p-0.5 sm:flex ${
                 scrolled ? "border-brun/20" : "border-creme/25"
               }`}
               role="group"
@@ -114,9 +112,9 @@ export default function Nav({ lenisRef }) {
                   onClick={() => switchLang(lng)}
                   data-testid={`lang-switcher-${lng}`}
                   aria-pressed={i18n.language === lng}
-                  className={`px-2.5 py-1 rounded-full text-[0.7rem] font-bold tracking-widest uppercase transition-colors duration-300 ${
+                  className={`rounded-full px-2.5 py-1 text-[0.7rem] font-bold uppercase tracking-widest transition-colors duration-300 ${
                     i18n.language === lng
-                      ? "bg-caramel text-blanccasse"
+                      ? "bg-iznik text-blanccasse"
                       : "opacity-70 hover:opacity-100"
                   }`}
                 >
@@ -143,7 +141,7 @@ export default function Nav({ lenisRef }) {
               data-testid="nav-burger"
               aria-label={t("nav.open_menu")}
               aria-expanded={open}
-              className="lg:hidden p-2 -mr-2"
+              className="p-2 -mr-2 lg:hidden"
             >
               <Menu className="h-6 w-6" />
             </button>
@@ -158,15 +156,13 @@ export default function Nav({ lenisRef }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="fixed inset-0 z-[60] bg-brunprofond text-creme flex flex-col"
+            className="fixed inset-0 z-[60] flex flex-col bg-brunprofond text-creme"
             role="dialog"
             aria-modal="true"
             data-testid="mobile-menu"
           >
             <div className="flex items-center justify-between px-5 h-16">
-              <span className="font-serif text-xl tracking-[0.16em]">
-                GALISTA <span className="text-caramel">CAFÉ</span>
-              </span>
+              <img src="/logo.png" alt="Galista Café" className="h-10 w-auto" />
               <button
                 onClick={() => setOpen(false)}
                 data-testid="nav-close"
@@ -177,7 +173,7 @@ export default function Nav({ lenisRef }) {
               </button>
             </div>
 
-            <nav className="flex-1 flex flex-col justify-center gap-2 px-8" aria-label="Menu mobile">
+            <nav className="flex flex-1 flex-col justify-center gap-2 px-8" aria-label="Menu mobile">
               {[{ hash: "#accueil", key: "nav.home", testid: "nav-link-home" }, ...LINKS].map((l, i) => (
                 <motion.div
                   key={l.hash}
@@ -190,7 +186,7 @@ export default function Nav({ lenisRef }) {
                     href={l.hash}
                     onClick={(e) => go(e, l.hash)}
                     data-testid={l.testid}
-                    className="block font-serif text-3xl sm:text-4xl py-2 text-creme hover:text-caramel transition-colors duration-300"
+                    className="block py-2 font-serif text-3xl text-creme transition-colors duration-300 hover:text-iznik sm:text-4xl"
                   >
                     {t(l.key)}
                   </a>
@@ -202,7 +198,7 @@ export default function Nav({ lenisRef }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="px-8 pb-10 flex flex-col gap-5"
+              className="flex flex-col gap-5 px-8 pb-10"
             >
               <div className="flex items-center gap-2" role="group" aria-label={t("a11y.lang_switch")}>
                 {LANGS.map((lng) => (
@@ -211,9 +207,9 @@ export default function Nav({ lenisRef }) {
                     onClick={() => switchLang(lng)}
                     data-testid={`mobile-lang-switcher-${lng}`}
                     aria-pressed={i18n.language === lng}
-                    className={`px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase border transition-colors duration-300 ${
+                    className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
                       i18n.language === lng
-                        ? "bg-caramel border-caramel text-blanccasse"
+                        ? "border-iznik bg-iznik text-blanccasse"
                         : "border-creme/30 text-creme/80"
                     }`}
                   >
@@ -226,7 +222,7 @@ export default function Nav({ lenisRef }) {
                 data-testid="mobile-phone-link"
                 className="inline-flex items-center gap-3 text-creme/80"
               >
-                <Phone className="h-4 w-4 text-caramel" /> {SITE.phoneDisplay}
+                <Phone className="h-4 w-4 text-iznik" /> {SITE.phoneDisplay}
               </a>
               <a
                 href={SITE.mapsUrl}

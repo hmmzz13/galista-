@@ -39,7 +39,7 @@ function MenuRow({ item, t, i18n }) {
 
       {meta.ing && (
         <p className="mt-2.5 text-xs leading-relaxed text-brun/70">
-          <span className="font-bold uppercase tracking-[0.14em] text-[0.62rem] mr-2" style={{ color: "var(--caramel-fonce)" }}>
+          <span className="mr-2 text-[0.62rem] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--iznik-fonce)" }}>
             {t("carte.ingredients_label")}
           </span>
           {meta.ing}
@@ -48,8 +48,8 @@ function MenuRow({ item, t, i18n }) {
 
       {item.confirm && (
         <span
-          className="inline-block mt-2.5 rounded-full border border-caramel/60 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.14em]"
-          style={{ color: "var(--caramel-fonce)" }}
+          className="inline-block rounded-full border border-iznik/50 px-3 py-1 mt-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.14em]"
+          style={{ color: "var(--iznik-fonce)" }}
         >
           {t("carte.confirm_badge")}
         </span>

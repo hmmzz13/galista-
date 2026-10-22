@@ -24,6 +24,10 @@ module.exports = {
           DEFAULT: '#B78352',
           fonce: '#9E6F42'
         },
+        iznik: {
+          DEFAULT: '#2F8B89',
+          fonce: '#256E6C'
+        },
         noir: '#17120F',
         cafemuted: '#6E5B53',
         background: 'hsl(var(--background))',

@@ -23,7 +23,7 @@ export default function Specialites({ lenisRef }) {
             <Reveal key={s.id}>
               <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center py-12 md:py-14 border-t border-brun/15 last:border-b">
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  <span className="font-price text-sm text-caramel-fonce">0{i + 1}</span>
+                  <span className="font-price text-sm text-iznik-fonce">0{i + 1}</span>
                   <h3 className="mt-3 font-serif text-3xl sm:text-4xl text-brun">{s.title}</h3>
                   <p className="mt-4 text-cafemuted leading-relaxed max-w-md">{s.text}</p>
                   <button

@@ -106,20 +106,18 @@ export default function Galerie() {
             >
               <div className="photo-frame aspect-[16/10] w-full" style={{ border: "none" }}>
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center">
-                  <svg viewBox="0 0 64 64" className="h-12 w-12 opacity-70" aria-hidden="true">
-                    <g transform="rotate(24 32 32)">
-                      <ellipse cx="32" cy="32" rx="15" ry="21" fill="#4B3026" opacity="0.85" />
-                      <path
-                        d="M32 12 C 26.5 20, 37.5 25, 32 32 C 26.5 39, 37.5 44, 32 52"
-                        stroke="#B78352"
-                        strokeWidth="3.4"
-                        fill="none"
-                        strokeLinecap="round"
-                      />
+                  <svg viewBox="0 0 64 64" className="h-12 w-12 opacity-80" aria-hidden="true">
+                    <g fill="none" stroke="#2F8B89" strokeWidth="2.6" strokeLinecap="round">
+                      <path d="M27 7 c-2.5 3.5 2.5 5.5 0 9" />
+                      <path d="M35 7 c-2.5 3.5 2.5 5.5 0 9" />
                     </g>
+                    <path d="M13 27 h36 v6 a13 13 0 0 1 -13 13 h-10 a13 13 0 0 1 -13 -13 z" fill="#2F8B89" />
+                    <path d="M49 29 h3.5 a6 6 0 0 1 0 12 h-5" fill="none" stroke="#2F8B89" strokeWidth="2.6" />
+                    <path d="M19 31 h24" stroke="#E8D8B8" strokeWidth="2" opacity="0.85" />
+                    <ellipse cx="31" cy="53" rx="19" ry="3.4" fill="#2F8B89" opacity="0.75" />
                   </svg>
                   <p className="font-serif text-2xl text-brun">{frames[open]}</p>
-                  <p className="text-[0.7rem] uppercase tracking-[0.22em]" style={{ color: "var(--caramel-fonce)" }}>
+                  <p className="text-[0.7rem] uppercase tracking-[0.22em]" style={{ color: "var(--iznik-fonce)" }}>
                     {t("galerie.pending")}
                   </p>
                 </div>

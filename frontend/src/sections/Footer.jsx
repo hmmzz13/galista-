@@ -79,11 +79,8 @@ export default function Footer({ lenisRef }) {
     <footer className="bg-noir text-creme border-t border-caramel/25">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12 py-16 md:py-20 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div className="lg:col-span-2 max-w-sm">
-          <div className="flex items-center gap-3">
-            <BeanMark className="h-8 w-8" />
-            <span className="font-serif text-2xl tracking-[0.16em]">
-              GALISTA <span className="text-caramel">CAFÉ</span>
-            </span>
+          <div className="flex items-center gap-4">
+            <img src="/logo.png" alt="Galista Café" className="h-16 w-auto" data-testid="footer-logo" />
           </div>
           <p className="mt-5 text-sm leading-relaxed text-creme/60">{t("footer.tagline")}</p>
         </div>

@@ -10,6 +10,8 @@
   --blanc-casse: #FFFCF7;
   --caramel: #B78352;
   --caramel-fonce: #9E6F42;
+  --iznik: #2F8B89;
+  --iznik-fonce: #256E6C;
   --noir: #17120F;
   --texte: #241A16;
   --texte-doux: #6E5B53;
@@ -29,7 +31,7 @@ body {
 }
 
 ::selection {
-  background: var(--caramel);
+  background: var(--iznik);
   color: var(--blanc-casse);
 }
 
@@ -37,11 +39,11 @@ body {
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--beige); }
 ::-webkit-scrollbar-thumb { background: var(--brun); border-radius: 6px; border: 2px solid var(--beige); }
-::-webkit-scrollbar-thumb:hover { background: var(--caramel-fonce); }
+::-webkit-scrollbar-thumb:hover { background: var(--iznik-fonce); }
 
 /* --- Focus --- */
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
-  outline: 2px solid var(--caramel);
+  outline: 2px solid var(--iznik);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -65,21 +67,33 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   letter-spacing: 0.35em;
   font-size: 0.7rem;
   font-weight: 700;
-  color: var(--caramel);
+  color: var(--iznik-fonce);
 }
 .kicker::before {
   content: "";
   width: 42px;
   height: 1px;
-  background: var(--caramel);
+  background: var(--iznik);
   flex: none;
 }
 .kicker--center::after {
   content: "";
   width: 42px;
   height: 1px;
-  background: var(--caramel);
+  background: var(--iznik);
   flex: none;
+}
+
+/* --- Seljuk star ornament & tile pattern --- */
+.ornament {
+  width: 140px;
+  height: 16px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='16' viewBox='0 0 140 16'%3E%3Cg fill='none' stroke='%232F8B89'%3E%3Cline x1='0' y1='8' x2='52' y2='8'/%3E%3Cline x1='88' y1='8' x2='140' y2='8'/%3E%3C/g%3E%3Cg fill='%232F8B89'%3E%3Crect x='54' y='2' width='12' height='12' transform='rotate(45 60 8)'/%3E%3C/g%3E%3C/svg%3E") repeat-x center;
+  background-size: auto 16px;
+}
+.tile-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%232F8B89' stroke-opacity='0.45'%3E%3Crect x='38' y='38' width='20' height='20' transform='rotate(45 48 48)'/%3E%3Crect x='38' y='38' width='20' height='20'/%3E%3Cpath d='M0 48h24M72 48h24M48 0v24M48 72v24'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 96px 96px;
 }
 
 /* --- Buttons --- */
@@ -98,7 +112,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .btn:active { transform: scale(0.97); }
 .btn-primary {
-  background: var(--caramel);
+  background: var(--iznik);
   color: var(--blanc-casse);
 }
 .btn-primary::before {
@@ -118,10 +132,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: transparent;
 }
 .btn-ghost:hover {
-  border-color: var(--caramel);
-  color: var(--caramel);
-  background: rgba(183, 131, 82, 0.08);
+  border-color: var(--iznik);
+  color: var(--iznik);
+  background: rgba(47, 139, 137, 0.08);
 }
+.btn-ghost:hover svg { color: var(--iznik); }
 .btn-dark {
   border: 1px solid rgba(75, 48, 38, 0.35);
   color: var(--brun);
@@ -141,9 +156,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   transform: translateY(-4px);
   min-width: 24px;
 }
-.leader--light {
-  border-bottom-color: rgba(232, 222, 208, 0.3);
-}
 
 /* --- Category pills --- */
 .pill {
@@ -158,13 +170,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
   white-space: nowrap;
 }
-.pill:hover { border-color: var(--caramel); color: var(--caramel-fonce); transform: translateY(-1px); }
+.pill:hover { border-color: var(--iznik); color: var(--iznik-fonce); transform: translateY(-1px); }
 .pill--active {
-  background: var(--brun);
-  border-color: var(--brun);
-  color: var(--creme);
+  background: var(--iznik);
+  border-color: var(--iznik);
+  color: var(--blanc-casse);
 }
-.pill--active:hover { color: var(--creme); }
+.pill--active:hover { color: var(--blanc-casse); }
 
 /* --- Marquee --- */
 .marquee {
@@ -185,14 +197,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .photo-frame {
   position: relative;
   background: linear-gradient(155deg, #EFE6D6 0%, #E8DED0 55%, #DDD0BC 100%);
-  border: 1px solid rgba(75, 48, 38, 0.14);
+  border: 1px solid rgba(47, 139, 137, 0.18);
   overflow: hidden;
 }
 .photo-frame::before {
   content: "";
   position: absolute;
   inset: 14px;
-  border: 1px solid rgba(183, 131, 82, 0.4);
+  border: 1px solid rgba(47, 139, 137, 0.4);
   pointer-events: none;
 }
 .photo-frame::after {

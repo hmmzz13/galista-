@@ -18,8 +18,8 @@ export default function Univers() {
             <ul className="mt-10 space-y-4">
               {tags.map((tag, i) => (
                 <li key={i} className="flex items-center gap-4 font-serif text-xl sm:text-2xl text-brun">
-                  <span className="font-price text-xs text-caramel-fonce">0{i + 1}</span>
-                  <span className="h-px w-10 bg-caramel/60" aria-hidden="true" />
+                  <span className="font-price text-xs text-iznik-fonce">0{i + 1}</span>
+                  <span className="h-px w-10 bg-iznik/50" aria-hidden="true" />
                   {tag}
                 </li>
               ))}

@@ -62,10 +62,10 @@ export default function Infos() {
 
           <Reveal delay={0.2}>
             <div className="md:sticky md:top-28 rounded-3xl border border-creme/15 bg-brunprofond/70 p-8 md:p-12 flex flex-col items-start gap-8 overflow-hidden relative">
-              <div className="absolute -right-10 -top-10 opacity-[0.08]">
+              <div className="absolute -right-10 -top-10 opacity-[0.1]">
                 <BeanMark className="h-56 w-56" />
               </div>
-              <BeanMark className="h-12 w-12" />
+              <img src="/logo.png" alt="" className="h-12 w-auto" data-testid="infos-logo" />
               <div>
                 <p className="font-serif text-3xl leading-snug text-creme">
                   {SITE.name}
