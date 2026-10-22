@@ -7,13 +7,14 @@ import SectionHeading, { Reveal } from "@/components/SectionHeading";
 export default function Avis() {
   const { t, i18n } = useTranslation();
   const pct = (SITE.reviews.rating / 5) * 100;
+  const quotes = SITE.reviews.quotes || [];
 
-  const starRow = (filled) => (
+  const starRow = (filled, size = "h-5 w-5") => (
     <div className="flex gap-1" aria-hidden="true">
       {[0, 1, 2, 3, 4].map((i) => (
         <Star
           key={i}
-          className="h-5 w-5"
+          className={size}
           strokeWidth={filled ? 0 : 1.5}
           fill={filled ? "#C26A3D" : "none"}
           color={filled ? "#C26A3D" : "rgba(75,48,38,0.3)"}
@@ -47,9 +48,9 @@ export default function Avis() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {SITE.reviews.quotes.map((q, i) => (
-            <Reveal key={q.name} delay={0.1 + i * 0.08}>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {quotes.map((q, i) => (
+            <Reveal key={i} delay={Math.min(i * 0.05, 0.4)}>
               <figure
                 className="flex h-full flex-col rounded-3xl border border-brun/10 bg-blanccasse p-7 shadow-[0_18px_40px_-28px_rgba(75,48,38,0.4)]"
                 data-testid={`review-quote-${i}`}
@@ -58,14 +59,16 @@ export default function Avis() {
                   <span className="font-serif text-5xl leading-none text-terracotta" aria-hidden="true">
                     “
                   </span>
-                  <div className="flex gap-0.5">{[0, 1, 2, 3, 4].map((s) => (
-                    <Star key={s} className="h-3.5 w-3.5" strokeWidth={0} fill="#C26A3D" />
-                  ))}</div>
+                  {q.rating && (
+                    <div className="flex gap-0.5">{[0, 1, 2, 3, 4].map((s) => (
+                      <Star key={s} className="h-3.5 w-3.5" strokeWidth={0} fill="#C26A3D" />
+                    ))}</div>
+                  )}
                 </div>
                 <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-brun/85">{q.text}</blockquote>
                 <figcaption className="mt-5 flex items-center justify-between border-t border-brun/10 pt-4">
-                  <span className="text-sm font-bold text-brun">{q.name}</span>
-                  <span className="font-price text-xs text-cafemuted">{q.rating}/5</span>
+                  <span className="text-sm font-bold text-brun">{q.anonymous ? t("practical.anonymous") : q.name}</span>
+                  {q.rating && <span className="font-price text-xs text-cafemuted">{q.rating}/5</span>}
                 </figcaption>
               </figure>
             </Reveal>
@@ -84,8 +87,18 @@ export default function Avis() {
               data-testid="reviews-source-link"
             >
               strasbourg.food
+            </a>{" "}
+            ·{" "}
+            <a
+              href={SITE.reviewsSourceUrl2}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-iznik-fonce"
+              data-testid="reviews-source-link-2"
+            >
+              exa.ai
             </a>
-            .
+            . {t("practical.quotes_lang_note")}
           </p>
         </Reveal>
 

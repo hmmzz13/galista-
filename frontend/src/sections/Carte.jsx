@@ -5,54 +5,82 @@ import { CATEGORIES } from "@/data/menu";
 import { formatPrice } from "@/i18n";
 import SectionHeading, { Reveal } from "@/components/SectionHeading";
 
-function MenuRow({ item, t, i18n }) {
+// Photo d'un produit : d'abord /photos/<id>.jpg (photos officielles de
+// l'établissement), puis l'illustration du produit, puis celle de la catégorie.
+function ProductImage({ id, itemPhoto, catPhoto, alt }) {
+  const [src, setSrc] = useState(`/photos/${id}.jpg`);
+  const [level, setLevel] = useState(0);
+
+  const onError = () => {
+    if (level === 0) {
+      setLevel(1);
+      if (itemPhoto) setSrc(itemPhoto);
+      else if (catPhoto) setSrc(catPhoto);
+    } else if (level === 1 && !itemPhoto) {
+      setLevel(2);
+      setSrc(catPhoto);
+    }
+  };
+
+  return <img src={src} onError={onError} alt={alt} loading="lazy" className="h-full w-full object-cover" />;
+}
+
+function MenuRow({ item, cat, t, i18n }) {
   const meta = t(`items.${item.id}`, { returnObjects: true }) || {};
   const priceStr = Array.isArray(item.price)
     ? item.price.map((p) => formatPrice(i18n.language, p)).join(" / ")
     : formatPrice(i18n.language, item.price);
 
   return (
-    <article data-testid={`menu-item-${item.id}`}>
-      <div className="flex items-baseline">
-        <h3 className="font-serif text-xl text-brun sm:text-2xl">{meta.name}</h3>
-        <span className="leader" aria-hidden="true" />
-        <span className="whitespace-nowrap font-price text-[0.95rem] text-terracotta-fonce" data-testid={`menu-price-${item.id}`}>
-          {priceStr}
-        </span>
+    <article className="flex gap-4" data-testid={`menu-item-${item.id}`}>
+      <div className="relative h-[76px] w-[76px] shrink-0 overflow-hidden rounded-2xl bg-beige sm:h-24 sm:w-24">
+        <ProductImage
+          id={item.id}
+          itemPhoto={item.photo}
+          catPhoto={cat.photo}
+          alt={`${meta.name || item.id} — ${t("practical.photo_note")}`}
+        />
       </div>
-
-      {meta.desc && <p className="mt-2 text-sm leading-relaxed text-cafemuted">{meta.desc}</p>}
-
-      {item.variants && (
-        <ul className="mt-3 space-y-1.5">
-          {item.variants.map((v) => (
-            <li key={v.key} className="flex items-baseline text-sm">
-              <span className="text-brun/80">{t(`carte.glaces.${v.key}`)}</span>
-              <span className="leader" aria-hidden="true" />
-              <span className="whitespace-nowrap font-price text-sm text-terracotta-fonce">
-                {formatPrice(i18n.language, v.price)}
-              </span>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {meta.ing && (
-        <p className="mt-2.5 text-xs leading-relaxed text-brun/70">
-          <span className="mr-2 text-[0.62rem] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--iznik-fonce)" }}>
-            {t("carte.ingredients_label")}
+      <div className="min-w-0 flex-1">
+        <div className="flex items-baseline">
+          <h3 className="font-serif text-lg text-brun sm:text-xl">{meta.name}</h3>
+          <span className="leader" aria-hidden="true" />
+          <span className="whitespace-nowrap font-price text-[0.9rem] text-terracotta-fonce" data-testid={`menu-price-${item.id}`}>
+            {priceStr}
           </span>
-          {meta.ing}
-        </p>
-      )}
+        </div>
 
-      {item.confirm && (
-        <span
-          className="mt-2.5 inline-block rounded-full border border-terracotta/50 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-terracotta-fonce"
-        >
-          {t("carte.confirm_badge")}
-        </span>
-      )}
+        {meta.desc && <p className="mt-1.5 text-sm leading-relaxed text-cafemuted">{meta.desc}</p>}
+
+        {item.variants && (
+          <ul className="mt-2 space-y-1">
+            {item.variants.map((v) => (
+              <li key={v.key} className="flex items-baseline text-sm">
+                <span className="text-brun/80">{t(`carte.glaces.${v.key}`)}</span>
+                <span className="leader" aria-hidden="true" />
+                <span className="whitespace-nowrap font-price text-sm text-terracotta-fonce">
+                  {formatPrice(i18n.language, v.price)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {meta.ing && (
+          <p className="mt-1.5 text-xs leading-relaxed text-brun/70">
+            <span className="mr-2 text-[0.6rem] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--iznik-fonce)" }}>
+              {t("carte.ingredients_label")}
+            </span>
+            {meta.ing}
+          </p>
+        )}
+
+        {item.confirm && (
+          <span className="mt-2 inline-block rounded-full border border-terracotta/50 px-3 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-terracotta-fonce">
+            {t("carte.confirm_badge")}
+          </span>
+        )}
+      </div>
     </article>
   );
 }
@@ -106,7 +134,7 @@ export default function Carte({ lenisRef }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 grid items-start gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16"
+            className="mt-10 grid items-start gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-14"
             data-testid="menu-category-panel"
           >
             <div className="lg:sticky lg:top-40">
@@ -129,13 +157,13 @@ export default function Carte({ lenisRef }) {
               <p className="mt-4 font-serif text-2xl italic text-brun">{t(`carte.categories.${cat.id}`)}</p>
             </div>
 
-            <div className="grid gap-x-12 gap-y-9 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            <div className="grid gap-x-10 gap-y-8 xl:gap-x-14">
               {cat.items.map((item) => (
-                <MenuRow key={item.id} item={item} t={t} i18n={i18n} />
+                <MenuRow key={item.id} item={item} cat={cat} t={t} i18n={i18n} />
               ))}
 
               {cat.flavorsNote && (
-                <div className="self-start rounded-2xl border border-iznik/25 bg-creme p-6 sm:col-span-2 lg:col-span-1 xl:col-span-2">
+                <div className="self-start rounded-2xl border border-iznik/25 bg-creme p-6">
                   <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--iznik-fonce)" }}>
                     {t("carte.flavors_label")}
                   </p>

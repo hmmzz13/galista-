@@ -240,6 +240,8 @@
     "instagram": "Instagram",
     "map_title": "We are here",
     "map_note": "Interactive map with a tilted 3D view — rotate and zoom in. © OpenStreetMap",
-    "quotes_note": "Excerpts of Google reviews relayed by"
+    "quotes_note": "Excerpts of Google reviews relayed by",
+    "quotes_lang_note": "Reviews are published in their original language, unedited.",
+    "anonymous": "Google customer"
   }
 }

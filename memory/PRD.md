@@ -40,13 +40,17 @@ Refonte complète du site officiel de Galista Café (46 Rue du Faubourg-National
 - 22/10/2026 (v1) : site complet trilingue, carte 13 catégories, avis, infos pratiques, galerie lightbox, footer légal.
 - 22/10/2026 (v2) : refonte hero sans 3D avec logo officiel + accès rapide carte, palette stambouliote (Iznik #2F8B89), motifs ottomans, marquee turquoise, favicon/logo intégrés.
 
+## Itération v4 (22/10/2026, retour client)
+- Photo par PLAT dans la carte : chaque produit affiche une vignette (76-96px) à gauche du nom. Mécanisme en cascade : 1) photo officielle de l'établissement si le fichier public/photos/<id>.jpg existe (dépôt sans toucher au code, documenté dans public/photos/README.txt), 2) image d'illustration produit (images.unsplash/pexels sourcées pour ~45 produits : petits déjeuners, omelettes, menemen, mezze, frites, sandwichs, toasts, croissants, bretzels, simit, cookies, muffins, éclairs, brownies, mille-feuille, cafés, thés, chocolats chauds, jus…), 3) photo de la catégorie.
+- 10 avis Google authentiques affichés (minimum demandé) : 5 nommés notés 5/5 relayés par strasbourg.food (Bhye T., Hafize A., Eda E., Richard A., Çiğdem S.) + 5 anonymes relayés par exa.ai, textes d'origine conservés (non traduits), sources citées avec liens. Note agrégée 4,8/5 · ≈ 275 avis inchangée.
+
 ## Personas
 - Client de passage à Strasbourg (mobile) : horaires, itinéraire, téléphone ou carte — tout est accessible dès le premier écran.
 - Client régulier : consulte la carte et les spécialités turques via les raccourcis.
-- Établissement : remplace les cadres réservés par ses photos officielles, fait confirmer prix/horaires/ingrédients.
+- Établissement : remplace les emplacements photo par ses photos officielles, fait confirmer prix, horaires, ingrédients détaillés et allergènes.
 
 ## Backlog priorisé
-- P0 : remplacer les emplacements réservés par les photographies officielles ; faire confirmer par l'établissement prix, horaires, ingrédients détaillés (böreks, sauces) et allergènes ; confirmer le compte Instagram officiel puis l'ajouter.
+- P0 : remplacer les images d'illustration par les photographies officielles (dépôt des fichiers dans public/photos/<id>.jpg) ; faire confirmer par l'établissement prix, horaires, ingrédients détaillés (böreks, sauces) et allergènes.
 - P1 : canonical + sitemap.xml + hreflang dès que le domaine de production est connu.
 - P2 : formulaire de contact éventuel (Resend), JSON-LD horaires/aggregateRating après vérification.
 
