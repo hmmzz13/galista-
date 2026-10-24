@@ -46,6 +46,26 @@ Refonte complète du site officiel de Galista Café (46 Rue du Faubourg-National
 - Retiré la mention « horaires à confirmer par l'établissement » : remplacée par « Horaires officiels — le café est ouvert 7 jours sur 7. » (DE/EN traduits), flag `hoursToConfirm` supprimé de site.js (jamais lu ailleurs ; `pricesToConfirm` reste vrai — prix toujours à confirmer).
 - Vérifié par capture : badge « Ouvert · jusqu'à 16:00 » correct le samedi, 7 jours listés à l'identique du confirmation client, ancienne mention absente.
 
+## Itération v7 (24/10/2026, liste de 15 corrections client)
+Bugs corrigés :
+1. Avis : garde `hasQuotes` — le carrousel (données réelles nom/étoiles/texte) se masque automatiquement si les données disparaissent ; la note 4,8, « ≈ 275 avis Google » et le bouton Google restent.
+2. Ligne coupée sous les onglets de la carte : barre collante passée en fond 100 % solide (fini le 95 % + flou qui montrait la moitié des lignes glissant dessous) + bordure basse.
+3. Onglets mobiles : une seule ligne à défilement horizontal (flex-nowrap, pills flex:none) avec recentrage automatique de l'onglet actif (scrollIntoView inline:center <1024 px).
+4. Badge « Made with Emergent » : script de masquage (MutationObserver, textes fixed/absolute) dans index.html — le watermark injecté à l'deployment disparaît.
+5. Instagram : plus de bouton « Charger les publications » — l'embed officiel sans clé se charge automatiquement à l'entrée dans le viewport (IntersectionObserver) ; échec (8 s) → carte simple @galistacafe + « Voir sur Instagram ».
+Design :
+6. Label « INGRÉDIENTS » retiré (description seule), lignes aérées (gap-y-10), prix alignés à droite.
+7. Contraste : cafemuted #6E5B53 → #5C4A42 (>7:1 AA), textes brun/70 → /85.
+8. Hero : photo plein écran de la salle turquoise + overlay sombre léger (dégradé brunprofond), texte crème + iznik clair #7EC8C6, logo sur pastille crème, plus d'effet pâle/flou ni de mentions « IMAGE D'ILLUSTRATION » / « PHOTO OFFICIELLE » / « photographies officielles à venir ».
+9. Carte « Nous trouver » : plate et lisible (pitch 0, plus de rotation ni bouton pause), boutons Appeler / Google Maps conservés.
+10. Barre mobile bas confirmée (Appeler + Itinéraire) + padding safe-area iOS.
+SEO/technique (skill farm-seo-setup) :
+11. og-image.jpg 1200x630 (photo salle) + og:image absolu + dimensions/alt + twitter:card summary_large_image.
+12. JSON-LD CafeOrCoffeeShop enrichi : url, image, geo, 2 openingHoursSpecification (lun-jeu 7h-17h, ven-dim 7h-16h), sameAs Instagram, aggregateRating 4.8/275 (confirmés par le client) ; noscript mis à jour (« La pause istanbulienne », horaires officiels).
+13. Canonical https://www.galistacafe.fr/fr + hreflang fr/en/de/x-default + sitemap.xml (3 routes) + ligne Sitemap dans robots.txt ; favicon présent ; domaine fourni par le client sans connexion DNS demandée.
+16. Mention allergènes « Pour toute information sur les allergènes, demandez à notre équipe. » en bas de la carte.
+- Tests : agent de test iteration_3.json — 100 % (15/15 points, FR desktop + mobile 375-390 px, DE/EN sans clé brute, og-image 200 image/jpeg, robots text/plain + sitemap application/xml, embed Instagram chargé, aucun débordement, pas d'erreur console nouvelle).
+
 ## Architecture
 - Frontend React (CRA) one-page routé par langue : /fr, /de, /en (redirection / selon langue mémorisée ou navigateur).
 - i18next + react-i18next : src/i18n/{fr,de,en}.json — 77 produits entièrement traduits (noms, descriptions, ingrédients) + UI complète.

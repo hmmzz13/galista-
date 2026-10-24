@@ -1,0 +1,30 @@
+{
+  "summary": "Full frontend regression of the 15 client fixes on https://galista-atelier.preview.emergentagent.com/. Tested FR (desktop 1920), FR mobile (390x844), DE and EN locales. All 15 fixes verified green: reviews carousel with real quotes + counter + autoplay toggle, solid sticky tab background in #carte, mobile single-line scrollable tabs, Made-with-Emergent masking script present in index.html, Instagram embed auto-loads via IntersectionObserver (iframe present, load button removed), INGRÉDIENTS label removed from #carte, allergens note moved to bottom with correct text and no old 'non affichés' mention, hero shows photo (no IMAGE D'ILLUSTRATION badge), flat MapLibre canvas (no spin toggle), mobile-action-bar pinned to bottom, SEO head is complete (canonical FR, 4 hreflang, og:image absolute 1200x630, twitter summary_large_image, JSON-LD CafeOrCoffeeShop with aggregateRating 4.8/275 and 2 OpeningHoursSpecification, noscript h1), robots.txt text/plain with Sitemap directive, sitemap.xml application/xml with 3 URLs, og-image.jpg 200 image/jpeg. DE and EN translations load correctly without raw i18n keys.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified_checks": {
+    "reviews": {"quote_present": true, "quote_len": 255, "counter": "2 / 10", "autoplay_toggle": true},
+    "carte": {"ingredients_label_count": 0, "allergens_note_present": true, "old_allergen_mention": false, "illustration_mentions_anywhere": false},
+    "instagram": {"load_btn_removed": true, "iframe_loaded": true, "fallback_shown": false},
+    "hero": {"illustration_badge": false},
+    "map": {"map_frame": true, "canvas": true, "spin_toggle_removed": true},
+    "mobile": {"action_bar_at_bottom": true, "pills_single_line_unique_tops": 1, "horizontal_overflow": false},
+    "seo_head": {"canonical_fr": true, "hreflang_count": 4, "og_image_abs": true, "og_image_dims_1200x630": true, "twitter_card_large": true, "jsonld_cafe": true, "jsonld_rating_4.8": true, "jsonld_opening_hours": 2, "noscript_h1": true, "emergent_mask_script": true},
+    "seo_static": {"og_image_200_jpeg": true, "robots_text_plain_with_sitemap": true, "sitemap_xml_3_urls": true},
+    "i18n": {"de_loads_no_raw_keys": true, "en_loads_no_raw_keys": true, "de_allergen_text": true, "en_allergen_text": true}
+  },
+  "console_notes": "Pre-existing MapLibre worker warning and permissions-policy 'bluetooth' warning are environmental (preview container) and expected per request context.",
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend only)", "frontend": "100%"},
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All 15 client fixes validated. Use sessionStorage.setItem('galista-loader-seen','1') + reload to bypass the loader. Review carousel testid is dynamic — use selector [data-testid^=review-quote-]. MapLibre lazy-loads on scroll to #infos; wait ~3s. Instagram iframe loads via IntersectionObserver after scroll to #galerie; allow ~8s."
+}
