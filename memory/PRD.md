@@ -28,6 +28,13 @@ Refonte complète du site officiel de Galista Café (46 Rue du Faubourg-National
 4. Photographies : emplacements réservés élégants (« photographie officielle à venir ») en attendant les photos officielles de l'établissement.
 5. v2 : plus de 3D, rendu stambouliote, logo officiel, accès carte immédiat.
 
+## Itération v4 (24/10/2026, retour client)
+- Carrousel d'avis (Avis.jsx) : un avis à la fois (choix utilisateur) avec flèches gauche/droite, 10 points de navigation cliquables, compteur « n / 10 », balayage tactile (drag framer-motion, seuil 60 px) et bouclage infini. La section gagne en compacité.
+- Texte de bannière changé en « La pause istanbulienne. » (choix utilisateur) + sous-titre pause/saveurs d'Istanbul — décliné DE (« Eine Auszeit wie in Istanbul. ») et EN (« A coffee break, the Istanbul way. »).
+- Ingrédients enrichis : les 77 produits de la carte ont désormais une description détaillée de 1-2 phrases (origine, préparation, textures, saveurs) au lieu de listes de mots — rédigée en FR, DE et EN (clé items.*.ing).
+- Écran de chargement 3D pur CSS (Loader.jsx) : tasse en cylindre 3D en rotation (20 tranches), grains en orbite, vapeur, soucoupe, barre de progression — pas de WebGL ni Three.js (contrainte v2 conservée). Durée ~2 s + fondu 0,45 s, une seule fois par session (sessionStorage galista-loader-seen), 0,5 s en prefers-reduced-motion, scroll bloqué pendant l'affichage.
+- Tests : agent de test iteration_1.json — 100 % réussi (loader, hero 3 langues, carrousel flèches/dots/drag/bouclage, ingrédients enrichis, régressions nav/carte/badge/carte MapLibre, pas d'overflow desktop/mobile, pas d'erreur console nouvelle). Reste connu : warning MapLibre worker préexistant (non bloquant, la carte s'affiche).
+
 ## Architecture
 - Frontend React (CRA) one-page routé par langue : /fr, /de, /en (redirection / selon langue mémorisée ou navigateur).
 - i18next + react-i18next : src/i18n/{fr,de,en}.json — 77 produits entièrement traduits (noms, descriptions, ingrédients) + UI complète.
