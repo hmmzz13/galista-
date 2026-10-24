@@ -160,7 +160,6 @@ export const CATEGORIES = [
   {
     id: "milkshakes",
     photo: CAT_IMG.milkshakes,
-    flavorsNote: true,
     items: [{ id: "milkshake", price: 6.0 }],
   },
   {

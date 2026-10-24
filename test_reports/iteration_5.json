@@ -1,0 +1,31 @@
+{
+  "summary": "Frontend-only test (FR/DE/EN, desktop 1440 + mobile 375) of the FLYER-style Carte refactor. 77 photos load (0 broken), 13 categories render, grid is 3 cols desktop / 1 col mobile, scroll-spy OK for Cafés / Glaces / Viennoiseries / Boissons froides, click on category pill lands section within target band (top=179px desktop, top=155px mobile), no horizontal overflow in either viewport, no raw i18n keys exposed in DE/EN/FR, lightbox gallery present (8 images), avis section present, badges 'INGREDIENTS À CONFIRMER' / 'LISTED FLAVOURS' / allergens all present in the 3 languages. ONE REGRESSION FOUND: the two ice-cream parent items that only define `variants` (glace_cone 'Cornet ou coupe' and glace_pot 'Pot') display '€NaN' / 'NaN €' as their header price in FR, DE and EN. Variant child rows (1/2/3 boules) display correct prices.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Carte.jsx > MenuRow",
+        "issue": "Items having only `variants` and no top-level `price` (glace_cone, glace_pot) render 'NaN €' / '€NaN' on the main price line because `formatPrice(lang, undefined)` is called. Visible in all 3 languages at #menu-glaces.",
+        "selector": "[data-testid='menu-price-glace_cone'], [data-testid='menu-price-glace_pot']",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "In /app/frontend/src/sections/Carte.jsx (around lines 37–52), skip the main price span when `item.price` is undefined (items that use only `variants`). Suggested fix: compute `const hasPrice = item.price !== undefined && item.price !== null;` and render the leader + <span data-testid=menu-price-...> only when `hasPrice`. Keeps the variants block intact. Verify at #menu-glaces in FR/DE/EN."
+  ],
+  "critical_code_review_comments": [
+    "Carte.jsx MenuRow: silent NaN rendering when item.price is undefined — add a guard. Even better, make MenuRow aware of a 'variants-only' mode so the pointed line (dots + price) is omitted for those items.",
+    "menu.js: data model mixes top-level `price` and `variants` on sibling items — consider documenting (or typing) the shape so new items can't accidentally omit both."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "n/a", "frontend": "95%" },
+  "seed_data_creation": "none",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Only remaining issue is the NaN price on glace_cone / glace_pot in Carte.jsx. All other flyer features (77 photos, 3-col/1-col grid, scroll-spy, pill clicks offset -155/-180, i18n FR/DE/EN, confirm badges, flavours box, allergens, no overflow, mobile sticky call/itinerary bar) verified OK. MapLibre worker error and WebGL stall warnings are preexisting and ignorable. Loader session gate honored (sessionStorage key galista-loader-seen).",
+  "rca of the issue": "glace_cone and glace_pot in /app/frontend/src/data/menu.js only define `variants: [...]` without a top-level `price`. In Carte.jsx MenuRow (lines 37-39) the code unconditionally calls `formatPrice(i18n.language, item.price)` which returns 'NaN €' when price is undefined. The price span (line 51) is also always rendered. Fix: render the main price line only when item.price is defined; the variants loop (lines 58-65) already handles the per-variant prices correctly."
+}

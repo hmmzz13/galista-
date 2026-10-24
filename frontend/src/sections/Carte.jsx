@@ -38,6 +38,7 @@ function MenuRow({ item, cat, t, i18n }) {
     ? item.price.map((p) => formatPrice(i18n.language, p)).join(" / ")
     : formatPrice(i18n.language, item.price);
   const richText = meta.ing || meta.desc;
+  const hasPrice = item.price !== undefined && item.price !== null;
 
   return (
     <article className="flex items-start gap-3.5" data-testid={`menu-item-${item.id}`}>
@@ -47,10 +48,14 @@ function MenuRow({ item, cat, t, i18n }) {
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline">
           <h3 className="font-serif text-[1.02rem] leading-snug text-brun sm:text-lg">{meta.name}</h3>
-          <span className="leader" aria-hidden="true" />
-          <span className="whitespace-nowrap font-price text-[0.9rem] text-terracotta-fonce" data-testid={`menu-price-${item.id}`}>
-            {priceStr}
-          </span>
+          {hasPrice && (
+            <>
+              <span className="leader" aria-hidden="true" />
+              <span className="whitespace-nowrap font-price text-[0.9rem] text-terracotta-fonce" data-testid={`menu-price-${item.id}`}>
+                {priceStr}
+              </span>
+            </>
+          )}
         </div>
 
         {richText && <p className="mt-1.5 text-xs leading-snug text-cafemuted">{richText}</p>}

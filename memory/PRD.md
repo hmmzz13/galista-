@@ -79,6 +79,16 @@ SEO/technique (skill farm-seo-setup) :
 - Le badge « Ingrédients à confirmer » reste affiché sur les böreks et la salade au thon (seuls les prix ont été confirmés, pas tous les ingrédients).
 - Vérifié par captures : plus aucune mention prix à confirmer dans #carte ni footer, sous-titre officiel en place, badge ingrédients conservé, scroll-spy Böreks actif.
 
+## Itération v10 (24/10/2026, retour client : menu « flyer » avec photos)
+- Le client trouvait la carte trop longue à parcourir pour choisir (« comme un flyer qu'on balaye d'un coup d'œil ») → refonte FLYER COMPACT (choix retenu, avis client) :
+  - Une photo à côté de chaque plat (64 px mobile / 72 px desktop) — ProductImage avec chaîne de repli : /photos/<id>.jpg (futures photos officielles) → item.photo → cat.photo → marqueur BeanMark. Le client enverra ses vraies photos ; elles s'intégreront automatiquement.
+  - Texte riche conservé mais en petit (text-xs) ; la ligne résumée « desc » supprimée quand « ing » existe (fini le doublon).
+  - Grille compacte : 1 colonne mobile / 2 colonnes md / 3 colonnes xl ; interlignes réduits ; hauteur carte ~5 700 px (avant : ~8 000 px+).
+  - Navigation conservée : onglets collants, sauts d'ancre précis (offset -155/-180), scroll-spy (170/210), recentrage mobile.
+- Bug corrigé (remonté par l'agent de test iteration_5, HIGH) : « NaN € » affiché sur la ligne de prix des produits à variantes seulement (Cornet/Pot de glace) — la ligne prix n'est plus rendue quand item.price est absent ; variantes 1/2/3 boules intactes. Vérifié FR/DE/EN.
+- Doublon visuel corrigé : l'encadré « Parfums recensés » ne s'affiche plus deux fois de suite (retiré de Milk-shakes, conservé sur Glaces).
+- Tests : agent de test iteration_5.json — 95 % puis correctifs vérifiés (77 photos OK, 0 cassée, sauts précis desktop/mobile, scroll-spy complet, i18n propre, pas d'overflow).
+
 ## Architecture
 - Frontend React (CRA) one-page routé par langue : /fr, /de, /en (redirection / selon langue mémorisée ou navigateur).
 - i18next + react-i18next : src/i18n/{fr,de,en}.json — 77 produits entièrement traduits (noms, descriptions, ingrédients) + UI complète.
