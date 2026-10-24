@@ -54,7 +54,7 @@
     "ingredients_label": "Ingredients",
     "confirm_badge": "Ingredients to be confirmed",
     "prices_note": "Prices and products taken from the online menu — to be confirmed by the establishment before publication.",
-    "allergens_note": "Allergens: not displayed — to be confirmed with the establishment.",
+    "allergens_note": "For any information about allergens, please ask our team.",
     "flavors_label": "Listed flavours",
     "flavors": "Vanilla, chocolate, crunchy chocolate, coffee, pistachio, strawberry, stracciatella, melon, lemon, mango, salted butter caramel, cookies, red berries, coconut.",
     "glossary_title": "Words from the menu",
@@ -187,8 +187,6 @@
   "galerie": {
     "kicker": "Gallery",
     "title": "Galista Café in pictures.",
-    "intro": "The café's official photographs will be added shortly — the spaces below are reserved for them.",
-    "pending": "Official photograph coming soon",
     "open": "Enlarge",
     "close": "Close",
     "prev": "Previous image",
@@ -200,11 +198,8 @@
     "handle": "@galistacafe",
     "intro": "Atmosphere, news and today's treats — follow us, post by post.",
     "follow": "Follow the café",
-    "load": "Load posts",
     "loading": "Loading posts…",
-    "unavailable": "Instagram posts are unavailable here right now.",
-    "open": "Open Instagram",
-    "note": "Content is loaded from Instagram only after your click."
+    "open": "View on Instagram"
   },
   "avis": {
     "kicker": "Reviews",
@@ -255,17 +250,13 @@
   "practical": {
     "open_badge_open": "Open · until {{time}}",
     "open_badge_closed": "Closed · opens {{when}}",
-    "photo_note": "Illustrative image",
-    "photo_replace": "official photographs coming soon",
-    "gallery_intro": "A glimpse of the atmosphere, drinks and treats — illustrative images, official photographs coming soon.",
     "instagram": "Instagram",
     "map_title": "We are here",
-    "map_note": "Interactive map with a tilted 3D view — rotate and zoom in. © OpenStreetMap",
+    "map_note": "Interactive map — zoom and drag around. © OpenStreetMap",
     "quotes_note": "Excerpts of Google reviews relayed by",
     "quotes_lang_note": "Reviews are published in their original language, unedited.",
     "anonymous": "Google customer",
     "today": "Today",
-    "banner_label": "Our café in Strasbourg",
-    "official_badge": "Official photo"
+    "banner_label": "Our café in Strasbourg"
   }
 }

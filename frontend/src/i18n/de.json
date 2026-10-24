@@ -54,7 +54,7 @@
     "ingredients_label": "Zutaten",
     "confirm_badge": "Zutaten noch zu bestätigen",
     "prices_note": "Preise und Produkte von der Online-Karte übernommen — vom Betrieb vor Veröffentlichung zu bestätigen.",
-    "allergens_note": "Allergene: nicht angegeben — beim Betrieb zu erfragen.",
+    "allergens_note": "Für alle Informationen zu Allergenen wenden Sie sich bitte an unser Team.",
     "flavors_label": "Verfügbare Sorten",
     "flavors": "Vanille, Schokolade, knusprige Schokolade, Kaffee, Pistazie, Erdbeere, Stracciatella, Melone, Zitrone, Mango, gesalzenes Karamell, Cookies, rote Früchte, Kokosnuss.",
     "glossary_title": "Die Wörter der Karte",
@@ -187,8 +187,6 @@
   "galerie": {
     "kicker": "Galerie",
     "title": "Galista Café in Bildern.",
-    "intro": "Die offiziellen Fotografien des Cafés werden in Kürze eingebunden — die folgenden Plätze sind dafür reserviert.",
-    "pending": "Offizielle Fotografie folgt in Kürze",
     "open": "Vergrößern",
     "close": "Schließen",
     "prev": "Vorheriges Bild",
@@ -200,11 +198,8 @@
     "handle": "@galistacafe",
     "intro": "Atmosphäre, Neuigkeiten und Süßes vom Tag — folgen Sie uns Beitrag für Beitrag.",
     "follow": "Café folgen",
-    "load": "Beiträge laden",
     "loading": "Beiträge werden geladen…",
-    "unavailable": "Instagram-Beiträge sind hier momentan nicht verfügbar.",
-    "open": "Instagram öffnen",
-    "note": "Der Inhalt wird erst nach Ihrem Klick von Instagram geladen."
+    "open": "Auf Instagram ansehen"
   },
   "avis": {
     "kicker": "Bewertungen",
@@ -255,17 +250,13 @@
   "practical": {
     "open_badge_open": "Geöffnet · bis {{time}}",
     "open_badge_closed": "Geschlossen · öffnet {{when}}",
-    "photo_note": "Symbolbild",
-    "photo_replace": "offizielle Fotografien folgen in Kürze",
-    "gallery_intro": "Ein Eindruck von Atmosphäre, Getränken und Genüssen — Symbolbilder, offizielle Fotografien folgen in Kürze.",
     "instagram": "Instagram",
     "map_title": "Hier finden Sie uns",
-    "map_note": "Interaktive Karte mit geneigter Ansicht — drehen und zoomen Sie. © OpenStreetMap",
+    "map_note": "Interaktive Karte — zoomen und verschieben. © OpenStreetMap",
     "quotes_note": "Auszüge aus Google-Bewertungen vermittelt über",
     "quotes_lang_note": "Die Bewertungen werden in ihrer Originalsprache unverändert veröffentlicht.",
     "anonymous": "Google-Kunde",
     "today": "Heute",
-    "banner_label": "Unser Café in Straßburg",
-    "official_badge": "Offizielles Foto"
+    "banner_label": "Unser Café in Straßburg"
   }
 }

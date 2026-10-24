@@ -8,6 +8,7 @@ export default function MobileActionBar() {
   return (
     <div
       className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-brun/10 bg-creme/95 px-4 py-3 backdrop-blur-md md:hidden"
+      style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
       data-testid="mobile-action-bar"
     >
       <a href={SITE.phoneHref} className="btn btn-primary flex-1 justify-center !py-3" data-testid="call-bar-call-btn">

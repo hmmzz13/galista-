@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { CATEGORIES } from "@/data/menu";
@@ -34,12 +34,7 @@ function MenuRow({ item, cat, t, i18n }) {
   return (
     <article className="flex gap-4" data-testid={`menu-item-${item.id}`}>
       <div className="relative h-[76px] w-[76px] shrink-0 overflow-hidden rounded-2xl bg-beige sm:h-24 sm:w-24">
-        <ProductImage
-          id={item.id}
-          itemPhoto={item.photo}
-          catPhoto={cat.photo}
-          alt={`${meta.name || item.id} — ${t("practical.photo_note")}`}
-        />
+        <ProductImage id={item.id} itemPhoto={item.photo} catPhoto={cat.photo} alt={meta.name || item.id} />
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline">
@@ -50,13 +45,13 @@ function MenuRow({ item, cat, t, i18n }) {
           </span>
         </div>
 
-        {meta.desc && <p className="mt-1.5 text-sm leading-relaxed text-cafemuted">{meta.desc}</p>}
+        {meta.desc && <p className="mt-2 text-sm leading-relaxed text-cafemuted">{meta.desc}</p>}
 
         {item.variants && (
           <ul className="mt-2 space-y-1">
             {item.variants.map((v) => (
               <li key={v.key} className="flex items-baseline text-sm">
-                <span className="text-brun/80">{t(`carte.glaces.${v.key}`)}</span>
+                <span className="text-brun/85">{t(`carte.glaces.${v.key}`)}</span>
                 <span className="leader" aria-hidden="true" />
                 <span className="whitespace-nowrap font-price text-sm text-terracotta-fonce">
                   {formatPrice(i18n.language, v.price)}
@@ -66,14 +61,7 @@ function MenuRow({ item, cat, t, i18n }) {
           </ul>
         )}
 
-        {meta.ing && (
-          <p className="mt-1.5 text-xs leading-relaxed text-brun/70">
-            <span className="mr-2 text-[0.6rem] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--iznik-fonce)" }}>
-              {t("carte.ingredients_label")}
-            </span>
-            {meta.ing}
-          </p>
-        )}
+        {meta.ing && <p className="mt-2 text-sm leading-relaxed text-brun/85">{meta.ing}</p>}
 
         {item.confirm && (
           <span className="mt-2 inline-block rounded-full border border-terracotta/50 px-3 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-terracotta-fonce">
@@ -88,12 +76,21 @@ function MenuRow({ item, cat, t, i18n }) {
 export default function Carte({ lenisRef }) {
   const { t, i18n } = useTranslation();
   const [active, setActive] = useState(CATEGORIES[0].id);
+  const tabRefs = useRef({});
 
   useEffect(() => {
     const onCat = (e) => setActive(e.detail);
     window.addEventListener("galista:category", onCat);
     return () => window.removeEventListener("galista:category", onCat);
   }, []);
+
+  // Garde l'onglet actif visible dans la barre défilante (mobile).
+  useEffect(() => {
+    const el = tabRefs.current[active];
+    if (el && window.matchMedia("(max-width: 1023px)").matches) {
+      el.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
+  }, [active]);
 
   const cat = CATEGORIES.find((c) => c.id === active) || CATEGORIES[0];
 
@@ -105,16 +102,18 @@ export default function Carte({ lenisRef }) {
           <Reveal delay={0.2} className="md:max-w-xs md:shrink-0">
             <div className="space-y-2 md:text-right">
               <p className="text-xs leading-relaxed text-cafemuted">{t("carte.prices_note")}</p>
-              <p className="text-xs leading-relaxed text-cafemuted">{t("carte.allergens_note")}</p>
             </div>
           </Reveal>
         </div>
 
-        <div className="no-scrollbar sticky top-16 z-30 -mx-6 mt-10 overflow-x-auto bg-blanccasse/95 px-6 py-4 backdrop-blur-sm md:mx-0 md:px-0">
-          <div className="flex gap-2 lg:flex-wrap lg:justify-center" role="tablist" aria-label={t("carte.kicker")}>
+        <div className="no-scrollbar sticky top-16 z-30 -mx-6 mt-10 overflow-x-auto border-b border-brun/10 bg-blanccasse px-6 py-4 md:mx-0 md:px-0">
+          <div className="flex flex-nowrap gap-2 lg:flex-wrap lg:justify-center" role="tablist" aria-label={t("carte.kicker")}>
             {CATEGORIES.map((c) => (
               <button
                 key={c.id}
+                ref={(el) => {
+                  tabRefs.current[c.id] = el;
+                }}
                 role="tab"
                 aria-selected={active === c.id}
                 onClick={() => setActive(c.id)}
@@ -147,17 +146,16 @@ export default function Carte({ lenisRef }) {
               >
                 <img
                   src={cat.photo}
-                  alt={`${t(`carte.categories.${cat.id}`)} — ${t("practical.photo_note")}`}
+                  alt={t(`carte.categories.${cat.id}`)}
                   className="h-full w-full object-cover"
                   data-testid="menu-category-photo"
                   loading="lazy"
                 />
-                <span className="img-tag">{t("practical.photo_note")}</span>
               </motion.div>
               <p className="mt-4 font-serif text-2xl italic text-brun">{t(`carte.categories.${cat.id}`)}</p>
             </div>
 
-            <div className="grid gap-x-10 gap-y-8 xl:gap-x-14">
+            <div className="grid gap-x-10 gap-y-10 xl:gap-x-14">
               {cat.items.map((item) => (
                 <MenuRow key={item.id} item={item} cat={cat} t={t} i18n={i18n} />
               ))}
@@ -190,6 +188,14 @@ export default function Carte({ lenisRef }) {
               </Reveal>
             ))}
           </div>
+        </div>
+
+        <div className="mt-14 text-center">
+          <Reveal>
+            <p className="mx-auto max-w-xl text-sm leading-relaxed text-cafemuted" data-testid="allergens-note">
+              {t("carte.allergens_note")}
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>

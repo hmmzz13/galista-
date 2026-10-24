@@ -24,32 +24,34 @@ export default function Hero({ lenisRef }) {
     <section
       id="accueil"
       ref={ref}
-      className="relative flex min-h-[92vh] items-center overflow-hidden bg-creme md:min-h-[94vh]"
+      className="relative flex min-h-[92vh] items-center overflow-hidden bg-brunprofond md:min-h-[94vh]"
       data-testid="hero-static"
     >
-      {/* Illustration du café en bannière de fond */}
+      {/* Photographie de la salle du café, plein écran */}
       {reduced ? (
         <img
-          src="/photos/hero-illustration.jpg"
-          alt="Illustration de l'intérieur chaleureux du Galista Café : machine à espresso, comptoir à pâtisseries et clients"
+          src="/photos/cafe-interior.jpg"
+          alt="La salle du café Galista à Strasbourg : arches turquoise, néon Galista et comptoir à pâtisseries"
           className="absolute inset-0 h-full w-full object-cover"
         />
       ) : (
         <motion.img
-          src="/photos/hero-illustration.jpg"
-          alt="Illustration de l'intérieur chaleureux du Galista Café : machine à espresso, comptoir à pâtisseries et clients"
+          src="/photos/cafe-interior.jpg"
+          alt="La salle du café Galista à Strasbourg : arches turquoise, néon Galista et comptoir à pâtisseries"
           style={{ y, scale }}
           className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
         />
       )}
+      {/* Overlay sombre léger pour garder le texte lisible */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-creme via-creme/85 to-creme/25"
+        className="absolute inset-0 bg-gradient-to-r from-brunprofond/80 via-brunprofond/55 to-brunprofond/25"
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-creme via-transparent to-creme/50" aria-hidden="true" />
-
-      <span className="img-tag absolute bottom-4 right-4 z-10">{t("practical.photo_note")}</span>
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-brunprofond/75 via-transparent to-brunprofond/30"
+        aria-hidden="true"
+      />
 
       {/* Contenu */}
       <div className="relative z-[5] mx-auto w-full max-w-[1500px] px-6 py-24 md:px-14">
@@ -66,7 +68,7 @@ export default function Hero({ lenisRef }) {
             transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
             src="/logo.png"
             alt="Galista Café"
-            className="mx-auto mt-6 h-20 w-auto drop-shadow-[0_10px_20px_rgba(75,48,38,0.2)] md:mx-0 md:h-24"
+            className="mx-auto mt-6 h-20 w-auto rounded-2xl bg-creme/90 px-4 py-2.5 shadow-[0_14px_34px_rgba(36,26,22,0.45)] md:mx-0 md:h-24"
             data-testid="hero-logo"
           />
           <h1
@@ -78,7 +80,7 @@ export default function Hero({ lenisRef }) {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, delay: 0.36, ease: EASE }}
-                className="block"
+                className="block text-creme"
               >
                 {t("hero.title_line1")}
               </motion.span>
@@ -88,7 +90,7 @@ export default function Hero({ lenisRef }) {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, delay: 0.48, ease: EASE }}
-                className="block italic text-iznik"
+                className="block italic text-[#7EC8C6]"
               >
                 {t("hero.title_line2")}
               </motion.span>
@@ -98,7 +100,7 @@ export default function Hero({ lenisRef }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.62, ease: EASE }}
-            className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-cafemuted sm:text-lg md:mx-0"
+            className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-creme/90 sm:text-lg md:mx-0"
           >
             {t("hero.subtitle")}
           </motion.p>
@@ -128,13 +130,13 @@ export default function Hero({ lenisRef }) {
               href={SITE.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline"
+              className="btn btn-outline-light"
               data-testid="cta-find-us"
             >
               <MapPin className="h-4 w-4" />
               <span>{t("hero.cta_find")}</span>
             </a>
-            <a href={SITE.phoneHref} className="btn btn-outline md:hidden" data-testid="cta-call-hero">
+            <a href={SITE.phoneHref} className="btn btn-outline-light md:hidden" data-testid="cta-call-hero">
               <Phone className="h-4 w-4" />
               <span>{t("contact.call_cta")}</span>
             </a>

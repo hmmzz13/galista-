@@ -10,25 +10,72 @@
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
         <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+        <link rel="canonical" href="https://www.galistacafe.fr/fr" />
+        <link rel="alternate" hreflang="fr" href="https://www.galistacafe.fr/fr" />
+        <link rel="alternate" hreflang="en" href="https://www.galistacafe.fr/en" />
+        <link rel="alternate" hreflang="de" href="https://www.galistacafe.fr/de" />
+        <link rel="alternate" hreflang="x-default" href="https://www.galistacafe.fr/fr" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Galista Café" />
         <meta property="og:title" content="Café de spécialité à Strasbourg — Galista Café" />
-        <meta property="og:description" content="Café de spécialité, petits déjeuners, café turc, böreks et pâtisseries au cœur de Strasbourg. L'art du café, tout simplement." />
+        <meta property="og:description" content="Café de spécialité, saveurs d'Istanbul et douceurs gourmandes : la pause istanbulienne au cœur de Strasbourg." />
+        <meta property="og:url" content="https://www.galistacafe.fr/fr" />
+        <meta property="og:image" content="https://www.galistacafe.fr/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="La salle turquoise du Galista Café à Strasbourg : arches, néon et comptoir à pâtisseries" />
         <meta property="og:locale" content="fr_FR" />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Café de spécialité à Strasbourg — Galista Café" />
-        <meta name="twitter:description" content="Café de spécialité, petits déjeuners, café turc, böreks et pâtisseries au cœur de Strasbourg." />
+        <meta name="twitter:description" content="Café de spécialité, saveurs d'Istanbul et douceurs gourmandes : la pause istanbulienne au cœur de Strasbourg." />
+        <meta name="twitter:image" content="https://www.galistacafe.fr/og-image.jpg" />
         <title>Café de spécialité à Strasbourg — Galista Café</title>
         <script type="application/ld+json">
-        { "@context": "https://schema.org", "@type": "CafeOrCoffeeShop", "name": "Galista Café", "description": "Café de spécialité à Strasbourg : petits déjeuners, café turc, böreks, sandwichs, pâtisseries et glaces.", "telephone": "+33631119583", "address": { "@type": "PostalAddress", "streetAddress": "46 Rue du Faubourg-National", "postalCode": "67000", "addressLocality": "Strasbourg", "addressCountry": "FR" } }
+        { "@context": "https://schema.org", "@type": "CafeOrCoffeeShop", "name": "Galista Café", "description": "Café de spécialité à Strasbourg : petits déjeuners, café turc, böreks, sandwichs, pâtisseries et glaces.", "url": "https://www.galistacafe.fr/fr", "image": "https://www.galistacafe.fr/og-image.jpg", "telephone": "+33631119583", "address": { "@type": "PostalAddress", "streetAddress": "46 Rue du Faubourg-National", "postalCode": "67000", "addressLocality": "Strasbourg", "addressCountry": "FR" }, "geo": { "@type": "GeoCoordinates", "latitude": 48.582427, "longitude": 7.735894 }, "openingHoursSpecification": [ { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "07:00", "closes": "17:00" }, { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday", "Sunday"], "opens": "07:00", "closes": "16:00" } ], "sameAs": ["https://www.instagram.com/galistacafe/"], "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "275" } }
         </script>
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
+        <script>
+        (function () {
+            function hideWatermark() {
+                try {
+                    var els = document.querySelectorAll("a, div, span, aside");
+                    for (var i = 0; i < els.length; i++) {
+                        var el = els[i];
+                        if (el.hasAttribute("data-watermark-hidden")) continue;
+                        var t = (el.textContent || "").trim();
+                        if (t.length > 0 && t.length < 60 && /made\s+with\s+emergent/i.test(t)) {
+                            var n = el, fixed = false;
+                            while (n && n !== document.body) {
+                                var p = window.getComputedStyle(n).position;
+                                if (p === "fixed" || p === "absolute") { fixed = true; break; }
+                                n = n.parentElement;
+                            }
+                            if (fixed) {
+                                el.style.setProperty("display", "none", "important");
+                                el.setAttribute("data-watermark-hidden", "1");
+                            }
+                        }
+                    }
+                } catch (e) {}
+            }
+            var pending = false;
+            try {
+                new MutationObserver(function () {
+                    if (pending) return;
+                    pending = true;
+                    setTimeout(function () { pending = false; hideWatermark(); }, 300);
+                }).observe(document.documentElement, { childList: true, subtree: true });
+            } catch (e) {}
+            window.addEventListener("load", function () { hideWatermark(); setTimeout(hideWatermark, 2000); });
+        })();
+        </script>
     </head>
     <body>
         <noscript>
-          <h1>Galista Café — L'art du café, tout simplement.</h1>
-          <p>Bienvenue chez Galista Café, un lieu dédié au café, aux plaisirs gourmands et aux beaux moments à Strasbourg. Petits déjeuners, café turc, böreks, pâtisseries et glaces.</p>
+          <h1>Galista Café — La pause istanbulienne au cœur de Strasbourg.</h1>
+          <p>Café de spécialité, saveurs d'Istanbul et douceurs gourmandes : petits déjeuners, café turc, böreks, pâtisseries et glaces au cœur de Strasbourg. Horaires officiels : lundi–jeudi 07h00–17h00, vendredi–dimanche 07h00–16h00.</p>
           <p>46 Rue du Faubourg-National, 67000 Strasbourg · +33 6 31 11 95 83</p>
         </noscript>
         <div id="root"></div>

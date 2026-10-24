@@ -5,13 +5,30 @@ import { SITE } from "@/data/site";
 
 const SCRIPT_ID = "instagram-embed-script";
 
-// Flux Instagram officiel (blockquote + embed.js, sans clé API).
-// Cliquer pour charger : le script tiers d'Instagram n'est chargé qu'après
-// un clic explicite du visiteur. Repli automatique vers le profil en cas d'échec.
+// Flux Instagram officiel (blockquote + embed.js, sans clé API), chargé
+// automatiquement dès que la carte devient visible. En cas d'échec, une
+// carte simple avec le profil @galistacafe et un bouton « Voir sur Instagram ».
 export default function InstagramFeed() {
   const { t } = useTranslation();
-  const [state, setState] = useState("idle"); // idle | loading | ready | failed
+  const [state, setState] = useState("pending"); // pending | loading | ready | failed
   const rootRef = useRef(null);
+  const zoneRef = useRef(null);
+
+  // Chargement automatique quand la carte entre dans le viewport.
+  useEffect(() => {
+    if (state !== "pending") return undefined;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setState("loading");
+          io.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    if (zoneRef.current) io.observe(zoneRef.current);
+    return () => io.disconnect();
+  }, [state]);
 
   useEffect(() => {
     if (state !== "loading") return undefined;
@@ -37,7 +54,7 @@ export default function InstagramFeed() {
       document.body.appendChild(s);
     }
 
-    // Publication chargée => « ready » ; rien après 8 s => repli vers le profil.
+    // Publication chargée => « ready » ; rien après 8 s => carte simple.
     const started = Date.now();
     const iv = window.setInterval(() => {
       if (rootRef.current?.querySelector("iframe")) {
@@ -64,12 +81,17 @@ export default function InstagramFeed() {
         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-iznik/10 text-iznik-fonce">
           <Instagram className="h-6 w-6" />
         </span>
-        <p className="text-sm leading-relaxed text-cafemuted">{t("instagram.unavailable")}</p>
+        <div>
+          <h3 className="font-serif text-2xl text-brun" data-testid="instagram-handle-fallback">
+            {t("instagram.handle")}
+          </h3>
+          <p className="mt-1 text-sm leading-relaxed text-cafemuted">{t("instagram.intro")}</p>
+        </div>
         <a
           href={SITE.instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-outline"
+          className="btn btn-primary"
           data-testid="instagram-open-link"
         >
           <Instagram className="h-4 w-4" />
@@ -81,6 +103,7 @@ export default function InstagramFeed() {
 
   return (
     <div
+      ref={zoneRef}
       className="mx-auto max-w-2xl rounded-3xl border border-brun/10 bg-blanccasse p-7 text-center shadow-[0_18px_40px_-28px_rgba(75,48,38,0.4)] md:p-9"
       data-testid="instagram-feed"
     >
@@ -102,35 +125,18 @@ export default function InstagramFeed() {
         </a>
       </div>
 
-      {state === "idle" && (
-        <div className="mt-6 flex flex-col items-center gap-3">
-          <button
-            type="button"
-            onClick={() => setState("loading")}
-            className="btn btn-primary"
-            data-testid="instagram-load-btn"
-          >
-            <Instagram className="h-4 w-4" />
-            <span>{t("instagram.load")}</span>
-          </button>
-          <p className="text-xs leading-relaxed text-cafemuted">{t("instagram.note")}</p>
-        </div>
-      )}
-
-      {state !== "idle" && (
-        <div ref={rootRef} className="mx-auto mt-6 flex min-h-[320px] w-full max-w-md justify-center overflow-hidden">
-          <blockquote
-            className="instagram-media"
-            data-instgrm-permalink={SITE.instagramUrl}
-            data-instgrm-version="14"
-            style={{ background: "#FFF", width: "calc(100% - 2px)" }}
-          >
-            <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
-              {t("instagram.handle")}
-            </a>
-          </blockquote>
-        </div>
-      )}
+      <div ref={rootRef} className="mx-auto mt-6 flex min-h-[320px] w-full max-w-md justify-center overflow-hidden">
+        <blockquote
+          className="instagram-media"
+          data-instgrm-permalink={SITE.instagramUrl}
+          data-instgrm-version="14"
+          style={{ background: "#FFF", width: "calc(100% - 2px)" }}
+        >
+          <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
+            {t("instagram.handle")}
+          </a>
+        </blockquote>
+      </div>
       {state === "loading" && (
         <p className="mt-3 text-xs text-cafemuted" data-testid="instagram-loading">
           {t("instagram.loading")}

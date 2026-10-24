@@ -3,15 +3,17 @@
 Site vitrine officiel de Galista Café, un café de spécialité à Strasbourg (France) qui propose des petits déjeuners, un café turc, des spécialités turques (simit, açma, böreks, menemen), des sandwichs, des pâtisseries, des glaces et des milk-shakes.
 
 ## Pages
-- Accueil (unique page, sections ancrées) : hero 3D « Du grain à la tasse », présentation de l'établissement, carte complète avec prix et ingrédients, spécialités, galerie, avis Google, informations pratiques et contact.
-- Versions linguistiques : /fr/ (langue principale), /de/ (allemand), /en/ (anglais).
+- Accueil (unique page, sections ancrées) : hero avec la photographie de la salle, présentation de l'établissement, carte complète avec prix et ingrédients détaillés, spécialités, galerie, flux Instagram, avis Google, informations pratiques avec carte et contact.
+- Versions linguistiques : /fr (langue principale), /de (allemand), /en (anglais).
 
 ## Informations clés
 - Adresse : 46 Rue du Faubourg-National, 67000 Strasbourg, France.
 - Téléphone : +33 6 31 11 95 83.
-- Horaires (issus d'un annuaire local, à confirmer par l'établissement) : lundi–jeudi 07h00–17h00, vendredi–dimanche 07h00–16h00.
-- Avis Google : note indicative de 4,8/5 (environ 275 avis, valeur vérifiée à une date donnée — voir le site).
+- Instagram : https://www.instagram.com/galistacafe/
+- Horaires officiels : lundi–jeudi 07h00–17h00, vendredi–dimanche 07h00–16h00.
+- Avis Google : note de 4,8/5 sur environ 275 avis (fiche Google de l'établissement).
+- Pour toute information sur les allergènes, l'équipe du café répond sur place.
 - Pas de commande, de réservation ou de paiement en ligne sur ce site.
 
 ## Contenu
-La carte complète (13 catégories, produits, prix, ingrédients connus) est affichée sur la page d'accueil, section « La carte ». Les noms turcs traditionnels (simit, açma, börek, menemen, sucuk, kavurma, poğaça) sont conservés et expliqués dans chaque langue.
+La carte complète (13 catégories, produits, prix, ingrédients décrits en détail) est affichée sur la page d'accueil, section « La carte ». Les noms turcs traditionnels (simit, açma, börek, menemen, sucuk, kavurma, poğaça) sont conservés et expliqués dans chaque langue.

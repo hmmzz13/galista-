@@ -36,7 +36,7 @@ export default function Galerie() {
   const altFor = (p) =>
     p.official
       ? `L'intérieur du café Galista à Strasbourg — ${frames[p.key]}`
-      : `${frames[p.key]} — ${t("practical.photo_note")}`;
+      : frames[p.key];
 
   useEffect(() => {
     if (open === null) return undefined;
@@ -52,11 +52,7 @@ export default function Galerie() {
   return (
     <section id="galerie" className="scroll-mt-16 bg-creme py-20 md:py-28">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <SectionHeading
-          kicker={t("galerie.kicker")}
-          title={t("galerie.title")}
-          intro={t("practical.gallery_intro")}
-        />
+        <SectionHeading kicker={t("galerie.kicker")} title={t("galerie.title")} />
 
         <div className="mt-12 grid auto-rows-[150px] grid-cols-2 gap-4 sm:auto-rows-[180px] md:auto-rows-[210px] md:grid-cols-4">
           {PHOTOS.map((p, i) => (
@@ -73,11 +69,6 @@ export default function Galerie() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
-                {p.official && (
-                  <span className="absolute left-3 top-3 z-10 rounded-full bg-[#3E9B63] px-3 py-1 text-[0.58rem] font-bold uppercase tracking-[0.14em] text-blanccasse">
-                    {t("practical.official_badge")}
-                  </span>
-                )}
                 <span className="absolute inset-x-0 bottom-0 rounded-b-[22px] bg-gradient-to-t from-brun/70 to-transparent p-3 pt-8 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-creme opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {frames[p.key]}
                 </span>

@@ -1,18 +1,16 @@
 import { useEffect, useRef, useState } from "react";
-import { Instagram, MapPin, Pause, Phone, Play } from "lucide-react";
+import { Instagram, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SITE } from "@/data/site";
 import SectionHeading, { Reveal } from "@/components/SectionHeading";
 import OpenBadge, { useOpenState } from "@/components/OpenBadge";
 import { BeanMark } from "@/components/Nav";
 
-// Carte interactive en 3D (vue inclinée) avec rotation automatique douce.
-// La rotation se met en pause à l'interaction et reprend ensuite.
-function Map3D({ openState, reduced }) {
+// Carte interactive plate et lisible (OpenStreetMap), sans inclinaison
+// ni rotation automatique : zoom et déplacement seulement.
+function MapView({ openState, reduced }) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
-  const spinRef = useRef({ enabled: true, interacting: false });
-  const [spinOn, setSpinOn] = useState(true);
   const [failed, setFailed] = useState(false);
   const open = openState.open;
 
@@ -53,12 +51,12 @@ function Map3D({ openState, reduced }) {
           },
           center,
           zoom: 16.5,
-          pitch: 55,
-          bearing: -16,
+          pitch: 0,
+          bearing: 0,
           interactive: true,
         });
         mapRef.current = map;
-        map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
+        map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
         map.on("error", () => {});
         map.on("load", () => {
           if (cancelled) return;
@@ -67,28 +65,9 @@ function Map3D({ openState, reduced }) {
           el.style.cssText = `width:46px;height:46px;background:#FFFCF7;border:3px solid ${edge};border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(75,48,38,0.4);`;
           el.innerHTML = '<svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><g fill="none" stroke="#2F8B89" stroke-width="3" stroke-linecap="round"><path d="M27 7 c-2.5 3.5 2.5 5.5 0 9"/><path d="M35 7 c-2.5 3.5 2.5 5.5 0 9"/></g><path d="M13 27 h36 v6 a13 13 0 0 1 -13 13 h-10 a13 13 0 0 1 -13 -13 z" fill="#2F8B89"/><ellipse cx="31" cy="53" rx="19" ry="3.4" fill="#2F8B89" opacity="0.75"/></svg>';
           new maplibregl.Marker({ element: el }).setLngLat(center).addTo(map);
-          if (!reduced) {
-            map.easeTo({ pitch: 60, bearing: -34, duration: 2600 });
-            // Rotation automatique : pause à l'interaction, reprise après 4 s.
-            const spin = () => {
-              const s = spinRef.current;
-              if (cancelled || !s.enabled || s.interacting) return;
-              map.easeTo({ bearing: map.getBearing() - 0.45, duration: 100, easing: (n) => n });
-            };
-            map.on("moveend", spin);
-            setTimeout(spin, 2700);
-            const pause = () => { spinRef.current.interacting = true; };
-            const resume = () => { spinRef.current.interacting = false; };
-            map.on("mousedown", pause);
-            map.on("touchstart", pause);
-            map.on("mouseup", resume);
-            map.on("touchend", resume);
-            map.on("dragstart", pause);
-            map.on("dragend", () => { setTimeout(resume, 4000); });
-          }
         });
       } catch (e) {
-        console.error("Map3D init error:", e);
+        console.error("MapView init error:", e);
         setFailed(true);
       }
     };
@@ -111,16 +90,10 @@ function Map3D({ openState, reduced }) {
     };
   }, [open, reduced]);
 
-  const toggleSpin = () => {
-    const next = !spinOn;
-    setSpinOn(next);
-    spinRef.current.enabled = next;
-  };
-
   const edgeColor = open ? "ring-[#3E9B63]/60" : "ring-terracotta/60";
 
   return (
-    <div className={`relative h-[420px] w-full rounded-[22px] shadow-[0_24px_50px_-24px_rgba(75,48,38,0.45)] ring-2 ${edgeColor} transition-colors duration-700 md:h-[480px]`} data-testid="map-3d-wrapper">
+    <div className={`relative h-[420px] w-full rounded-[22px] shadow-[0_24px_50px_-24px_rgba(75,48,38,0.45)] ring-2 ${edgeColor} transition-colors duration-700 md:h-[480px]`} data-testid="map-wrapper">
       {failed ? (
         <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-beige p-8 text-center">
           <BeanMark className="h-10 w-10" />
@@ -129,22 +102,13 @@ function Map3D({ openState, reduced }) {
           </p>
         </div>
       ) : (
-        <div ref={containerRef} className="h-full w-full overflow-hidden rounded-[20px]" data-testid="map-3d" />
+        <div ref={containerRef} className="h-full w-full overflow-hidden rounded-[20px]" data-testid="map-frame" />
       )}
       <div className="pointer-events-none absolute inset-0 rounded-[22px] ring-1 ring-inset ring-brun/10" aria-hidden="true" />
 
       <div className="absolute left-3 top-3 z-10 rounded-full bg-blanccasse/95 p-1 shadow-[0_8px_20px_rgba(75,48,38,0.25)]">
         <OpenBadge state={openState} />
       </div>
-
-      <button
-        onClick={toggleSpin}
-        data-testid="map-spin-toggle"
-        aria-label={spinOn ? "Pause rotation" : "Reprendre rotation"}
-        className="absolute bottom-4 left-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-brun/15 bg-blanccasse/95 text-brun shadow-[0_8px_20px_rgba(75,48,38,0.25)] transition-colors hover:border-iznik hover:text-iznik-fonce"
-      >
-        {spinOn ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-      </button>
     </div>
   );
 }
@@ -270,7 +234,7 @@ export default function Infos() {
           <Reveal delay={0.15}>
             <div>
               <p className="mb-3 text-[0.68rem] font-bold uppercase tracking-[0.25em] text-iznik-fonce">{t("practical.map_title")}</p>
-              <Map3D openState={openStateNow} reduced={reduced} />
+              <MapView openState={openStateNow} reduced={reduced} />
               <p className="mt-3 text-xs text-cafemuted">{t("practical.map_note")}</p>
               <a
                 href={SITE.mapsUrl}

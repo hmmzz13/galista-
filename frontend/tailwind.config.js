@@ -33,7 +33,7 @@ module.exports = {
           fonce: '#256E6C'
         },
         noir: '#17120F',
-        cafemuted: '#6E5B53',
+        cafemuted: '#5C4A42',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

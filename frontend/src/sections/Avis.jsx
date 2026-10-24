@@ -16,6 +16,7 @@ export default function Avis() {
 
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(0);
+  const hasQuotes = quotes.some((q) => q && q.text && String(q.text).trim() !== "");
   const reduced = useReducedMotion();
   const [playing, setPlaying] = useState(!reduced);
 
@@ -80,7 +81,11 @@ export default function Avis() {
           </div>
         </Reveal>
 
-        {/* Carrousel d'avis : une carte à la fois, flèches + balayage tactile */}
+        {/* Carrousel d'avis : une carte à la fois, flèches + balayage tactile.
+            Sans données d'avis exploitables, le carrousel est masqué
+            (la note, le nombre d'avis et le bouton Google restent). */}
+        {hasQuotes && (
+        <>
         <Reveal delay={0.2}>
           <div
             className="mx-auto mt-10 flex max-w-3xl items-stretch gap-3 md:gap-6"
@@ -174,6 +179,8 @@ export default function Avis() {
             {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
           </button>
         </div>
+        </>
+        )}
 
         <Reveal delay={0.25}>
           <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-cafemuted">
