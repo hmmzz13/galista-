@@ -57,16 +57,8 @@
     "allergens_note": "For any information about allergens, please ask our team.",
     "flavors_label": "Listed flavours",
     "flavors": "Vanilla, chocolate, crunchy chocolate, coffee, pistachio, strawberry, stracciatella, melon, lemon, mango, salted butter caramel, cookies, red berries, coconut.",
-    "glossary_title": "Words from the menu",
-    "glossary": {
-      "simit": "Turkish sesame-crusted ring bread.",
-      "acma": "Soft, slightly savoury Turkish pastry.",
-      "borek": "Turkish layered savoury pastry with a filling.",
-      "menemen": "Turkish scrambled eggs with tomatoes and peppers.",
-      "sucuk": "Spicy Turkish sausage.",
-      "kavurma": "Turkish-style cooked meat.",
-      "pogaca": "Soft Turkish pastry, often filled with cheese."
-    },
+    "glossary_title": "",
+    "glossary": {},
     "categories": {
       "petits_dejeuners": "Breakfasts",
       "oeufs_omelettes": "Eggs & omelettes",
