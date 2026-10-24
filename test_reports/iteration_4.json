@@ -1,0 +1,60 @@
+{
+  "summary": "Full frontend verification of refonte Carte (Galista Café). Validated structure, scroll-spy, tab jumps, mobile recentering, i18n (fr/de/en), Glaces specifics, allergen banner, no glossary, no regressions. All 7 criteria PASS on desktop 1440 and mobile 375.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_results": {
+    "structure": {
+      "menu_category_count": 13,
+      "images_in_carte": 0,
+      "glossary_rendered": false,
+      "allergen_bottom": true,
+      "filter_tabs_are_anchors": true
+    },
+    "jumps_desktop_1440": {
+      "petits_dejeuners_top": 180,
+      "cafes_top": 180,
+      "boissons_froides_top": 180,
+      "expected_range": "110-230"
+    },
+    "jumps_mobile_375": {
+      "petits_dejeuners_top": 154,
+      "cafes_top": 155,
+      "boissons_froides_top": 155
+    },
+    "scroll_spy": {
+      "desktop_cafes": "category-filter-cafes",
+      "desktop_glaces": "category-filter-glaces",
+      "desktop_bottom": "category-filter-boissons_froides",
+      "mobile_cafes": "category-filter-cafes",
+      "mobile_glaces": "category-filter-glaces",
+      "mobile_bottom": "category-filter-boissons_froides"
+    },
+    "mobile_active_tab_visibility_after_far_click": {"inView": true, "left": 222.5, "right": 375.3, "vw": 375},
+    "i18n": {
+      "de_categories": 13,
+      "en_categories": 13,
+      "raw_i18n_keys_visible": false
+    },
+    "glaces": {"has_boules_variants": true, "has_parfums_box": true},
+    "ingredients_a_confirmer_badge_present": true,
+    "overflow": {"desktop_1440": false, "mobile_375": false},
+    "page_errors_js": 0,
+    "sections_after_carte": {"galerie": true, "avis": true, "contact_section_id_contact": false}
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Minor: #contact id not found — site uses a different id (e.g., 'infos'/'nous-trouver') for contact section. Not in review scope but worth confirming anchors used by header links.",
+    "Console warning observed: 'ensure that the container has a non-static position' (likely Lenis/ScrollTrigger setup) — informational, not blocking."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Loader bypass: sessionStorage.setItem('galista-loader-seen','1'). Lenis anime ~1.2s donc attendre 2.2s après clic. Tab clicks sur onglets sticky peuvent échouer avec Playwright .click() si viewport trop petit — utiliser evaluate(\"el.click()\") pour contourner. Sections ancrées: #menu-{categoryId}; onglets: [data-testid=category-filter-{id}]. Active class contains 'active' (pill--active)."
+}

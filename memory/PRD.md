@@ -66,6 +66,13 @@ SEO/technique (skill farm-seo-setup) :
 16. Mention allergènes « Pour toute information sur les allergènes, demandez à notre équipe. » en bas de la carte.
 - Tests : agent de test iteration_3.json — 100 % (15/15 points, FR desktop + mobile 375-390 px, DE/EN sans clé brute, og-image 200 image/jpeg, robots text/plain + sitemap application/xml, embed Instagram chargé, aucun débordement, pas d'erreur console nouvelle).
 
+## Itération v8 (24/10/2026, retour client : menu simplifié)
+- Carte refondue « tout sur une page » : les 13 catégories (78 produits) sont affichées l'une sous l'autre — plus de changement d'onglet ni de remontée nécessaire. La barre d'onglets collante est devenue une navigation : saut direct vers la catégorie (ancres #menu-<id>, calcul manuel getBoundingClientRect + scrollY, offset -155 mobile / -180 desktop via Lenis) et scroll-spy qui surligne automatiquement la catégorie lue (seuils 170/210 px, bas de page = dernière catégorie). L'onglet actif se recentre seul dans la barre défilante mobile.
+- Toutes les images de la carte retirées (miniatures produits + photo de catégorie) — l'établissement enverra ses propres photos ; champs photo conservés dans menu.js pour la réintégration future.
+- Section « Les mots de la carte » (glossaire) supprimée du rendu ; clés carte.glossary_title/glossary vidées dans les 3 langues.
+- Lignes aérées en grille 2 colonnes desktop / 1 colonne mobile ; variantes Glaces et encadré « Parfums recensés » conservés ; allergènes en bas.
+- Tests : agent de test iteration_4.json — 100 % (13 catégories FR/DE/EN, 0 image, sauts précis top 154-180 px desktop et mobile, scroll-spy complet jusqu'au bas de page, onglet actif visible, 0 erreur JS, pas d'overflow).
+
 ## Architecture
 - Frontend React (CRA) one-page routé par langue : /fr, /de, /en (redirection / selon langue mémorisée ou navigateur).
 - i18next + react-i18next : src/i18n/{fr,de,en}.json — 77 produits entièrement traduits (noms, descriptions, ingrédients) + UI complète.
