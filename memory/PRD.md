@@ -35,6 +35,12 @@ Refonte complète du site officiel de Galista Café (46 Rue du Faubourg-National
 - Écran de chargement 3D pur CSS (Loader.jsx) : tasse en cylindre 3D en rotation (20 tranches), grains en orbite, vapeur, soucoupe, barre de progression — pas de WebGL ni Three.js (contrainte v2 conservée). Durée ~2 s + fondu 0,45 s, une seule fois par session (sessionStorage galista-loader-seen), 0,5 s en prefers-reduced-motion, scroll bloqué pendant l'affichage.
 - Tests : agent de test iteration_1.json — 100 % réussi (loader, hero 3 langues, carrousel flèches/dots/drag/bouclage, ingrédients enrichis, régressions nav/carte/badge/carte MapLibre, pas d'overflow desktop/mobile, pas d'erreur console nouvelle). Reste connu : warning MapLibre worker préexistant (non bloquant, la carte s'affiche).
 
+## Itération v5 (24/10/2026, retour client)
+- Avis en auto-défilement (choix utilisateur : toutes les 3 secondes) : le carrousel avance seul, bouton pause/reprise rond à côté du compteur (icônes lucide Pause/Play, aria-pressed, libellés traduits FR/DE/EN), timer réinitialisé à chaque navigation manuelle, désactivé par défaut en prefers-reduced-motion.
+- Flux Instagram dans la galerie (InstagramFeed.jsx) : intégration officielle sans clé API (blockquote + embed.js) au sein de la section #galerie — chargement au clic (« Charger les publications ») pour ne contacter Instagram qu'après consentement explicite du visiteur (visiteurs UE), détection d'iframe par polling (400 ms, max 8 s) et repli élégant vers le profil @galistacafe en cas d'échec. Clés i18n instagram.* dans les 3 langues + mention de confidentialité ajoutée à footer.privacy_body.
+- Choix d'intégration validé par le playbook : embed officiel de profil Instagram (pas d'API Meta, pas de widget payant, pas de scraping) — le nombre/le rendu des publications est contrôlé par Instagram.
+- Tests : agent de test iteration_2.json — 100 % réussi (défilement 3 s mesuré, pause figée 4,5 s, reprise, reset du timer au clic manuel, zéro requête instagram.com avant le clic, iframe chargée en ~5 s, i18n DE/EN, lightbox et régressions OK).
+
 ## Architecture
 - Frontend React (CRA) one-page routé par langue : /fr, /de, /en (redirection / selon langue mémorisée ou navigateur).
 - i18next + react-i18next : src/i18n/{fr,de,en}.json — 77 produits entièrement traduits (noms, descriptions, ingrédients) + UI complète.

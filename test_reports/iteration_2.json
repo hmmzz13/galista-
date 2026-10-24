@@ -1,0 +1,32 @@
+{
+  "summary": "Frontend-only testing of two new features on Galista Café vitrine: (1) auto-scroll reviews carousel every 3s with pause/resume toggle, and (2) click-to-load Instagram feed in the gallery. Also re-ran regressions. All targeted tests PASS on desktop 1440x900 and mobile 390x844.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_results": {
+    "avis_autoplay": "PASS — counter advanced 2/10 → 3/10 → 4/10 in ~7s (interval ~3s). aria-pressed on [data-testid=review-autoplay-toggle] is 'false' when playing. Click to pause -> aria-pressed='true', counter froze at 4/10 for 4.5s (no change). Click to resume -> advanced to 5/10 within 3.5s. Manual review-next advanced immediately (5->6) and the auto-timer reset (next auto tick came ~3.5s later: 6->7).",
+    "avis_i18n_toggle": "PASS — DE aria-label='Automatik fortsetzen' (paused state), EN aria-label='Resume the slideshow' (paused state). FR works.",
+    "instagram_feed_card": "PASS — [data-testid=instagram-feed] renders with title, intro, [data-testid=instagram-handle-link] -> https://www.instagram.com/galistacafe/ target=_blank, and [data-testid=instagram-load-btn] 'Charger les publications'.",
+    "instagram_click_to_load": "PASS — ZERO network requests to instagram.com before click (click-to-load working, GDPR-friendly). After click: 8 instagram.com requests detected, iframe mounted inside [data-testid=instagram-feed] within ~5s, [data-testid=instagram-loading] disappeared. Fallback not needed.",
+    "instagram_i18n": "PASS — DE title 'Das Café live auf Instagram', EN title 'The café live on Instagram'. Load button text in FR 'Charger les publications'.",
+    "regressions": "PASS — gallery-frame-0 opens lightbox, lightbox-close closes it. [data-testid=open-badge] present. No horizontal overflow at 1440x900 nor at 390x844. Loader session-gating preserved (confirmed in iteration_1).",
+    "console": "No new React/framer-motion errors introduced by the two features. Pre-existing MapLibre worker error and framer-motion scroll-offset warning are unchanged. One benign Instagram embed internal warning ('route config was null') comes from the third-party embed.js — not blocking, iframe still renders. Permissions-Policy 'bluetooth' warning is from Instagram embed too, not our code."
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Click-to-load pattern for Instagram is correctly implemented: no instagram.com request fires until the user explicitly clicks the load button — good for EU/GDPR.",
+    "Autoplay timer resets correctly on manual navigation (review-next) — avoids the 'jump right after I clicked' UX bug.",
+    "Pause/Play button exposes correct aria-pressed state and translated aria-label in all 3 locales — accessible."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "data-testids used: review-carousel, review-counter, review-next, review-prev, review-autoplay-toggle, instagram-feed, instagram-handle-link, instagram-load-btn, instagram-loading, instagram-fallback, gallery-frame-0, lightbox-close, open-badge, lang-switcher-fr/de/en. Instagram embed depends on network — iframe appeared reliably in this run; if it ever doesn't, the fallback is wired up correctly (verified in code). Loader shows once per session via sessionStorage 'galista-loader-seen' — use fresh context to retest.",
+  "rca of the issue": "No bugs found."
+}
