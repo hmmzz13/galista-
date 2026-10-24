@@ -2,56 +2,85 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CATEGORIES } from "@/data/menu";
 import { formatPrice } from "@/i18n";
+import { BeanMark } from "@/components/Nav";
 import SectionHeading, { Reveal } from "@/components/SectionHeading";
 
-// Ligne de menu compacte : nom + pointillés + prix, description et
-// ingrédients détaillés en dessous (photos ajoutées plus tard par l'établissement).
-function MenuRow({ item, t, i18n }) {
+// Photo d'un plat : d'abord /photos/<id>.jpg (photos officielles de
+// l'établissement), puis l'illustration du produit, puis celle de la
+// catégorie. Si tout échoue, un marqueur discret.
+function ProductImage({ id, itemPhoto, catPhoto, alt }) {
+  const sources = [`/photos/${id}.jpg`, itemPhoto, catPhoto].filter(Boolean);
+  const [step, setStep] = useState(0);
+
+  if (step >= sources.length) {
+    return (
+      <div className="flex h-full w-full items-center justify-center bg-beige">
+        <BeanMark className="h-6 w-6 text-brun/30" />
+      </div>
+    );
+  }
+  return (
+    <img
+      src={sources[step]}
+      alt={alt}
+      loading="lazy"
+      onError={() => setStep((s) => s + 1)}
+      className="h-full w-full object-cover"
+    />
+  );
+}
+
+// Ligne de menu façon flyer : photo, nom + pointillés + prix, et le texte
+// riche en petit (la ligne résumée en doublon est retirée).
+function MenuRow({ item, cat, t, i18n }) {
   const meta = t(`items.${item.id}`, { returnObjects: true }) || {};
   const priceStr = Array.isArray(item.price)
     ? item.price.map((p) => formatPrice(i18n.language, p)).join(" / ")
     : formatPrice(i18n.language, item.price);
+  const richText = meta.ing || meta.desc;
 
   return (
-    <article data-testid={`menu-item-${item.id}`}>
-      <div className="flex items-baseline">
-        <h3 className="font-serif text-lg text-brun sm:text-xl">{meta.name}</h3>
-        <span className="leader" aria-hidden="true" />
-        <span className="whitespace-nowrap font-price text-[0.9rem] text-terracotta-fonce" data-testid={`menu-price-${item.id}`}>
-          {priceStr}
-        </span>
+    <article className="flex items-start gap-3.5" data-testid={`menu-item-${item.id}`}>
+      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-beige sm:h-[72px] sm:w-[72px]" data-testid={`menu-photo-${item.id}`}>
+        <ProductImage id={item.id} itemPhoto={item.photo} catPhoto={cat.photo} alt={meta.name || item.id} />
       </div>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-baseline">
+          <h3 className="font-serif text-[1.02rem] leading-snug text-brun sm:text-lg">{meta.name}</h3>
+          <span className="leader" aria-hidden="true" />
+          <span className="whitespace-nowrap font-price text-[0.9rem] text-terracotta-fonce" data-testid={`menu-price-${item.id}`}>
+            {priceStr}
+          </span>
+        </div>
 
-      {meta.desc && <p className="mt-2 text-sm leading-relaxed text-cafemuted">{meta.desc}</p>}
+        {richText && <p className="mt-1.5 text-xs leading-snug text-cafemuted">{richText}</p>}
 
-      {item.variants && (
-        <ul className="mt-2 space-y-1">
-          {item.variants.map((v) => (
-            <li key={v.key} className="flex items-baseline text-sm">
-              <span className="text-brun/85">{t(`carte.glaces.${v.key}`)}</span>
-              <span className="leader" aria-hidden="true" />
-              <span className="whitespace-nowrap font-price text-sm text-terracotta-fonce">
-                {formatPrice(i18n.language, v.price)}
-              </span>
-            </li>
-          ))}
-        </ul>
-      )}
+        {item.variants && (
+          <ul className="mt-1.5 space-y-0.5">
+            {item.variants.map((v) => (
+              <li key={v.key} className="flex items-baseline text-xs">
+                <span className="text-brun/85">{t(`carte.glaces.${v.key}`)}</span>
+                <span className="leader" aria-hidden="true" />
+                <span className="whitespace-nowrap font-price text-xs text-terracotta-fonce">
+                  {formatPrice(i18n.language, v.price)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
 
-      {meta.ing && <p className="mt-2 text-sm leading-relaxed text-brun/85">{meta.ing}</p>}
-
-      {item.confirm && (
-        <span className="mt-2 inline-block rounded-full border border-terracotta/50 px-3 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-terracotta-fonce">
-          {t("carte.confirm_badge")}
-        </span>
-      )}
+        {item.confirm && (
+          <span className="mt-1.5 inline-block rounded-full border border-terracotta/50 px-2.5 py-0.5 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-terracotta-fonce">
+            {t("carte.confirm_badge")}
+          </span>
+        )}
+      </div>
     </article>
   );
 }
 
-// Toutes les catégories sont affichées l'une sous l'autre : plus besoin de
-// changer d'onglet. La barre collante sert de navigation instantanée et
-// surligne automatiquement la catégorie en cours de lecture.
+// Menu « tout sur une page » : les 13 catégories se suivent, la barre
+// collante sert de navigation (saut direct + surlignage automatique).
 export default function Carte({ lenisRef }) {
   const { t, i18n } = useTranslation();
   const [active, setActive] = useState(CATEGORIES[0].id);
@@ -120,24 +149,24 @@ export default function Carte({ lenisRef }) {
           </div>
         </div>
 
-        <div className="mt-14 space-y-16 md:space-y-20">
+        <div className="mt-12 space-y-12 md:space-y-16">
           {CATEGORIES.map((c) => (
             <Reveal key={c.id}>
-              <section id={`menu-${c.id}`} className="scroll-mt-36 md:scroll-mt-44" data-testid={`menu-category-${c.id}`}>
+              <section id={`menu-${c.id}`} className="scroll-mt-40 md:scroll-mt-44" data-testid={`menu-category-${c.id}`}>
                 <div className="flex items-baseline gap-4">
                   <h3 className="font-serif text-2xl italic text-brun sm:text-3xl">{t(`carte.categories.${c.id}`)}</h3>
                   <span className="hidden h-px flex-1 bg-brun/10 sm:block" aria-hidden="true" />
                 </div>
-                <div className="mt-7 grid gap-x-14 gap-y-9 lg:grid-cols-2">
+                <div className="mt-6 grid gap-x-10 gap-y-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-12">
                   {c.items.map((item) => (
-                    <MenuRow key={item.id} item={item} t={t} i18n={i18n} />
+                    <MenuRow key={item.id} item={item} cat={c} t={t} i18n={i18n} />
                   ))}
                   {c.flavorsNote && (
-                    <div className="self-start rounded-2xl border border-iznik/25 bg-creme p-6">
-                      <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--iznik-fonce)" }}>
+                    <div className="self-start rounded-2xl border border-iznik/25 bg-creme p-5">
+                      <p className="text-[0.66rem] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--iznik-fonce)" }}>
                         {t("carte.flavors_label")}
                       </p>
-                      <p className="mt-3 text-sm leading-relaxed text-cafemuted">{t("carte.flavors")}</p>
+                      <p className="mt-2 text-xs leading-relaxed text-cafemuted">{t("carte.flavors")}</p>
                     </div>
                   )}
                 </div>
@@ -146,7 +175,7 @@ export default function Carte({ lenisRef }) {
           ))}
         </div>
 
-        <div className="mt-16 border-t border-brun/10 pt-8 text-center">
+        <div className="mt-14 border-t border-brun/10 pt-8 text-center">
           <p className="mx-auto max-w-xl text-sm leading-relaxed text-cafemuted" data-testid="allergens-note">
             {t("carte.allergens_note")}
           </p>
