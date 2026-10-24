@@ -195,6 +195,17 @@
     "next": "Image suivante",
     "frames": ["L'intérieur du café", "L'ambiance", "Les boissons", "Les pâtisseries", "Les petits déjeuners", "Les spécialités turques", "Le café & le latte art", "La tasse signature"]
   },
+  "instagram": {
+    "title": "Le café en direct sur Instagram",
+    "handle": "@galistacafe",
+    "intro": "Ambiance, nouveautés et douceurs du jour — suivez-nous au fil des publications.",
+    "follow": "Suivre le café",
+    "load": "Charger les publications",
+    "loading": "Chargement des publications…",
+    "unavailable": "Les publications Instagram ne sont pas disponibles ici pour le moment.",
+    "open": "Ouvrir Instagram",
+    "note": "Le contenu est chargé depuis Instagram uniquement après votre clic."
+  },
   "avis": {
     "kicker": "Avis clients",
     "title": "Votre expérience, notre plus belle récompense.",
@@ -206,7 +217,9 @@
     "prev": "Avis précédent",
     "next": "Avis suivant",
     "go": "Aller à l'avis {{n}}",
-    "counter": "{{current}} / {{total}}"
+    "counter": "{{current}} / {{total}}",
+    "pause": "Mettre en pause le défilement",
+    "play": "Reprendre le défilement"
   },
   "infos": {
     "kicker": "Informations pratiques",
@@ -236,7 +249,7 @@
     "legal_title": "Mentions légales",
     "legal_body": "Éditeur du site : Galista Café — 46 rue du Faubourg-National, 67000 Strasbourg, France. Téléphone : +33 6 31 11 95 83.\n\nLes informations juridiques complètes (raison sociale, SIRET, hébergeur, directeur de la publication) restent à compléter par l'établissement.",
     "privacy_title": "Politique de confidentialité",
-    "privacy_body": "Ce site vitrine ne collecte aucune donnée personnelle : pas de formulaire, pas de compte, pas de traceur déposé par le site. Seules les données techniques de l'hébergement peuvent être enregistrées.\n\nCette politique sera complétée par l'établissement si nécessaire.",
+    "privacy_body": "Ce site vitrine ne collecte aucune donnée personnelle : pas de formulaire, pas de compte, pas de traceur déposé par le site. Seules les données techniques de l'hébergement peuvent être enregistrées.\n\nCette politique sera complétée par l'établissement si nécessaire.\n\nLe flux Instagram intégré à la galerie n'est chargé que lorsque vous cliquez sur « Charger les publications » ; Instagram peut alors déposer ses propres éléments.",
     "close": "Fermer"
   },
   "practical": {

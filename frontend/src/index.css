@@ -442,6 +442,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   transform: scale(1.06);
 }
 .carousel-arrow:active { transform: scale(0.96); }
+.carousel-arrow--sm {
+  width: 36px;
+  height: 36px;
+  border-color: rgba(75, 48, 38, 0.18);
+}
 
 .carousel-dot {
   width: 8px;

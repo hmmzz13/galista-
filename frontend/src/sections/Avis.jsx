@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Pause, Play, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SITE } from "@/data/site";
 import { formatDate } from "@/i18n";
@@ -16,6 +16,18 @@ export default function Avis() {
 
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(0);
+  const reduced = useReducedMotion();
+  const [playing, setPlaying] = useState(!reduced);
+
+  // Défilement automatique toutes les 3 secondes, avec bouton pause.
+  useEffect(() => {
+    if (!playing || reduced || total <= 1) return undefined;
+    const id = setInterval(() => {
+      setDir(1);
+      setIndex((i) => (i + 1) % total);
+    }, 3000);
+    return () => clearInterval(id);
+  }, [playing, reduced, total, index]);
 
   const go = (d) => {
     setDir(d);
@@ -147,9 +159,21 @@ export default function Avis() {
             />
           ))}
         </div>
-        <p className="mt-3 text-center font-price text-xs text-cafemuted" data-testid="review-counter">
-          {t("avis.counter", { current: index + 1, total })}
-        </p>
+        <div className="mt-3 flex items-center justify-center gap-3">
+          <p className="font-price text-xs text-cafemuted" data-testid="review-counter">
+            {t("avis.counter", { current: index + 1, total })}
+          </p>
+          <button
+            type="button"
+            onClick={() => setPlaying((p) => !p)}
+            aria-label={playing ? t("avis.pause") : t("avis.play")}
+            aria-pressed={!playing}
+            className="carousel-arrow carousel-arrow--sm"
+            data-testid="review-autoplay-toggle"
+          >
+            {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
+          </button>
+        </div>
 
         <Reveal delay={0.25}>
           <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-cafemuted">

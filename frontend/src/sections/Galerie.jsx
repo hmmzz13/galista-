@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import SectionHeading, { Reveal } from "@/components/SectionHeading";
+import InstagramFeed from "@/components/InstagramFeed";
 
 const SPANS = [
   "col-span-2 row-span-2",
@@ -84,6 +85,12 @@ export default function Galerie() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-12">
+            <InstagramFeed />
+          </div>
+        </Reveal>
       </div>
 
       <AnimatePresence>
