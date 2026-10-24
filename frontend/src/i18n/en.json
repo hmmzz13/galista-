@@ -50,10 +50,9 @@
   "carte": {
     "kicker": "The menu",
     "title": "The full menu.",
-    "subtitle": "Coffees, breakfasts, Turkish specialities, pastries and drinks — prices are taken from the establishment's online menu, to be confirmed before publication.",
+    "subtitle": "Coffees, breakfasts, Turkish specialities, pastries and drinks — prices are as per the establishment's menu.",
     "ingredients_label": "Ingredients",
     "confirm_badge": "Ingredients to be confirmed",
-    "prices_note": "Prices and products taken from the online menu — to be confirmed by the establishment before publication.",
     "allergens_note": "For any information about allergens, please ask our team.",
     "flavors_label": "Listed flavours",
     "flavors": "Vanilla, chocolate, crunchy chocolate, coffee, pistachio, strawberry, stracciatella, melon, lemon, mango, salted butter caramel, cookies, red berries, coconut.",

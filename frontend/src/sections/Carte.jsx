@@ -97,12 +97,7 @@ export default function Carte({ lenisRef }) {
   return (
     <section id="carte" className="scroll-mt-16 bg-blanccasse py-20 md:py-28">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-          <SectionHeading kicker={t("carte.kicker")} title={t("carte.title")} intro={t("carte.subtitle")} />
-          <Reveal delay={0.2} className="md:max-w-xs md:shrink-0">
-            <p className="text-xs leading-relaxed text-cafemuted md:text-right">{t("carte.prices_note")}</p>
-          </Reveal>
-        </div>
+        <SectionHeading kicker={t("carte.kicker")} title={t("carte.title")} intro={t("carte.subtitle")} />
 
         <div className="no-scrollbar sticky top-16 z-30 -mx-6 mt-10 overflow-x-auto border-b border-brun/10 bg-blanccasse px-6 py-4 md:mx-0 md:px-0">
           <div className="flex flex-nowrap gap-2 lg:flex-wrap lg:justify-center" role="tablist" aria-label={t("carte.kicker")}>

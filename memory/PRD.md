@@ -73,6 +73,12 @@ SEO/technique (skill farm-seo-setup) :
 - Lignes aérées en grille 2 colonnes desktop / 1 colonne mobile ; variantes Glaces et encadré « Parfums recensés » conservés ; allergènes en bas.
 - Tests : agent de test iteration_4.json — 100 % (13 catégories FR/DE/EN, 0 image, sauts précis top 154-180 px desktop et mobile, scroll-spy complet jusqu'au bas de page, onglet actif visible, 0 erreur JS, pas d'overflow).
 
+## Itération v9 (24/10/2026, retour client : prix officiels)
+- Prix confirmés par le client : mention « à confirmer par l'établissement avant publication » retirée partout — bloc de note prix supprimé de l'en-tête de la carte, ligne retirée du bas du footer, flag site.js passé à pricesToConfirm: false.
+- Sous-titre de la carte reformulé : « les prix sont ceux de la carte de l'établissement. » (DE/EN traduits).
+- Le badge « Ingrédients à confirmer » reste affiché sur les böreks et la salade au thon (seuls les prix ont été confirmés, pas tous les ingrédients).
+- Vérifié par captures : plus aucune mention prix à confirmer dans #carte ni footer, sous-titre officiel en place, badge ingrédients conservé, scroll-spy Böreks actif.
+
 ## Architecture
 - Frontend React (CRA) one-page routé par langue : /fr, /de, /en (redirection / selon langue mémorisée ou navigateur).
 - i18next + react-i18next : src/i18n/{fr,de,en}.json — 77 produits entièrement traduits (noms, descriptions, ingrédients) + UI complète.

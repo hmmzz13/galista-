@@ -50,10 +50,9 @@
   "carte": {
     "kicker": "Die Karte",
     "title": "Die ganze Karte.",
-    "subtitle": "Kaffee, Frühstücke, türkische Spezialitäten, Gebäck und Getränke — die Preise stammen von der Online-Karte des Betriebs und sind vor Veröffentlichung zu bestätigen.",
+    "subtitle": "Kaffee, Frühstücke, türkische Spezialitäten, Gebäck und Getränke — die Preise entsprechen der Karte des Betriebs.",
     "ingredients_label": "Zutaten",
     "confirm_badge": "Zutaten noch zu bestätigen",
-    "prices_note": "Preise und Produkte von der Online-Karte übernommen — vom Betrieb vor Veröffentlichung zu bestätigen.",
     "allergens_note": "Für alle Informationen zu Allergenen wenden Sie sich bitte an unser Team.",
     "flavors_label": "Verfügbare Sorten",
     "flavors": "Vanille, Schokolade, knusprige Schokolade, Kaffee, Pistazie, Erdbeere, Stracciatella, Melone, Zitrone, Mango, gesalzenes Karamell, Cookies, rote Früchte, Kokosnuss.",

@@ -50,10 +50,9 @@
   "carte": {
     "kicker": "La carte",
     "title": "La carte complète.",
-    "subtitle": "Cafés, petits déjeuners, spécialités turques, pâtisseries et boissons — les prix sont repris de la carte en ligne de l'établissement, à confirmer avant publication.",
+    "subtitle": "Cafés, petits déjeuners, spécialités turques, pâtisseries et boissons — les prix sont ceux de la carte de l'établissement.",
     "ingredients_label": "Ingrédients",
     "confirm_badge": "Ingrédients à confirmer",
-    "prices_note": "Prix et produits relevés sur la carte en ligne — à confirmer par l'établissement avant publication.",
     "allergens_note": "Pour toute information sur les allergènes, demandez à notre équipe.",
     "flavors_label": "Parfums recensés",
     "flavors": "Vanille, chocolat, chocolat craquant, café, pistache, fraise, stracciatella, melon, citron, mangue, caramel beurre salé, cookies, fruits rouges, noix de coco.",

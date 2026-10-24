@@ -79,7 +79,7 @@ export const SITE = {
     { open: "07:00", close: "16:00" },
     { open: "07:00", close: "16:00" },
   ],
-  pricesToConfirm: true,
+  pricesToConfirm: false,
 };
 
 // État d'ouverture calculé avec le fuseau horaire Europe/Paris.

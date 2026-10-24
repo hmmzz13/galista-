@@ -147,7 +147,6 @@ export default function Footer({ lenisRef }) {
       <div className="border-t border-brun/10">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-cafemuted md:flex-row md:px-12">
           <p>© {new Date().getFullYear()} Galista Café — {t("footer.rights")}</p>
-          <p>{t("carte.prices_note")}</p>
         </div>
       </div>
 
