@@ -11,21 +11,17 @@ const SPANS = [
   "col-span-1",
   "col-span-1",
   "col-span-2",
-  "col-span-1",
-  "col-span-1",
   "col-span-2",
 ];
 
-// Photo 0 : photographie officielle de l'établissement (pas d'illustration).
+// Photographies officielles de l'établissement.
 const PHOTOS = [
-  { src: "/photos/cafe-interior.jpg", key: 0, official: true },
-  { src: "https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1200&q=80", key: 1 },
-  { src: "https://images.unsplash.com/photo-1583577612013-4fecf7bf8f13?auto=format&fit=crop&w=1200&q=80", key: 2 },
-  { src: "https://images.unsplash.com/photo-1766852566302-b54c388a2bb9?auto=format&fit=crop&w=1200&q=80", key: 3 },
-  { src: "https://images.unsplash.com/photo-1768319920501-2d124ccfd8dc?auto=format&fit=crop&w=1200&q=80", key: 4 },
-  { src: "https://images.unsplash.com/photo-1506778020041-0ea35027d019?auto=format&fit=crop&w=1200&q=80", key: 5 },
-  { src: "https://images.unsplash.com/photo-1593443320739-77f74939d0da?auto=format&fit=crop&w=1200&q=80", key: 6 },
-  { src: "https://images.pexels.com/photos/6747870/pexels-photo-6747870.jpeg?auto=compress&cs=tinysrgb&w=1200", key: 7 },
+  { src: "/photos/cafe-interior.jpg", key: 0 },
+  { src: "/photos/galerie-ambiance.jpg", key: 1 },
+  { src: "/photos/galerie-boissons.jpg", key: 2 },
+  { src: "/photos/galerie-patisseries.jpg", key: 3 },
+  { src: "/photos/galerie-petits-dejeuners.jpg", key: 4 },
+  { src: "/photos/galerie-specialites.jpg", key: 5 },
 ];
 
 export default function Galerie() {
@@ -33,10 +29,7 @@ export default function Galerie() {
   const frames = t("galerie.frames", { returnObjects: true }) || [];
   const [open, setOpen] = useState(null);
 
-  const altFor = (p) =>
-    p.official
-      ? `L'intérieur du café Galista à Strasbourg — ${frames[p.key]}`
-      : frames[p.key];
+  const altFor = (p) => frames[p.key];
 
   useEffect(() => {
     if (open === null) return undefined;
@@ -137,7 +130,7 @@ export default function Galerie() {
               className="w-full max-w-4xl"
             >
               <img
-                src={PHOTOS[open].official ? PHOTOS[open].src : PHOTOS[open].src.replace("w=1200", "w=1600")}
+                src={PHOTOS[open].src}
                 alt={altFor(PHOTOS[open])}
                 className="img-soft max-h-[76vh] w-full object-contain"
                 data-testid="lightbox-image"

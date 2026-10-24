@@ -182,7 +182,7 @@
     "close": "Fermer",
     "prev": "Image précédente",
     "next": "Image suivante",
-    "frames": ["L'intérieur du café", "L'ambiance", "Les boissons", "Les pâtisseries", "Les petits déjeuners", "Les spécialités turques", "Le café & le latte art", "La tasse signature"]
+    "frames": ["L'intérieur du café", "L'ambiance", "Les boissons", "Les pâtisseries", "Les petits déjeuners", "Les spécialités turques"]
   },
   "instagram": {
     "title": "Le café en direct sur Instagram",

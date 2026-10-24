@@ -89,6 +89,13 @@ SEO/technique (skill farm-seo-setup) :
 - Doublon visuel corrigé : l'encadré « Parfums recensés » ne s'affiche plus deux fois de suite (retiré de Milk-shakes, conservé sur Glaces).
 - Tests : agent de test iteration_5.json — 95 % puis correctifs vérifiés (77 photos OK, 0 cassée, sauts précis desktop/mobile, scroll-spy complet, i18n propre, pas d'overflow).
 
+## Itération v11 (24/10/2026, photos officielles de la galerie)
+- 5 photographies officielles fournies par l'établissement, optimisées (max 1600 px, JPEG ~84, 147-286 Ko) et intégrées dans public/photos/ : galerie-patisseries.jpg (vitrine croissants), galerie-boissons.jpg (machine espresso rex-royle dans la vapeur), galerie-petits-dejeuners.jpg (espresso + journal + croissant), galerie-specialites.jpg (œuvre simit + thé turc), galerie-ambiance.jpg (néon Galista Café sur mur végétal).
+- Galerie passée de 8 à 6 encadrés — uniquement des photos officielles, plus aucun placeholder Unsplash/Pexels ; spans ajustés pour une mosaïque pleine (2x2 + 2 + 1 + 1 + 2 + 2) ; alt texts simplifiés (labels i18n) ; logique lightbox simplifiée (src direct).
+- Libellés des encadrés réduits à 6 dans les 3 langues (fr/de/en galerie.frames).
+- Vérifié par captures (desktop + mobile 375) : 6 photos chargent (naturalWidth > 0), lightbox ouvre la bonne photo avec légende « 4 / 6 — Les pâtisseries », fermeture OK, pas de débordement.
+- Reste à recevoir : photos officielles des plats pour la carte (les placeholders Unsplash de la carte attendent les vraies).
+
 ## Architecture
 - Frontend React (CRA) one-page routé par langue : /fr, /de, /en (redirection / selon langue mémorisée ou navigateur).
 - i18next + react-i18next : src/i18n/{fr,de,en}.json — 77 produits entièrement traduits (noms, descriptions, ingrédients) + UI complète.
