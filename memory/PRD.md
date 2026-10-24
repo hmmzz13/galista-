@@ -58,6 +58,11 @@ Refonte complète du site officiel de Galista Café (46 Rue du Faubourg-National
 - Bannière photo pleine largeur avec la photographie officielle de l'intérieur du café (arches turquoise, néon Galista, vitrine à pâtisseries) : parallaxe douce au scroll + respiration du zoom, label « Notre café à Strasbourg » traduit, placée entre la carte et la galerie.
 - Même photo officielle en tête de galerie avec badge vert « Photo officielle » (les autres restent des images d'illustration, alt honnêtes). Fichier optimisé : public/photos/cafe-interior.jpg (1920×1080, 414 KB).
 
+## Itération v7 (22/10/2026, retour client)
+- Bannière principale de début de page : illustration fournie par le client (intérieur chaleureux du café, style animé, Dola AI) placée en fond du hero pleine largeur, watermark rogné, fichier public/photos/hero-illustration.jpg (736×414, 59 KB).
+- Hero recomposé : parallaxe douce (y + scale au scroll), voile dégradé crème (fort à gauche sur desktop, dense sur mobile), contenu aligné à gauche sur desktop / centré sur mobile, logo + titre + sous-titre + badge d'ouverture + CTA « Voir la carte » / « Itinéraire » (+ « Appeler » sur mobile), tag « image d'illustration » discret.
+- La photographie officielle de l'intérieur reste en bannière secondaire entre la carte et la galerie.
+
 ## Itération v5 (22/10/2026, retour client)
 - Carte 3D animée : rotation automatique douce en continu (pattern moveend MapLibre), pause à l'interaction et reprise après 4 s, bouton pause/reprise, désactivée si prefers-reduced-motion.
 - État ouvert/fermé relié partout : badge vert « Ouvert · jusqu'à HH:MM » (ou terracotta « Fermé · ouvre… ») superposé sur la carte, anneau de la carte vert quand ouvert / terracotta quand fermé, marqueur tasse bordé de la même couleur, ligne du jour courant surlignée dans le tableau des horaires avec badge « Aujourd'hui » (vert si ouvert, terracotta si fermé).
