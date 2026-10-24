@@ -228,7 +228,7 @@
     "phone_label": "Phone",
     "hours_label": "Opening hours",
     "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    "hours_note": "Hours from a local directory — to be confirmed by the establishment.",
+    "hours_note": "Official hours — the café is open 7 days a week.",
     "maps_cta": "Open in Google Maps",
     "call_cta": "Call the café"
   },

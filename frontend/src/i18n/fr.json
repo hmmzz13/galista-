@@ -228,7 +228,7 @@
     "phone_label": "Téléphone",
     "hours_label": "Horaires",
     "days": ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
-    "hours_note": "Horaires provenant d'un annuaire local — à confirmer par l'établissement.",
+    "hours_note": "Horaires officiels — le café est ouvert 7 jours sur 7.",
     "maps_cta": "Ouvrir dans Google Maps",
     "call_cta": "Appeler le café"
   },

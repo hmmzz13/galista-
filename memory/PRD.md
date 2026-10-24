@@ -41,6 +41,11 @@ Refonte complète du site officiel de Galista Café (46 Rue du Faubourg-National
 - Choix d'intégration validé par le playbook : embed officiel de profil Instagram (pas d'API Meta, pas de widget payant, pas de scraping) — le nombre/le rendu des publications est contrôlé par Instagram.
 - Tests : agent de test iteration_2.json — 100 % réussi (défilement 3 s mesuré, pause figée 4,5 s, reprise, reset du timer au clic manuel, zéro requête instagram.com avant le clic, iframe chargée en ~5 s, i18n DE/EN, lightbox et régressions OK).
 
+## Itération v6 (24/10/2026, retour client)
+- Horaires officiels confirmés par l'établissement : lundi-jeudi 07:00-17:00, vendredi-dimanche 07:00-16:00 (identiques aux valeurs déjà codées — vérifié ligne à ligne). Badge Ouvert/Fermé désormais juste à 100 %.
+- Retiré la mention « horaires à confirmer par l'établissement » : remplacée par « Horaires officiels — le café est ouvert 7 jours sur 7. » (DE/EN traduits), flag `hoursToConfirm` supprimé de site.js (jamais lu ailleurs ; `pricesToConfirm` reste vrai — prix toujours à confirmer).
+- Vérifié par capture : badge « Ouvert · jusqu'à 16:00 » correct le samedi, 7 jours listés à l'identique du confirmation client, ancienne mention absente.
+
 ## Architecture
 - Frontend React (CRA) one-page routé par langue : /fr, /de, /en (redirection / selon langue mémorisée ou navigateur).
 - i18next + react-i18next : src/i18n/{fr,de,en}.json — 77 produits entièrement traduits (noms, descriptions, ingrédients) + UI complète.

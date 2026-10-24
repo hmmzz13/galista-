@@ -79,7 +79,6 @@ export const SITE = {
     { open: "07:00", close: "16:00" },
     { open: "07:00", close: "16:00" },
   ],
-  hoursToConfirm: true,
   pricesToConfirm: true,
 };
 

@@ -228,7 +228,7 @@
     "phone_label": "Telefon",
     "hours_label": "Öffnungszeiten",
     "days": ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
-    "hours_note": "Öffnungszeiten aus einem lokalen Verzeichnis — vom Betrieb zu bestätigen.",
+    "hours_note": "Offizielle Öffnungszeiten — das Café ist an allen 7 Tagen geöffnet.",
     "maps_cta": "In Google Maps öffnen",
     "call_cta": "Café anrufen"
   },
