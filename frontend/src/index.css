@@ -232,3 +232,228 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* --- Écran de chargement 3D (pur CSS, pas de WebGL) --- */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.loader-scene {
+  position: relative;
+  width: 230px;
+  height: 230px;
+  perspective: 760px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.loader-world {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: loader-spin 6.5s linear infinite;
+}
+@keyframes loader-spin {
+  from { transform: rotateX(-12deg) rotateY(0deg); }
+  to { transform: rotateX(-12deg) rotateY(360deg); }
+}
+
+/* Corps de la tasse : cylindre en 3D construit à partir de 20 tranches */
+.loader-cup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;
+  height: 72px;
+  margin: -36px 0 0 -32px;
+  transform-style: preserve-3d;
+}
+.loader-cup-slice {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 12px;
+  height: 72px;
+  margin-left: -6px;
+  border-radius: 3px 3px 6px 6px;
+  background: linear-gradient(180deg, #6b463a 0%, var(--brun) 45%, #34211a 100%);
+}
+
+/* Surface du café, vue en légère plongée */
+.loader-coffee {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 40%, #8a6a52 0%, #4a2f24 62%, #2e1c16 100%);
+  transform: rotateX(90deg) translateZ(32px);
+}
+
+/* Anse de la tasse */
+.loader-handle {
+  position: absolute;
+  right: -24px;
+  top: 12px;
+  width: 26px;
+  height: 32px;
+  border: 7px solid var(--brun);
+  border-radius: 999px;
+}
+
+/* Soucoupe */
+.loader-saucer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 118px;
+  height: 118px;
+  margin: -59px 0 0 -59px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f0e7d8 0%, #e0d0b4 68%, #d3bf9e 100%);
+  transform: rotateX(90deg) translateZ(-38px);
+  box-shadow: 0 0 34px rgba(75, 48, 38, 0.18);
+}
+
+/* Grains de café en orbite autour de la tasse */
+.loader-bean {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 28px;
+  margin: -14px 0 0 -10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6b463a 0%, #3a241d 100%);
+  transform: rotateY(var(--a)) translateZ(88px) translateY(var(--y)) rotateZ(14deg);
+}
+.loader-bean::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  width: 3px;
+  height: 70%;
+  margin-left: -1.5px;
+  border-radius: 999px;
+  background: rgba(250, 245, 236, 0.85);
+}
+.loader-bean--1 { --a: 15deg; --y: -32px; }
+.loader-bean--2 { --a: 135deg; --y: 6px; }
+.loader-bean--3 { --a: 255deg; --y: -12px; }
+
+/* Vapeur qui s'élève au-dessus de la tasse */
+.loader-steam {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  display: flex;
+  gap: 9px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.loader-steam span {
+  width: 7px;
+  height: 30px;
+  border-radius: 999px;
+  background: linear-gradient(to top, rgba(122, 102, 86, 0), rgba(122, 102, 86, 0.45));
+  filter: blur(3px);
+  animation: loader-steam 2.4s ease-in-out infinite;
+}
+.loader-steam span:nth-child(2) { animation-delay: 0.8s; }
+.loader-steam span:nth-child(3) { animation-delay: 1.6s; }
+@keyframes loader-steam {
+  0% { transform: translateY(8px) scaleY(0.6); opacity: 0; }
+  45% { opacity: 0.8; }
+  100% { transform: translateY(-24px) scaleY(1.15); opacity: 0; }
+}
+
+.loader-brand {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--brun);
+}
+.loader-tagline {
+  margin: 0.35rem 0 0;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--iznik-fonce);
+  text-align: center;
+}
+
+.loader-bar {
+  width: 172px;
+  height: 3px;
+  margin-top: 1.5rem;
+  border-radius: 999px;
+  background: rgba(75, 48, 38, 0.14);
+  overflow: hidden;
+}
+.loader-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--iznik), var(--terracotta));
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: loader-bar 1.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes loader-bar {
+  to { transform: scaleX(1); }
+}
+
+@media (max-width: 420px) {
+  .loader-scene { width: 200px; height: 210px; }
+}
+
+/* --- Carrousel d'avis --- */
+.carousel-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  align-self: center;
+  border-radius: 999px;
+  border: 1px solid rgba(75, 48, 38, 0.25);
+  color: var(--brun);
+  background: rgba(255, 252, 247, 0.85);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+}
+.carousel-arrow:hover {
+  background: var(--iznik);
+  border-color: var(--iznik);
+  color: #fffcf7;
+  transform: scale(1.06);
+}
+.carousel-arrow:active { transform: scale(0.96); }
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 999px;
+  border: none;
+  background: rgba(75, 48, 38, 0.25);
+  transition: background-color 0.3s, transform 0.3s;
+}
+.carousel-dot:hover { background: rgba(75, 48, 38, 0.45); }
+.carousel-dot--active {
+  background: var(--iznik);
+  transform: scale(1.35);
+}

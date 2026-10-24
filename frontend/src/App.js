@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import "@/i18n";
 import { LANGS } from "@/i18n";
 import Home from "@/pages/Home";
+import Loader from "@/components/Loader";
 import "@/App.css";
 
 class ErrorBoundary extends React.Component {
@@ -62,9 +64,33 @@ function LangRedirect() {
 }
 
 function App() {
+  // Écran de chargement 3D : affiché ~2 s, une seule fois par session.
+  const [booting, setBooting] = useState(() => {
+    try {
+      return !sessionStorage.getItem("galista-loader-seen");
+    } catch (e) {
+      return true;
+    }
+  });
+
+  useEffect(() => {
+    if (!booting) return undefined;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const timer = setTimeout(() => {
+      try {
+        sessionStorage.setItem("galista-loader-seen", "1");
+      } catch (e) {
+        /* storage unavailable */
+      }
+      setBooting(false);
+    }, reduced ? 500 : 2000);
+    return () => clearTimeout(timer);
+  }, [booting]);
+
   return (
     <ErrorBoundary>
       <BrowserRouter>
+        <AnimatePresence>{booting && <Loader key="loader" />}</AnimatePresence>
         <Routes>
           <Route path="/" element={<LangRedirect />} />
           <Route path="/:lang" element={<Home />} />
