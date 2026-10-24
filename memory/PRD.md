@@ -54,6 +54,10 @@ Refonte complète du site officiel de Galista Café (46 Rue du Faubourg-National
 - P1 : canonical + sitemap.xml + hreflang dès que le domaine de production est connu.
 - P2 : formulaire de contact éventuel (Resend), JSON-LD horaires/aggregateRating après vérification.
 
+## Itération v6 (22/10/2026, retour client)
+- Bannière photo pleine largeur avec la photographie officielle de l'intérieur du café (arches turquoise, néon Galista, vitrine à pâtisseries) : parallaxe douce au scroll + respiration du zoom, label « Notre café à Strasbourg » traduit, placée entre la carte et la galerie.
+- Même photo officielle en tête de galerie avec badge vert « Photo officielle » (les autres restent des images d'illustration, alt honnêtes). Fichier optimisé : public/photos/cafe-interior.jpg (1920×1080, 414 KB).
+
 ## Itération v5 (22/10/2026, retour client)
 - Carte 3D animée : rotation automatique douce en continu (pattern moveend MapLibre), pause à l'interaction et reprise après 4 s, bouton pause/reprise, désactivée si prefers-reduced-motion.
 - État ouvert/fermé relié partout : badge vert « Ouvert · jusqu'à HH:MM » (ou terracotta « Fermé · ouvre… ») superposé sur la carte, anneau de la carte vert quand ouvert / terracotta quand fermé, marqueur tasse bordé de la même couleur, ligne du jour courant surlignée dans le tableau des horaires avec badge « Aujourd'hui » (vert si ouvert, terracotta si fermé).

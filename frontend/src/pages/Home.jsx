@@ -7,6 +7,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import MobileActionBar from "@/components/MobileActionBar";
 import Carte from "@/sections/Carte";
+import Banner from "@/sections/Banner";
 import Galerie from "@/sections/Galerie";
 import Avis from "@/sections/Avis";
 import Infos from "@/sections/Infos";
@@ -67,6 +68,7 @@ export default function Home() {
       <main id="main">
         <Hero lenisRef={lenisRef} />
         <Carte lenisRef={lenisRef} />
+        <Banner />
         <Galerie />
         <Avis />
         <Infos />

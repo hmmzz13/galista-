@@ -15,45 +15,27 @@ const SPANS = [
   "col-span-2",
 ];
 
+// Photo 0 : photographie officielle de l'établissement (pas d'illustration).
 const PHOTOS = [
-  {
-    src: "https://images.unsplash.com/photo-1613274554329-70f997f5789f?auto=format&fit=crop&w=1200&q=80",
-    key: 0,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1200&q=80",
-    key: 1,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1583577612013-4fecf7bf8f13?auto=format&fit=crop&w=1200&q=80",
-    key: 2,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1766852566302-b54c388a2bb9?auto=format&fit=crop&w=1200&q=80",
-    key: 3,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1768319920501-2d124ccfd8dc?auto=format&fit=crop&w=1200&q=80",
-    key: 4,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1506778020041-0ea35027d019?auto=format&fit=crop&w=1200&q=80",
-    key: 5,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1593443320739-77f74939d0da?auto=format&fit=crop&w=1200&q=80",
-    key: 6,
-  },
-  {
-    src: "https://images.pexels.com/photos/6747870/pexels-photo-6747870.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    key: 7,
-  },
+  { src: "/photos/cafe-interior.jpg", key: 0, official: true },
+  { src: "https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1200&q=80", key: 1 },
+  { src: "https://images.unsplash.com/photo-1583577612013-4fecf7bf8f13?auto=format&fit=crop&w=1200&q=80", key: 2 },
+  { src: "https://images.unsplash.com/photo-1766852566302-b54c388a2bb9?auto=format&fit=crop&w=1200&q=80", key: 3 },
+  { src: "https://images.unsplash.com/photo-1768319920501-2d124ccfd8dc?auto=format&fit=crop&w=1200&q=80", key: 4 },
+  { src: "https://images.unsplash.com/photo-1506778020041-0ea35027d019?auto=format&fit=crop&w=1200&q=80", key: 5 },
+  { src: "https://images.unsplash.com/photo-1593443320739-77f74939d0da?auto=format&fit=crop&w=1200&q=80", key: 6 },
+  { src: "https://images.pexels.com/photos/6747870/pexels-photo-6747870.jpeg?auto=compress&cs=tinysrgb&w=1200", key: 7 },
 ];
 
 export default function Galerie() {
   const { t } = useTranslation();
   const frames = t("galerie.frames", { returnObjects: true }) || [];
   const [open, setOpen] = useState(null);
+
+  const altFor = (p) =>
+    p.official
+      ? `L'intérieur du café Galista à Strasbourg — ${frames[p.key]}`
+      : `${frames[p.key]} — ${t("practical.photo_note")}`;
 
   useEffect(() => {
     if (open === null) return undefined;
@@ -75,7 +57,7 @@ export default function Galerie() {
           intro={t("practical.gallery_intro")}
         />
 
-        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 md:auto-rows-[210px] auto-rows-[150px] sm:auto-rows-[180px]">
+        <div className="mt-12 grid auto-rows-[150px] grid-cols-2 gap-4 sm:auto-rows-[180px] md:auto-rows-[210px] md:grid-cols-4">
           {PHOTOS.map((p, i) => (
             <Reveal key={p.key} delay={i * 0.04} className={SPANS[i % SPANS.length]}>
               <button
@@ -86,10 +68,15 @@ export default function Galerie() {
               >
                 <img
                   src={p.src}
-                  alt={`${frames[p.key]} — ${t("practical.photo_note")}`}
+                  alt={altFor(p)}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
+                {p.official && (
+                  <span className="absolute left-3 top-3 z-10 rounded-full bg-[#3E9B63] px-3 py-1 text-[0.58rem] font-bold uppercase tracking-[0.14em] text-blanccasse">
+                    {t("practical.official_badge")}
+                  </span>
+                )}
                 <span className="absolute inset-x-0 bottom-0 rounded-b-[22px] bg-gradient-to-t from-brun/70 to-transparent p-3 pt-8 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-creme opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {frames[p.key]}
                 </span>
@@ -152,8 +139,8 @@ export default function Galerie() {
               className="w-full max-w-4xl"
             >
               <img
-                src={PHOTOS[open].src.replace("w=1200", "w=1600")}
-                alt={`${frames[PHOTOS[open].key]} — ${t("practical.photo_note")}`}
+                src={PHOTOS[open].official ? PHOTOS[open].src : PHOTOS[open].src.replace("w=1200", "w=1600")}
+                alt={altFor(PHOTOS[open])}
                 className="img-soft max-h-[76vh] w-full object-contain"
                 data-testid="lightbox-image"
               />
