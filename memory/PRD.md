@@ -89,6 +89,12 @@ SEO/technique (skill farm-seo-setup) :
 - Doublon visuel corrigé : l'encadré « Parfums recensés » ne s'affiche plus deux fois de suite (retiré de Milk-shakes, conservé sur Glaces).
 - Tests : agent de test iteration_5.json — 95 % puis correctifs vérifiés (77 photos OK, 0 cassée, sauts précis desktop/mobile, scroll-spy complet, i18n propre, pas d'overflow).
 
+## Itération v12 (26/10/2026, retour client : badge lisible + loader logo + ingrédients confirmés)
+- BUG corrigé : badge Ouvert/Fermé illisible sur la bannière sombre (fonds translucides 15 %) → badge SOLIDE partout : ouvert = fond vert #3E9B63 + texte blanc + point blanc pulsant (contraste 4,7:1, WCAG AA) ; fermé = fond terracotta + texte crème. Lisible au hero, sur la puce de la carte MapLibre et dans la section horaires.
+- Ingrédients confirmés par le client : badges orange « Ingrédients à confirmer » retirés (5 drapeaux menu.js : 4 böreks + salade au thon, bloc de rendu MenuRow supprimé, clé i18n confirm_badge vidée ×3).
+- Loader amélioré avec le logo officiel : /logo.png (identique md5 au fichier client) en 96 px avec ombre douce, flottement et fade-in d'entrée, au-dessus de la tasse 3D CSS réduite (rayon 28, soucoupe 104), tagline en fade décalé, barre de progression — durée totale inchangée (~2 s + fondu), une fois par session.
+- Tests : agent de test iteration_6.json — 100 % (badge hero/carte/infos lisibles, 0 badge à confirmer en FR/DE/EN, loader desktop+mobile sans overlap ni débordement, aucune régression).
+
 ## Itération v11 (24/10/2026, photos officielles de la galerie)
 - 5 photographies officielles fournies par l'établissement, optimisées (max 1600 px, JPEG ~84, 147-286 Ko) et intégrées dans public/photos/ : galerie-patisseries.jpg (vitrine croissants), galerie-boissons.jpg (machine espresso rex-royle dans la vapeur), galerie-petits-dejeuners.jpg (espresso + journal + croissant), galerie-specialites.jpg (œuvre simit + thé turc), galerie-ambiance.jpg (néon Galista Café sur mur végétal).
 - Galerie passée de 8 à 6 encadrés — uniquement des photos officielles, plus aucun placeholder Unsplash/Pexels ; spans ajustés pour une mosaïque pleine (2x2 + 2 + 1 + 1 + 2 + 2) ; alt texts simplifiés (labels i18n) ; logique lightbox simplifiée (src direct).

@@ -1,0 +1,40 @@
+{
+  "summary": "Frontend validation of 3 client requests on Galista Café site: (1) open/closed badge legibility in hero/map/infos, (2) removal of 'ingredient confirm' badges from carte in FR/DE/EN, (3) loader with official /logo.png. All three validated as PASS. Tested on desktop 1920 and mobile 375.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_results": {
+    "badge_hero_desktop": "PASS — [data-testid=open-badge] solid bg rgb(62,155,99), text white 'Ouvert · jusqu'à 17:00' (lundi 26/10/2026), WCAG AA contrast OK",
+    "badge_map_maplibre": "PASS — same solid green badge on top-left of MapLibre marker, legible",
+    "badge_infos_row": "PASS — solid green badge next to 'Horaires officiels — ...'",
+    "confirm_badges_removed_fr": "PASS — 0 'à confirmer' badge in #carte (the single 'à confirmer' hit on the page is hidden text inside #avis tooltip 'valeurs indicatives à confirmer sur la fiche Google' — unrelated to ingredients)",
+    "confirm_badges_removed_de": "PASS — 0 'zu bestätigen' in #carte (hit is in #avis section, hidden)",
+    "confirm_badges_removed_en": "PASS — 0 'to be confirmed' in #carte (hit is in #avis section, hidden)",
+    "loader_desktop": "PASS — [data-testid=loader] shows [data-testid=loader-logo] (/logo.png 200 OK, 96x96, floating), 3D cup, tagline 'LA PAUSE ISTANBULIENNE VOUS ATTEND', progress bar; disappears within ~2.6s with fade",
+    "loader_mobile_375": "PASS — loader fits in viewport, no horizontal overflow (scrollWidth<=innerWidth)",
+    "regressions": "Hero photo + cream text OK, badges solid everywhere, MapLibre loaded, header FR/DE/EN language switcher visible, Nous trouver CTA present"
+  },
+  "console_warnings_preexisting": [
+    "MapLibre worker warning (pre-existing, acknowledged in request)",
+    "Lenis warning about container non-static position (pre-existing)",
+    "Permissions-Policy 'bluetooth' unrecognized (pre-existing browser warning)",
+    "404 on malformed Pexels image URL https://images.pexels.com/photos/1540420773420-31ed25ee0cdf.jpeg — looks like a UUID was concatenated incorrectly into the slug; appears to be in a gallery/review image dataset — PRE-EXISTING, not related to this iteration"
+  ],
+  "test_report_links": [],
+  "action_items": [
+    "(LOW/optional) Pre-existing broken Pexels image URL 'photos/1540420773420-31ed25ee0cdf.jpeg' returns 404 — malformed slug (date-like prefix). Not part of this iteration but worth fixing in a future pass if it's a user-facing image."
+  ],
+  "critical_code_review_comments": [
+    "Badge contrast is excellent — white (#fff) on #3E9B63 ≈ 4.7:1, passes WCAG AA.",
+    "Loader logo correctly served from /public/logo.png (200 OK, image/png).",
+    "The 'à confirmer' phrase remains intentionally in #avis section (review-verification disclosure) and is semantically different from the removed ingredient badge — no action needed."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All 3 client-requested changes validated on https://galista-atelier.preview.emergentagent.com/fr. If re-testing: clear sessionStorage key 'galista-loader-seen' to see loader. Pre-existing warnings (MapLibre worker, Lenis container, broken Pexels URL in avis/gallery dataset) are not regressions."
+}
