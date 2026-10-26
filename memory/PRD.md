@@ -95,6 +95,13 @@ SEO/technique (skill farm-seo-setup) :
 - Loader amélioré avec le logo officiel : /logo.png (identique md5 au fichier client) en 96 px avec ombre douce, flottement et fade-in d'entrée, au-dessus de la tasse 3D CSS réduite (rayon 28, soucoupe 104), tagline en fade décalé, barre de progression — durée totale inchangée (~2 s + fondu), une fois par session.
 - Tests : agent de test iteration_6.json — 100 % (badge hero/carte/infos lisibles, 0 badge à confirmer en FR/DE/EN, loader desktop+mobile sans overlap ni débordement, aucune régression).
 
+## Itération v13 (26/10/2026, retour client : bannière épurée + langue mobile)
+- Bannière hero épurée : logo retiré, boutons « Voir la carte », « Itinéraire » et « Appeler » retirés de la bannière UNIQUEMENT (la nav, le menu burger, la barre mobile et la section infos gardent leurs boutons). Le hero montre : ornement, titre, sous-titre, badge Ouvert/Fermé.
+- Photo de la bannière : dézoomée (parallax 1→1,05 au lieu de 1,04→1,12) et voile éclairci (dégradés 55/35/15 et 50/20 au lieu de 80/55/25 et 75/30) — la salle turquoise se voit bien maintenant, texte crème lisible grâce à un text-shadow léger.
+- Carte : titre « La carte complète. » et sous-titre supprimés — accès direct au menu (le petit kicker « LA CARTE » reste au-dessus des onglets). Clés i18n carte.title/subtitle et hero.cta_menu/cta_find supprimées des 3 langues.
+- BUG corrigé : sélecteur de langue FR/DE/EN invisible sur mobile (hidden sm:flex) → toujours visible dans la barre de navigation, wordmark réduit sur mobile (text-lg, tracking resserré) — tout tient dans 375 px sans débordement. Le menu burger garde aussi son switcher.
+- Tests : agent de test iteration_7.json — 100 % (langues visibles et fonctionnelles sur mobile 375 : bascule EN→/en vérifiée ; hero 0 bouton 0 logo ; carte sans titre ; boutons conservés ailleurs ; i18n sans clé brute ; pas de débordement desktop/mobile).
+
 ## Itération v11 (24/10/2026, photos officielles de la galerie)
 - 5 photographies officielles fournies par l'établissement, optimisées (max 1600 px, JPEG ~84, 147-286 Ko) et intégrées dans public/photos/ : galerie-patisseries.jpg (vitrine croissants), galerie-boissons.jpg (machine espresso rex-royle dans la vapeur), galerie-petits-dejeuners.jpg (espresso + journal + croissant), galerie-specialites.jpg (œuvre simit + thé turc), galerie-ambiance.jpg (néon Galista Café sur mur végétal).
 - Galerie passée de 8 à 6 encadrés — uniquement des photos officielles, plus aucun placeholder Unsplash/Pexels ; spans ajustés pour une mosaïque pleine (2x2 + 2 + 1 + 1 + 2 + 2) ; alt texts simplifiés (labels i18n) ; logique lightbox simplifiée (src direct).
