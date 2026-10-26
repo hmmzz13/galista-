@@ -31,8 +31,6 @@
     "title_line1": "A coffee break,",
     "title_line2": "the Istanbul way.",
     "subtitle": "Specialty coffee, flavours from Istanbul and sweet treats — take a real break in the heart of Strasbourg.",
-    "cta_menu": "View the menu",
-    "cta_find": "Directions",
     "scroll_cue": "Scroll down",
     "fallback_note": "Your browser doesn't support WebGL — here's the classic version of our welcome."
   },
@@ -40,17 +38,30 @@
     "kicker": "Our story",
     "title": "A place to savour the moment.",
     "text": "Located in Strasbourg, Galista Café welcomes you in a warm, friendly atmosphere. From the first coffee of the morning to the gourmet break, discover a selection of drinks, pastries and specialities inspired by Istanbul.",
-    "tags": ["Specialty coffee", "Specialities from Istanbul", "Pastries & ice cream"],
+    "tags": [
+      "Specialty coffee",
+      "Specialities from Istanbul",
+      "Pastries & ice cream"
+    ],
     "photo_label": "Photograph of the café",
     "photo_pending": "Official photograph coming soon"
   },
   "marquee": {
-    "words": ["Turkish coffee", "Simit", "Börek", "Menemen", "Cappuccino", "Latte art", "Pastries", "Ice cream", "Breakfasts", "Milkshakes"]
+    "words": [
+      "Turkish coffee",
+      "Simit",
+      "Börek",
+      "Menemen",
+      "Cappuccino",
+      "Latte art",
+      "Pastries",
+      "Ice cream",
+      "Breakfasts",
+      "Milkshakes"
+    ]
   },
   "carte": {
     "kicker": "The menu",
-    "title": "The full menu.",
-    "subtitle": "Coffees, breakfasts, Turkish specialities, pastries and drinks — prices are as per the establishment's menu.",
     "ingredients_label": "Ingredients",
     "confirm_badge": "",
     "allergens_note": "For any information about allergens, please ask our team.",
@@ -82,83 +93,391 @@
     }
   },
   "items": {
-    "petit_dej_classique": { "name": "Classic breakfast", "desc": "A simple, indulgent set to start the day right.", "ing": "Crispy bread served with butter and jam or honey, along with a hot drink of your choice and fresh orange juice. A simple, complete way to ease into the day." },
-    "petit_dej_galista": { "name": "Galista breakfast", "desc": "A generous set combining savoury flavours with sweet touches.", "ing": "A grand savoury-and-sweet platter: hard-boiled egg, shredded feta and emmental, salami, olives, juicy tomatoes and cucumbers, fresh herbs, honey or jam — all served with bread, a hot drink and orange juice. A generous Turkish-style feast." },
-    "omelette_aneth": { "name": "Dill omelette", "desc": "Omelette made with two eggs and dill, served with bread.", "ing": "Two eggs gently pan-cooked and delicately flavoured with fresh dill for a subtle aniseed note. Soft inside, golden at the edges, served with bread." },
-    "omelette_tomate_fromage": { "name": "Tomato and cheese omelette", "desc": "Omelette with tomatoes and emmental, served with bread.", "ing": "Two soft eggs filled with melted tomatoes and stretchy emmental, pan-fried until golden. Served with fresh bread for a simple, filling meal." },
-    "omelette_fromage": { "name": "Cheese omelette", "desc": "A generous emmental cheese omelette.", "ing": "A generous emmental omelette, cooked slowly to stay creamy at the centre, with a golden crust that smells of melted cheese." },
-    "omelette_simit": { "name": "Simit omelette", "desc": "A combination of eggs, simit and cheese.", "ing": "A typically Istanbul combination: two eggs, pieces of sesame-crusted simit and melting emmental. Served hot — crispy and soft all at once." },
-    "menemen": { "name": "Menemen", "desc": "Turkish speciality of scrambled eggs with tomatoes and peppers, served with bread.", "ing": "The great Turkish breakfast classic: eggs scrambled slowly with ripe tomatoes and soft, sweet peppers in olive oil. Enjoy it piping hot, with fresh bread to mop up every last drop." },
-    "oeufs_kavurma": { "name": "Eggs with kavurma", "desc": "Two eggs served with simit and kavurma, a Turkish-style cooked meat.", "ing": "Two eggs served with kavurma — Turkish-style pan-cooked beef, lightly spiced and deeply flavourful — plus a crispy sesame simit. A hearty plate that keeps you going." },
-    "oeufs_sucuk": { "name": "Eggs with sucuk", "desc": "Two eggs served with sucuk, a spicy Turkish sausage, and bread.", "ing": "Two eggs cooked with slices of sucuk, the Turkish sausage seasoned with garlic and chilli whose richness gently flavours the eggs. Served with bread for a complete, indulgent plate." },
-    "assiette_mezze": { "name": "Mezze platter", "desc": "", "ing": "A small fresh platter to share: a selection of cheeses, crunchy tomatoes and cucumbers, and olives. Perfect as a starter or alongside a breakfast." },
-    "frites": { "name": "Fries", "desc": "", "ing": "Golden, crispy fries served hot with a pinch of salt. The perfect side dish — or something to nibble together." },
-    "supplement_fromage": { "name": "Cheese extra", "desc": "", "ing": "An extra portion of cheese to enrich your omelette or plate: more melt, more flavour." },
-    "croissant_sale": { "name": "Savoury croissant", "desc": "A croissant filled with tomato, lettuce, cream cheese and salami.", "ing": "A flaky croissant filled with tomato, crunchy lettuce, smooth cream cheese and salami. Golden puff pastry meets a fresh, savoury filling." },
-    "sandwich_simit_acma": { "name": "Simit / açma sandwich", "desc": "Turkish speciality filled with cheeses, fresh vegetables and olive tapenade.", "ing": "The famous Istanbul sandwich: a sesame simit or soft açma filled with feta, melting kaşar cheese, tomatoes, lettuce and fragrant olive tapenade. Fresh, generous and full of Turkish flavours." },
-    "sandwich_tomate_mozza": { "name": "Tomato mozzarella sandwich", "desc": "A combination of tomato, mozzarella, basil and lettuce.", "ing": "A sandwich all about freshness: juicy tomatoes, melting mozzarella, fragrant basil and crunchy lettuce in a soft roll. Italy meets Turkey in one bite." },
-    "sandwich_thon": { "name": "Tuna sandwich", "desc": "Tuna sandwich with mayonnaise, hard-boiled egg, tomato and lettuce.", "ing": "A tasty sandwich of creamy tuna bound with mayonnaise, topped with hard-boiled egg, tomato and crunchy lettuce. Simple, fresh and filling." },
-    "sandwich_poulet_curry": { "name": "Chicken curry sandwich", "desc": "Sandwich with curry-seasoned chicken, served with mayonnaise and lettuce.", "ing": "Tender chicken seasoned with mild curry, paired with smooth mayonnaise and crunchy lettuce. A fragrant, gently spiced sandwich." },
-    "sandwich_vegetarien": { "name": "Vegetarian sandwich", "desc": "A sandwich with grilled vegetables, nuts and cheese.", "ing": "A generous sandwich of grilled vegetables — soft peppers, courgettes and aubergines — with crunchy walnuts and cheese (feta or cream cheese depending on the variant served)." },
-    "borek_epinards": { "name": "Spinach börek", "desc": "Turkish-style savoury pastry filled with spinach.", "ing": "A Turkish börek with golden, flaky pastry and a soft, lightly seasoned spinach filling. Hearty and flavourful — a perfect match for Turkish tea." },
-    "borek_pommes_terre": { "name": "Potato börek", "desc": "Savoury pastry filled with potatoes.", "ing": "A börek with golden, crispy pastry wrapped around a soft, comforting potato filling. A classic you'll find in every Istanbul bakery window." },
-    "borek_fromage": { "name": "Cheese börek", "desc": "Savoury pastry filled with cheese.", "ing": "A börek with crispy layered pastry hiding a heart of melted, stretchy cheese. Served warm: pure savoury indulgence." },
-    "borek_viande_hachee": { "name": "Minced meat börek", "desc": "Savoury pastry filled with minced meat.", "ing": "A generously filled börek with Turkish-spiced minced meat inside golden, crispy pastry. Perfect for a savoury break on the go." },
-    "toast_kasar": { "name": "Kaşar cheese toast", "desc": "", "ing": "Toasted bread topped with Turkish kaşar cheese, melted until deliciously stretchy. Simple and irresistible, served piping hot." },
-    "toast_salami_fromage": { "name": "Salami and cheese toast", "desc": "", "ing": "A crispy toast topped with salami and melting cheese, grilled until golden. The warm classic that makes the break." },
-    "toast_chorizo_fromage": { "name": "Chorizo and cheese toast", "desc": "", "ing": "An indulgent toast with slightly spicy chorizo and melted cheese, grilled to perfection. A Spanish-Turkish pairing full of character." },
-    "toast_galista": { "name": "Galista toast (Yengen)", "desc": "", "ing": "Our signature “Yengen” toast: melted kaşar cheese, grilled peppers and tomatoes on crispy toasted bread. The house speciality — not to be missed." },
-    "croissant_pain_chocolat": { "name": "Croissant or pain au chocolat", "desc": "", "ing": "A golden, flaky viennoiserie: an all-butter croissant or a pain au chocolat with a soft chocolate heart. Crispy outside, tender inside." },
-    "croissant_framboise": { "name": "Raspberry croissant", "desc": "", "ing": "A soft, fruity raspberry croissant — the perfect balance of indulgence and tangy freshness." },
-    "bretzel": { "name": "Bretzel", "desc": "", "ing": "The Alsatian bretzel with its glossy brown crust and coarse salt: soft in the middle, crispy on the outside. Strasbourg's must-have savoury treat." },
-    "bretzel_gratine": { "name": "Cheese-topped bretzel", "desc": "", "ing": "A bretzel gratinéed with cheese under a golden, stretchy layer. An even more indulgent version of the Alsatian classic." },
-    "simit_acma": { "name": "Simit / açma", "desc": "", "ing": "The stars of the Turkish breakfast table: simit, the sesame-crusted ring bread, and açma, the soft twisted brioche. Enjoy them warm, plain or as a sandwich." },
-    "pain_raisins": { "name": "Pain aux raisins", "desc": "", "ing": "Crispy puff pastry rolled around a smooth cream filling with plump raisins. A classic viennoiserie that never disappoints." },
-    "chausson_pommes": { "name": "Apple turnover", "desc": "", "ing": "A golden turnover of crispy flaky pastry with a soft, fragrant apple filling. Pure comfort." },
-    "suisse_torsade_triangle": { "name": "Chocolate suisse, torsade or almond triangle", "desc": "", "ing": "Pick your viennoiserie: the chocolate suisse, the flaky torsade or the almond triangle. Three golden classics for a sweet break." },
-    "pogaca_fromage": { "name": "Poğaça with cheese", "desc": "", "ing": "The Turkish poğaça: a soft, golden little bun filled with melting cheese. The perfect savoury bite with Turkish tea or coffee." },
-    "salade_saison": { "name": "Seasonal salad", "desc": "", "ing": "A crunchy seasonal salad: green salad, juicy cherry tomatoes, cucumbers, sweetcorn and grated carrots, finished with a balsamic dressing. Fresh and light." },
-    "salade_poulet": { "name": "Chicken salad", "desc": "", "ing": "A complete salad: green salad, cherry tomatoes, sweetcorn, grated carrots, golden croutons, parmesan and tender chicken, coated in a smooth Caesar dressing. A full meal in a bowl." },
-    "salade_thon": { "name": "Tuna salad", "desc": "", "ing": "A fresh, filling salad: green salad, cherry tomatoes, cucumbers, red onions, sweetcorn, olives and hard-boiled eggs, with tuna. Simple and generously loaded." },
-    "mini_macarons": { "name": "Mini macarons", "desc": "", "ing": "Delicate mini macarons with a smooth shell and a soft heart, in the flavours of the day. Gone in one or two bites." },
-    "cookies": { "name": "Cookies", "desc": "", "ing": "A chocolate-chip cookie, crispy at the edges and soft at the centre. The perfect companion to a café latte." },
-    "muffin_pepites": { "name": "Chocolate chip muffin", "desc": "", "ing": "A light, golden muffin generously studded with melting chocolate chips. Ideal for a sweet break." },
-    "muffin_maxi_choco": { "name": "Maxi choco muffin", "desc": "", "ing": "A generous, all-chocolate muffin — deeply cocoa-flavoured and wonderfully soft. For true chocolate lovers." },
-    "eclair_choco_vanille_cafe": { "name": "Chocolate, vanilla or coffee éclair", "desc": "", "ing": "An éclair of golden choux pastry filled with a smooth chocolate, vanilla or coffee cream and topped with a glossy glaze. French pastry elegance." },
-    "brownie": { "name": "Brownie", "desc": "", "ing": "An intense chocolate brownie with a crackled top and a fudgy centre. Rich, dense and deeply chocolatey." },
-    "moka_cafe": { "name": "Moka café", "desc": "", "ing": "A coffee-and-chocolate pastry: moka flavours woven through a soft, fragrant dessert. Coffee lovers' pleasure, in sweet form." },
-    "mille_feuille": { "name": "Mille-feuille", "desc": "", "ing": "A classic mille-feuille: crispy layers of puff pastry alternating with velvety cream, crowned with fondant icing. French indulgence at its finest." },
-    "macarons_framboise": { "name": "Raspberry macarons", "desc": "", "ing": "Raspberry macarons with a fine, crisp shell and a soft heart — fruity and tangy. The perfect union of sweetness and freshness." },
-    "glace_cone": { "name": "Cone or tulip cup", "desc": "", "ing": "Our ice cream in a crispy cone or tulip: choose one, two or three scoops from fourteen flavours, from salted butter caramel to pistachio. A cool treat to enjoy on the go." },
-    "glace_pot": { "name": "Tub", "desc": "", "ing": "Our ice cream in a tub, savoured with a spoon: one, two or three scoops from fourteen smooth flavours. A fresh break at your own pace." },
-    "glace_supplement": { "name": "Extra whipped cream or coulis", "desc": "", "ing": "Add a touch of indulgence to your ice cream: airy whipped cream or a fragrant fruit coulis." },
-    "milkshake": { "name": "Milkshake", "desc": "", "ing": "A smooth, velvety milkshake blended with the ice-cream flavour of your choice. Fresh, indulgent and irresistibly creamy." },
-    "espresso": { "name": "Espresso", "desc": "", "ing": "An intense, velvety espresso, carefully extracted for a dense crema and balanced notes of cocoa and nuts. Served in a small cup to be savoured in a few sips." },
-    "double_espresso": { "name": "Double espresso", "desc": "", "ing": "Our signature espresso in a double dose: twice the intensity, crema and aroma. For palates who like their coffee strong." },
-    "cafe_long": { "name": "Long coffee", "desc": "", "ing": "A long black, softer and lighter than an espresso, revealing round, balanced notes. To be savoured slowly, on its own or with a pastry." },
-    "cafe_latte": { "name": "Café latte", "desc": "", "ing": "A soft, creamy coffee: a delicate espresso lengthened with velvety milk and a thin layer of foam. The perfect balance of coffee strength and milk smoothness." },
-    "cappuccino": { "name": "Cappuccino", "desc": "", "ing": "The Italian classic: intense espresso crowned with a dense, velvety milk foam dusted with a touch of cocoa. Rich, round and comforting." },
-    "americano": { "name": "Americano", "desc": "", "ing": "An espresso topped up with hot water for a long, light and aromatic coffee. The choice of those who like a large cup with a gentle body." },
-    "latte_macchiato": { "name": "Latte macchiato", "desc": "", "ing": "A latte macchiato served in a tall glass: velvety milk “stained” with intense espresso, in three distinct layers. Soft, creamy and a feast for the eyes." },
-    "cafe_turc": { "name": "Turkish coffee", "desc": "", "ing": "Turkish coffee brewed in a cezve: very finely ground, simmered slowly with water and sugar for a dense, fragrant coffee topped with a delicate foam. An Istanbul institution to sip slowly — right to the last sip (leaving the grounds behind!)." },
-    "cafe_noisette": { "name": "Café noisette", "desc": "", "ing": "An espresso touched with a dash of milk that gives it its “noisette” hazel hue. Soft and quick: the coffee for short but tasty breaks." },
-    "ice_coffee": { "name": "Ice coffee", "desc": "", "ing": "A fresh, refreshing coffee served well chilled over ice: all the comfort of coffee in a summer version. Ideal for sunny breaks." },
-    "ice_latte": { "name": "Ice latte", "desc": "", "ing": "An iced latte: cold velvety milk over ice, “stained” with intense espresso. Creamy, soft and thirst-quenching all at once." },
-    "ice_cappuccino": { "name": "Ice cappuccino", "desc": "", "ing": "A cappuccino turned iced: intense espresso, cold milk and velvety foam over a bed of ice. The classic Italian foam, with extra freshness." },
-    "supplement_lait_avoine": { "name": "Oat milk extra", "desc": "", "ing": "Swap in or add oat milk to your drink: a gentle, lightly sweet plant-based alternative." },
-    "saveur_gourmande": { "name": "Gourmet flavour extra", "desc": "", "ing": "Add a gourmet flavour touch to your favourite hot drink: a fragrant syrup for an even softer break." },
-    "the_turc": { "name": "Turkish tea", "desc": "", "ing": "Traditional Turkish tea served in the famous tulip-shaped glass: black tea steeped slowly, amber-coloured and full-bodied. Sip it slowly, just like in Istanbul." },
-    "tisane_palais": { "name": "Herbal tea by Palais des Thés", "desc": "", "ing": "A delicate herbal infusion by Palais des Thés, with soft, soothing aromas. The comforting drink for wind-downs and quiet breaks." },
-    "lait_nature": { "name": "Plain milk", "desc": "", "ing": "Plain milk, served hot or cold — simple and gentle. For the most delicate of breaks." },
-    "lait_miel": { "name": "Milk with honey", "desc": "", "ing": "Warm honey milk, sweet and comforting: the honey slowly melting into the smooth milk. The ultimate cosy drink." },
-    "chocolat_chaud": { "name": "Hot chocolate", "desc": "", "ing": "An intense, velvety hot chocolate with a deep cocoa taste. A warm hug in a cup." },
-    "chocolat_chaud_lait": { "name": "Hot chocolate with milk", "desc": "", "ing": "An even creamier hot chocolate, made with more milk for a light, silky texture. Soft and indulgent — loved by every age." },
-    "eau_cristaline_volvic": { "name": "Water Cristaline / Volvic", "desc": "", "ing": "Still mineral water, Cristaline or Volvic, served well chilled. The ideal companion to your coffee or meal." },
-    "carola_rouge_verte": { "name": "Carola red / green", "desc": "", "ing": "Carola mineral water, still or sparkling, served well chilled. Its fine, light bubbles pair beautifully with a coffee or a meal." },
-    "lemonaid_charitea": { "name": "Lemonaid / Charitea", "desc": "", "ing": "An organic, fair-trade soft drink: Lemonaid with lemon, lime or passion fruit, or Charitea iced tea. Fresh, fruity and made with purpose." },
-    "jus_granini_pago": { "name": "Granini / Pago fruit juice", "desc": "", "ing": "A Granini or Pago fruit juice in the flavour of your choice, fruity and served well chilled." },
-    "sodas": { "name": "Coca-Cola / Fanta / Sprite / Ice Tea", "desc": "", "ing": "The great soda classics: Coca-Cola, Fanta, Sprite or Ice Tea, served well chilled. The familiar fizz everyone loves." },
-    "red_bull": { "name": "Red Bull", "desc": "", "ing": "A well-chilled can of Red Bull for an energising boost in the middle of the day." }
+    "petit_dej_classique": {
+      "name": "Classic breakfast",
+      "desc": "A simple, indulgent set to start the day right.",
+      "ing": "Crispy bread served with butter and jam or honey, along with a hot drink of your choice and fresh orange juice. A simple, complete way to ease into the day."
+    },
+    "petit_dej_galista": {
+      "name": "Galista breakfast",
+      "desc": "A generous set combining savoury flavours with sweet touches.",
+      "ing": "A grand savoury-and-sweet platter: hard-boiled egg, shredded feta and emmental, salami, olives, juicy tomatoes and cucumbers, fresh herbs, honey or jam — all served with bread, a hot drink and orange juice. A generous Turkish-style feast."
+    },
+    "omelette_aneth": {
+      "name": "Dill omelette",
+      "desc": "Omelette made with two eggs and dill, served with bread.",
+      "ing": "Two eggs gently pan-cooked and delicately flavoured with fresh dill for a subtle aniseed note. Soft inside, golden at the edges, served with bread."
+    },
+    "omelette_tomate_fromage": {
+      "name": "Tomato and cheese omelette",
+      "desc": "Omelette with tomatoes and emmental, served with bread.",
+      "ing": "Two soft eggs filled with melted tomatoes and stretchy emmental, pan-fried until golden. Served with fresh bread for a simple, filling meal."
+    },
+    "omelette_fromage": {
+      "name": "Cheese omelette",
+      "desc": "A generous emmental cheese omelette.",
+      "ing": "A generous emmental omelette, cooked slowly to stay creamy at the centre, with a golden crust that smells of melted cheese."
+    },
+    "omelette_simit": {
+      "name": "Simit omelette",
+      "desc": "A combination of eggs, simit and cheese.",
+      "ing": "A typically Istanbul combination: two eggs, pieces of sesame-crusted simit and melting emmental. Served hot — crispy and soft all at once."
+    },
+    "menemen": {
+      "name": "Menemen",
+      "desc": "Turkish speciality of scrambled eggs with tomatoes and peppers, served with bread.",
+      "ing": "The great Turkish breakfast classic: eggs scrambled slowly with ripe tomatoes and soft, sweet peppers in olive oil. Enjoy it piping hot, with fresh bread to mop up every last drop."
+    },
+    "oeufs_kavurma": {
+      "name": "Eggs with kavurma",
+      "desc": "Two eggs served with simit and kavurma, a Turkish-style cooked meat.",
+      "ing": "Two eggs served with kavurma — Turkish-style pan-cooked beef, lightly spiced and deeply flavourful — plus a crispy sesame simit. A hearty plate that keeps you going."
+    },
+    "oeufs_sucuk": {
+      "name": "Eggs with sucuk",
+      "desc": "Two eggs served with sucuk, a spicy Turkish sausage, and bread.",
+      "ing": "Two eggs cooked with slices of sucuk, the Turkish sausage seasoned with garlic and chilli whose richness gently flavours the eggs. Served with bread for a complete, indulgent plate."
+    },
+    "assiette_mezze": {
+      "name": "Mezze platter",
+      "desc": "",
+      "ing": "A small fresh platter to share: a selection of cheeses, crunchy tomatoes and cucumbers, and olives. Perfect as a starter or alongside a breakfast."
+    },
+    "frites": {
+      "name": "Fries",
+      "desc": "",
+      "ing": "Golden, crispy fries served hot with a pinch of salt. The perfect side dish — or something to nibble together."
+    },
+    "supplement_fromage": {
+      "name": "Cheese extra",
+      "desc": "",
+      "ing": "An extra portion of cheese to enrich your omelette or plate: more melt, more flavour."
+    },
+    "croissant_sale": {
+      "name": "Savoury croissant",
+      "desc": "A croissant filled with tomato, lettuce, cream cheese and salami.",
+      "ing": "A flaky croissant filled with tomato, crunchy lettuce, smooth cream cheese and salami. Golden puff pastry meets a fresh, savoury filling."
+    },
+    "sandwich_simit_acma": {
+      "name": "Simit / açma sandwich",
+      "desc": "Turkish speciality filled with cheeses, fresh vegetables and olive tapenade.",
+      "ing": "The famous Istanbul sandwich: a sesame simit or soft açma filled with feta, melting kaşar cheese, tomatoes, lettuce and fragrant olive tapenade. Fresh, generous and full of Turkish flavours."
+    },
+    "sandwich_tomate_mozza": {
+      "name": "Tomato mozzarella sandwich",
+      "desc": "A combination of tomato, mozzarella, basil and lettuce.",
+      "ing": "A sandwich all about freshness: juicy tomatoes, melting mozzarella, fragrant basil and crunchy lettuce in a soft roll. Italy meets Turkey in one bite."
+    },
+    "sandwich_thon": {
+      "name": "Tuna sandwich",
+      "desc": "Tuna sandwich with mayonnaise, hard-boiled egg, tomato and lettuce.",
+      "ing": "A tasty sandwich of creamy tuna bound with mayonnaise, topped with hard-boiled egg, tomato and crunchy lettuce. Simple, fresh and filling."
+    },
+    "sandwich_poulet_curry": {
+      "name": "Chicken curry sandwich",
+      "desc": "Sandwich with curry-seasoned chicken, served with mayonnaise and lettuce.",
+      "ing": "Tender chicken seasoned with mild curry, paired with smooth mayonnaise and crunchy lettuce. A fragrant, gently spiced sandwich."
+    },
+    "sandwich_vegetarien": {
+      "name": "Vegetarian sandwich",
+      "desc": "A sandwich with grilled vegetables, nuts and cheese.",
+      "ing": "A generous sandwich of grilled vegetables — soft peppers, courgettes and aubergines — with crunchy walnuts and cheese (feta or cream cheese depending on the variant served)."
+    },
+    "borek_epinards": {
+      "name": "Spinach börek",
+      "desc": "Turkish-style savoury pastry filled with spinach.",
+      "ing": "A Turkish börek with golden, flaky pastry and a soft, lightly seasoned spinach filling. Hearty and flavourful — a perfect match for Turkish tea."
+    },
+    "borek_pommes_terre": {
+      "name": "Potato börek",
+      "desc": "Savoury pastry filled with potatoes.",
+      "ing": "A börek with golden, crispy pastry wrapped around a soft, comforting potato filling. A classic you'll find in every Istanbul bakery window."
+    },
+    "borek_fromage": {
+      "name": "Cheese börek",
+      "desc": "Savoury pastry filled with cheese.",
+      "ing": "A börek with crispy layered pastry hiding a heart of melted, stretchy cheese. Served warm: pure savoury indulgence."
+    },
+    "borek_viande_hachee": {
+      "name": "Minced meat börek",
+      "desc": "Savoury pastry filled with minced meat.",
+      "ing": "A generously filled börek with Turkish-spiced minced meat inside golden, crispy pastry. Perfect for a savoury break on the go."
+    },
+    "toast_kasar": {
+      "name": "Kaşar cheese toast",
+      "desc": "",
+      "ing": "Toasted bread topped with Turkish kaşar cheese, melted until deliciously stretchy. Simple and irresistible, served piping hot."
+    },
+    "toast_salami_fromage": {
+      "name": "Salami and cheese toast",
+      "desc": "",
+      "ing": "A crispy toast topped with salami and melting cheese, grilled until golden. The warm classic that makes the break."
+    },
+    "toast_chorizo_fromage": {
+      "name": "Chorizo and cheese toast",
+      "desc": "",
+      "ing": "An indulgent toast with slightly spicy chorizo and melted cheese, grilled to perfection. A Spanish-Turkish pairing full of character."
+    },
+    "toast_galista": {
+      "name": "Galista toast (Yengen)",
+      "desc": "",
+      "ing": "Our signature “Yengen” toast: melted kaşar cheese, grilled peppers and tomatoes on crispy toasted bread. The house speciality — not to be missed."
+    },
+    "croissant_pain_chocolat": {
+      "name": "Croissant or pain au chocolat",
+      "desc": "",
+      "ing": "A golden, flaky viennoiserie: an all-butter croissant or a pain au chocolat with a soft chocolate heart. Crispy outside, tender inside."
+    },
+    "croissant_framboise": {
+      "name": "Raspberry croissant",
+      "desc": "",
+      "ing": "A soft, fruity raspberry croissant — the perfect balance of indulgence and tangy freshness."
+    },
+    "bretzel": {
+      "name": "Bretzel",
+      "desc": "",
+      "ing": "The Alsatian bretzel with its glossy brown crust and coarse salt: soft in the middle, crispy on the outside. Strasbourg's must-have savoury treat."
+    },
+    "bretzel_gratine": {
+      "name": "Cheese-topped bretzel",
+      "desc": "",
+      "ing": "A bretzel gratinéed with cheese under a golden, stretchy layer. An even more indulgent version of the Alsatian classic."
+    },
+    "simit_acma": {
+      "name": "Simit / açma",
+      "desc": "",
+      "ing": "The stars of the Turkish breakfast table: simit, the sesame-crusted ring bread, and açma, the soft twisted brioche. Enjoy them warm, plain or as a sandwich."
+    },
+    "pain_raisins": {
+      "name": "Pain aux raisins",
+      "desc": "",
+      "ing": "Crispy puff pastry rolled around a smooth cream filling with plump raisins. A classic viennoiserie that never disappoints."
+    },
+    "chausson_pommes": {
+      "name": "Apple turnover",
+      "desc": "",
+      "ing": "A golden turnover of crispy flaky pastry with a soft, fragrant apple filling. Pure comfort."
+    },
+    "suisse_torsade_triangle": {
+      "name": "Chocolate suisse, torsade or almond triangle",
+      "desc": "",
+      "ing": "Pick your viennoiserie: the chocolate suisse, the flaky torsade or the almond triangle. Three golden classics for a sweet break."
+    },
+    "pogaca_fromage": {
+      "name": "Poğaça with cheese",
+      "desc": "",
+      "ing": "The Turkish poğaça: a soft, golden little bun filled with melting cheese. The perfect savoury bite with Turkish tea or coffee."
+    },
+    "salade_saison": {
+      "name": "Seasonal salad",
+      "desc": "",
+      "ing": "A crunchy seasonal salad: green salad, juicy cherry tomatoes, cucumbers, sweetcorn and grated carrots, finished with a balsamic dressing. Fresh and light."
+    },
+    "salade_poulet": {
+      "name": "Chicken salad",
+      "desc": "",
+      "ing": "A complete salad: green salad, cherry tomatoes, sweetcorn, grated carrots, golden croutons, parmesan and tender chicken, coated in a smooth Caesar dressing. A full meal in a bowl."
+    },
+    "salade_thon": {
+      "name": "Tuna salad",
+      "desc": "",
+      "ing": "A fresh, filling salad: green salad, cherry tomatoes, cucumbers, red onions, sweetcorn, olives and hard-boiled eggs, with tuna. Simple and generously loaded."
+    },
+    "mini_macarons": {
+      "name": "Mini macarons",
+      "desc": "",
+      "ing": "Delicate mini macarons with a smooth shell and a soft heart, in the flavours of the day. Gone in one or two bites."
+    },
+    "cookies": {
+      "name": "Cookies",
+      "desc": "",
+      "ing": "A chocolate-chip cookie, crispy at the edges and soft at the centre. The perfect companion to a café latte."
+    },
+    "muffin_pepites": {
+      "name": "Chocolate chip muffin",
+      "desc": "",
+      "ing": "A light, golden muffin generously studded with melting chocolate chips. Ideal for a sweet break."
+    },
+    "muffin_maxi_choco": {
+      "name": "Maxi choco muffin",
+      "desc": "",
+      "ing": "A generous, all-chocolate muffin — deeply cocoa-flavoured and wonderfully soft. For true chocolate lovers."
+    },
+    "eclair_choco_vanille_cafe": {
+      "name": "Chocolate, vanilla or coffee éclair",
+      "desc": "",
+      "ing": "An éclair of golden choux pastry filled with a smooth chocolate, vanilla or coffee cream and topped with a glossy glaze. French pastry elegance."
+    },
+    "brownie": {
+      "name": "Brownie",
+      "desc": "",
+      "ing": "An intense chocolate brownie with a crackled top and a fudgy centre. Rich, dense and deeply chocolatey."
+    },
+    "moka_cafe": {
+      "name": "Moka café",
+      "desc": "",
+      "ing": "A coffee-and-chocolate pastry: moka flavours woven through a soft, fragrant dessert. Coffee lovers' pleasure, in sweet form."
+    },
+    "mille_feuille": {
+      "name": "Mille-feuille",
+      "desc": "",
+      "ing": "A classic mille-feuille: crispy layers of puff pastry alternating with velvety cream, crowned with fondant icing. French indulgence at its finest."
+    },
+    "macarons_framboise": {
+      "name": "Raspberry macarons",
+      "desc": "",
+      "ing": "Raspberry macarons with a fine, crisp shell and a soft heart — fruity and tangy. The perfect union of sweetness and freshness."
+    },
+    "glace_cone": {
+      "name": "Cone or tulip cup",
+      "desc": "",
+      "ing": "Our ice cream in a crispy cone or tulip: choose one, two or three scoops from fourteen flavours, from salted butter caramel to pistachio. A cool treat to enjoy on the go."
+    },
+    "glace_pot": {
+      "name": "Tub",
+      "desc": "",
+      "ing": "Our ice cream in a tub, savoured with a spoon: one, two or three scoops from fourteen smooth flavours. A fresh break at your own pace."
+    },
+    "glace_supplement": {
+      "name": "Extra whipped cream or coulis",
+      "desc": "",
+      "ing": "Add a touch of indulgence to your ice cream: airy whipped cream or a fragrant fruit coulis."
+    },
+    "milkshake": {
+      "name": "Milkshake",
+      "desc": "",
+      "ing": "A smooth, velvety milkshake blended with the ice-cream flavour of your choice. Fresh, indulgent and irresistibly creamy."
+    },
+    "espresso": {
+      "name": "Espresso",
+      "desc": "",
+      "ing": "An intense, velvety espresso, carefully extracted for a dense crema and balanced notes of cocoa and nuts. Served in a small cup to be savoured in a few sips."
+    },
+    "double_espresso": {
+      "name": "Double espresso",
+      "desc": "",
+      "ing": "Our signature espresso in a double dose: twice the intensity, crema and aroma. For palates who like their coffee strong."
+    },
+    "cafe_long": {
+      "name": "Long coffee",
+      "desc": "",
+      "ing": "A long black, softer and lighter than an espresso, revealing round, balanced notes. To be savoured slowly, on its own or with a pastry."
+    },
+    "cafe_latte": {
+      "name": "Café latte",
+      "desc": "",
+      "ing": "A soft, creamy coffee: a delicate espresso lengthened with velvety milk and a thin layer of foam. The perfect balance of coffee strength and milk smoothness."
+    },
+    "cappuccino": {
+      "name": "Cappuccino",
+      "desc": "",
+      "ing": "The Italian classic: intense espresso crowned with a dense, velvety milk foam dusted with a touch of cocoa. Rich, round and comforting."
+    },
+    "americano": {
+      "name": "Americano",
+      "desc": "",
+      "ing": "An espresso topped up with hot water for a long, light and aromatic coffee. The choice of those who like a large cup with a gentle body."
+    },
+    "latte_macchiato": {
+      "name": "Latte macchiato",
+      "desc": "",
+      "ing": "A latte macchiato served in a tall glass: velvety milk “stained” with intense espresso, in three distinct layers. Soft, creamy and a feast for the eyes."
+    },
+    "cafe_turc": {
+      "name": "Turkish coffee",
+      "desc": "",
+      "ing": "Turkish coffee brewed in a cezve: very finely ground, simmered slowly with water and sugar for a dense, fragrant coffee topped with a delicate foam. An Istanbul institution to sip slowly — right to the last sip (leaving the grounds behind!)."
+    },
+    "cafe_noisette": {
+      "name": "Café noisette",
+      "desc": "",
+      "ing": "An espresso touched with a dash of milk that gives it its “noisette” hazel hue. Soft and quick: the coffee for short but tasty breaks."
+    },
+    "ice_coffee": {
+      "name": "Ice coffee",
+      "desc": "",
+      "ing": "A fresh, refreshing coffee served well chilled over ice: all the comfort of coffee in a summer version. Ideal for sunny breaks."
+    },
+    "ice_latte": {
+      "name": "Ice latte",
+      "desc": "",
+      "ing": "An iced latte: cold velvety milk over ice, “stained” with intense espresso. Creamy, soft and thirst-quenching all at once."
+    },
+    "ice_cappuccino": {
+      "name": "Ice cappuccino",
+      "desc": "",
+      "ing": "A cappuccino turned iced: intense espresso, cold milk and velvety foam over a bed of ice. The classic Italian foam, with extra freshness."
+    },
+    "supplement_lait_avoine": {
+      "name": "Oat milk extra",
+      "desc": "",
+      "ing": "Swap in or add oat milk to your drink: a gentle, lightly sweet plant-based alternative."
+    },
+    "saveur_gourmande": {
+      "name": "Gourmet flavour extra",
+      "desc": "",
+      "ing": "Add a gourmet flavour touch to your favourite hot drink: a fragrant syrup for an even softer break."
+    },
+    "the_turc": {
+      "name": "Turkish tea",
+      "desc": "",
+      "ing": "Traditional Turkish tea served in the famous tulip-shaped glass: black tea steeped slowly, amber-coloured and full-bodied. Sip it slowly, just like in Istanbul."
+    },
+    "tisane_palais": {
+      "name": "Herbal tea by Palais des Thés",
+      "desc": "",
+      "ing": "A delicate herbal infusion by Palais des Thés, with soft, soothing aromas. The comforting drink for wind-downs and quiet breaks."
+    },
+    "lait_nature": {
+      "name": "Plain milk",
+      "desc": "",
+      "ing": "Plain milk, served hot or cold — simple and gentle. For the most delicate of breaks."
+    },
+    "lait_miel": {
+      "name": "Milk with honey",
+      "desc": "",
+      "ing": "Warm honey milk, sweet and comforting: the honey slowly melting into the smooth milk. The ultimate cosy drink."
+    },
+    "chocolat_chaud": {
+      "name": "Hot chocolate",
+      "desc": "",
+      "ing": "An intense, velvety hot chocolate with a deep cocoa taste. A warm hug in a cup."
+    },
+    "chocolat_chaud_lait": {
+      "name": "Hot chocolate with milk",
+      "desc": "",
+      "ing": "An even creamier hot chocolate, made with more milk for a light, silky texture. Soft and indulgent — loved by every age."
+    },
+    "eau_cristaline_volvic": {
+      "name": "Water Cristaline / Volvic",
+      "desc": "",
+      "ing": "Still mineral water, Cristaline or Volvic, served well chilled. The ideal companion to your coffee or meal."
+    },
+    "carola_rouge_verte": {
+      "name": "Carola red / green",
+      "desc": "",
+      "ing": "Carola mineral water, still or sparkling, served well chilled. Its fine, light bubbles pair beautifully with a coffee or a meal."
+    },
+    "lemonaid_charitea": {
+      "name": "Lemonaid / Charitea",
+      "desc": "",
+      "ing": "An organic, fair-trade soft drink: Lemonaid with lemon, lime or passion fruit, or Charitea iced tea. Fresh, fruity and made with purpose."
+    },
+    "jus_granini_pago": {
+      "name": "Granini / Pago fruit juice",
+      "desc": "",
+      "ing": "A Granini or Pago fruit juice in the flavour of your choice, fruity and served well chilled."
+    },
+    "sodas": {
+      "name": "Coca-Cola / Fanta / Sprite / Ice Tea",
+      "desc": "",
+      "ing": "The great soda classics: Coca-Cola, Fanta, Sprite or Ice Tea, served well chilled. The familiar fizz everyone loves."
+    },
+    "red_bull": {
+      "name": "Red Bull",
+      "desc": "",
+      "ing": "A well-chilled can of Red Bull for an energising boost in the middle of the day."
+    }
   },
   "specialites": {
     "kicker": "Our specialities",
@@ -166,13 +485,48 @@
     "intro": "From Turkish specialities to the great classics of coffee — here's what our guests love to come back for.",
     "view_menu": "See on the menu",
     "list": [
-      { "id": "cafe_turc", "cat": "cafes", "title": "Turkish coffee", "text": "An institution to be sipped slowly, an emblem of oriental hospitality. Find it on our menu, on its own or as part of a gourmet break." },
-      { "id": "cappuccinos", "cat": "cafes", "title": "Cappuccinos & café lattes", "text": "Intense espresso, velvety milk and delicate foam: the great classics of coffee, carefully prepared." },
-      { "id": "simit_acma", "cat": "viennoiseries", "title": "Simit & açma", "text": "Turkish morning treats: sesame-crusted ring bread and a soft brioche — perfect at any time of day." },
-      { "id": "boreks", "cat": "boreks", "title": "Böreks", "text": "Turkish-style savoury pastries: spinach, potato, cheese or minced meat." },
-      { "id": "petits_dejeuners", "cat": "petits_dejeuners", "title": "Breakfasts", "text": "From the classic to the generous Galista breakfast: everything you need to start the day beautifully." },
-      { "id": "patisseries", "cat": "patisseries", "title": "Pastries", "text": "Macarons, éclairs, mille-feuilles and brownies — a display case that calls for a break." },
-      { "id": "glaces_milkshakes", "cat": "glaces", "title": "Ice cream & milkshakes", "text": "Fourteen listed flavours, from salted butter caramel to pistachio — in a cone, a tub or a milkshake." }
+      {
+        "id": "cafe_turc",
+        "cat": "cafes",
+        "title": "Turkish coffee",
+        "text": "An institution to be sipped slowly, an emblem of oriental hospitality. Find it on our menu, on its own or as part of a gourmet break."
+      },
+      {
+        "id": "cappuccinos",
+        "cat": "cafes",
+        "title": "Cappuccinos & café lattes",
+        "text": "Intense espresso, velvety milk and delicate foam: the great classics of coffee, carefully prepared."
+      },
+      {
+        "id": "simit_acma",
+        "cat": "viennoiseries",
+        "title": "Simit & açma",
+        "text": "Turkish morning treats: sesame-crusted ring bread and a soft brioche — perfect at any time of day."
+      },
+      {
+        "id": "boreks",
+        "cat": "boreks",
+        "title": "Böreks",
+        "text": "Turkish-style savoury pastries: spinach, potato, cheese or minced meat."
+      },
+      {
+        "id": "petits_dejeuners",
+        "cat": "petits_dejeuners",
+        "title": "Breakfasts",
+        "text": "From the classic to the generous Galista breakfast: everything you need to start the day beautifully."
+      },
+      {
+        "id": "patisseries",
+        "cat": "patisseries",
+        "title": "Pastries",
+        "text": "Macarons, éclairs, mille-feuilles and brownies — a display case that calls for a break."
+      },
+      {
+        "id": "glaces_milkshakes",
+        "cat": "glaces",
+        "title": "Ice cream & milkshakes",
+        "text": "Fourteen listed flavours, from salted butter caramel to pistachio — in a cone, a tub or a milkshake."
+      }
     ]
   },
   "galerie": {
@@ -182,7 +536,14 @@
     "close": "Close",
     "prev": "Previous image",
     "next": "Next image",
-    "frames": ["Inside the café", "The atmosphere", "The drinks", "The pastries", "The breakfasts", "Turkish specialities"]
+    "frames": [
+      "Inside the café",
+      "The atmosphere",
+      "The drinks",
+      "The pastries",
+      "The breakfasts",
+      "Turkish specialities"
+    ]
   },
   "instagram": {
     "title": "The café live on Instagram",
@@ -213,7 +574,15 @@
     "address_label": "Address",
     "phone_label": "Phone",
     "hours_label": "Opening hours",
-    "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
     "hours_note": "Official hours — the café is open 7 days a week.",
     "maps_cta": "Open in Google Maps",
     "call_cta": "Call the café"

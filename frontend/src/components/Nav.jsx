@@ -63,7 +63,7 @@ export default function Nav({ lenisRef }) {
             aria-label="Galista Café — accueil"
           >
             <img src="/favicon.png" alt="" className="h-9 w-9" />
-            <span className="font-serif text-xl tracking-[0.16em] md:text-2xl">
+            <span className="font-serif text-lg tracking-[0.12em] sm:text-xl md:text-2xl md:tracking-[0.16em]">
               GALISTA <span className="text-iznik">CAFÉ</span>
             </span>
           </a>
@@ -84,7 +84,7 @@ export default function Nav({ lenisRef }) {
 
           <div className="flex items-center gap-3 md:gap-4">
             <div
-              className="hidden items-center rounded-full border border-brun/20 p-0.5 sm:flex"
+              className="flex items-center rounded-full border border-brun/20 p-0.5"
               role="group"
               aria-label={t("a11y.lang_switch")}
             >

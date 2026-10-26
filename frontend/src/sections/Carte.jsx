@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { CATEGORIES } from "@/data/menu";
 import { formatPrice } from "@/i18n";
 import { BeanMark } from "@/components/Nav";
-import SectionHeading, { Reveal } from "@/components/SectionHeading";
+import { Reveal } from "@/components/SectionHeading";
 
 // Photo d'un plat : d'abord /photos/<id>.jpg (photos officielles de
 // l'établissement), puis l'illustration du produit, puis celle de la
@@ -125,7 +125,7 @@ export default function Carte({ lenisRef }) {
   return (
     <section id="carte" className="scroll-mt-16 bg-blanccasse py-20 md:py-28">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <SectionHeading kicker={t("carte.kicker")} title={t("carte.title")} intro={t("carte.subtitle")} />
+        <p className="kicker">{t("carte.kicker")}</p>
 
         <div className="no-scrollbar sticky top-16 z-30 -mx-6 mt-10 overflow-x-auto border-b border-brun/10 bg-blanccasse px-6 py-4 md:mx-0 md:px-0">
           <div className="flex flex-nowrap gap-2 lg:flex-wrap lg:justify-center" role="tablist" aria-label={t("carte.kicker")}>

@@ -1,24 +1,17 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { SITE, scrollToHash } from "@/data/site";
 import OpenBadge from "@/components/OpenBadge";
 
 const EASE = [0.22, 1, 0.36, 1];
 
-export default function Hero({ lenisRef }) {
+export default function Hero() {
   const { t } = useTranslation();
   const ref = useRef(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1.04, 1.12]);
-
-  const goTo = (e, hash) => {
-    e.preventDefault();
-    scrollToHash(hash, lenisRef?.current);
-  };
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   return (
     <section
@@ -43,33 +36,24 @@ export default function Hero({ lenisRef }) {
           loading="eager"
         />
       )}
-      {/* Overlay sombre léger pour garder le texte lisible */}
+      {/* Voile léger pour garder le texte lisible sans masquer la photo */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-brunprofond/80 via-brunprofond/55 to-brunprofond/25"
+        className="absolute inset-0 bg-gradient-to-r from-brunprofond/55 via-brunprofond/35 to-brunprofond/15"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-brunprofond/75 via-transparent to-brunprofond/30"
+        className="absolute inset-0 bg-gradient-to-t from-brunprofond/50 via-transparent to-brunprofond/20"
         aria-hidden="true"
       />
 
       {/* Contenu */}
-      <div className="relative z-[5] mx-auto w-full max-w-[1500px] px-6 py-24 md:px-14">
+      <div className="relative z-[5] mx-auto w-full max-w-[1500px] px-6 py-24 [text-shadow:0_2px_18px_rgba(36,26,22,0.55)] md:px-14">
         <div className="max-w-xl text-center md:text-left">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             className="ornament md:mr-auto"
-          />
-          <motion.img
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-            src="/logo.png"
-            alt="Galista Café"
-            className="mx-auto mt-6 h-20 w-auto rounded-2xl bg-creme/90 px-4 py-2.5 shadow-[0_14px_34px_rgba(36,26,22,0.45)] md:mx-0 md:h-24"
-            data-testid="hero-logo"
           />
           <h1
             className="mt-6 font-serif text-4xl leading-[1.06] sm:text-5xl lg:text-6xl"
@@ -79,7 +63,7 @@ export default function Hero({ lenisRef }) {
               <motion.span
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.85, delay: 0.36, ease: EASE }}
+                transition={{ duration: 0.85, delay: 0.3, ease: EASE }}
                 className="block text-creme"
               >
                 {t("hero.title_line1")}
@@ -89,7 +73,7 @@ export default function Hero({ lenisRef }) {
               <motion.span
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.85, delay: 0.48, ease: EASE }}
+                transition={{ duration: 0.85, delay: 0.42, ease: EASE }}
                 className="block italic text-[#7EC8C6]"
               >
                 {t("hero.title_line2")}
@@ -99,7 +83,7 @@ export default function Hero({ lenisRef }) {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.62, ease: EASE }}
+            transition={{ duration: 0.8, delay: 0.56, ease: EASE }}
             className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-creme/90 sm:text-lg md:mx-0"
           >
             {t("hero.subtitle")}
@@ -107,39 +91,10 @@ export default function Hero({ lenisRef }) {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.72, ease: EASE }}
-            className="mt-5 flex justify-center md:justify-start"
+            transition={{ duration: 0.8, delay: 0.68, ease: EASE }}
+            className="mt-6 flex justify-center md:justify-start"
           >
             <OpenBadge />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.82, ease: EASE }}
-            className="mt-7 flex flex-wrap justify-center gap-4 md:justify-start"
-          >
-            <a
-              href="#carte"
-              onClick={(e) => goTo(e, "#carte")}
-              className="btn btn-primary"
-              data-testid="cta-discover-menu"
-            >
-              <span>{t("hero.cta_menu")}</span>
-            </a>
-            <a
-              href={SITE.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline-light"
-              data-testid="cta-find-us"
-            >
-              <MapPin className="h-4 w-4" />
-              <span>{t("hero.cta_find")}</span>
-            </a>
-            <a href={SITE.phoneHref} className="btn btn-outline-light md:hidden" data-testid="cta-call-hero">
-              <Phone className="h-4 w-4" />
-              <span>{t("contact.call_cta")}</span>
-            </a>
           </motion.div>
         </div>
       </div>
