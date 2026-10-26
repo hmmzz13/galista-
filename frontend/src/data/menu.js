@@ -1,7 +1,6 @@
 // Structure centralisée de la carte — prix et produits relevés sur la carte en
 // ligne de Galista Café (https://www.galistacafe.fr/menu/). Les noms, descriptions
 // et ingrédients traduits vivent dans src/i18n/{fr,de,en}.json, clé « items ».
-// flag `confirm` = recette détaillée à confirmer par l'établissement.
 //
 // PHOTOS OFFICIELLES : chaque produit affiche en priorité le fichier
 // public/photos/<id>.jpg (ex : public/photos/menemen.jpg). Il suffit de déposer
@@ -78,10 +77,10 @@ export const CATEGORIES = [
     id: "boreks",
     photo: CAT_IMG.boreks,
     items: [
-      { id: "borek_epinards", price: 3.2, confirm: true },
-      { id: "borek_pommes_terre", price: 3.2, confirm: true },
-      { id: "borek_fromage", price: 3.2, confirm: true },
-      { id: "borek_viande_hachee", price: 3.4, confirm: true },
+      { id: "borek_epinards", price: 3.2 },
+      { id: "borek_pommes_terre", price: 3.2 },
+      { id: "borek_fromage", price: 3.2 },
+      { id: "borek_viande_hachee", price: 3.4 },
     ],
   },
   {
@@ -115,7 +114,7 @@ export const CATEGORIES = [
     items: [
       { id: "salade_saison", price: 6.9 },
       { id: "salade_poulet", price: 7.9, photo: "https://images.pexels.com/photos/1540420773420-31ed25ee0cdf.jpeg?auto=compress&cs=tinysrgb&w=600" },
-      { id: "salade_thon", price: 7.9, confirm: true },
+      { id: "salade_thon", price: 7.9 },
     ],
   },
   {

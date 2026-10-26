@@ -26,10 +26,10 @@ export default function OpenBadge({ className = "", state }) {
 
   return (
     <span
-      className={`inline-flex items-center gap-2.5 rounded-full border px-4 py-2 text-xs font-semibold tracking-wide ${
+      className={`inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-xs font-semibold tracking-wide shadow-[0_10px_24px_-10px_rgba(36,26,22,0.55)] ${
         open.open
-          ? "border-[#3E9B63]/40 bg-[#3E9B63]/15 text-[#2E6E48]"
-          : "border-terracotta/40 bg-terracotta/15 text-terracotta-fonce"
+          ? "bg-[#3E9B63] text-white"
+          : "bg-terracotta text-[#FAF5EC]"
       } ${className}`}
       data-testid="open-badge"
       role="status"

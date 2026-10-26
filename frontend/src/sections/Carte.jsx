@@ -73,12 +73,6 @@ function MenuRow({ item, cat, t, i18n }) {
             ))}
           </ul>
         )}
-
-        {item.confirm && (
-          <span className="mt-1.5 inline-block rounded-full border border-terracotta/50 px-2.5 py-0.5 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-terracotta-fonce">
-            {t("carte.confirm_badge")}
-          </span>
-        )}
       </div>
     </article>
   );
