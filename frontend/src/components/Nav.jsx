@@ -54,7 +54,7 @@ export default function Nav({ lenisRef }) {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 bg-creme/90 text-brun shadow-[0_1px_0_rgba(75,48,38,0.08)] backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-5 md:h-[72px] md:px-12">
+        <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-4 sm:px-5 md:h-[72px] md:px-12">
           <a
             href="#accueil"
             onClick={goTop}
@@ -62,8 +62,8 @@ export default function Nav({ lenisRef }) {
             data-testid="nav-logo"
             aria-label="Galista Café — accueil"
           >
-            <img src="/favicon.png" alt="" className="h-9 w-9" />
-            <span className="font-serif text-lg tracking-[0.12em] sm:text-xl md:text-2xl md:tracking-[0.16em]">
+            <img src="/favicon.png" alt="" className="h-8 w-8 sm:h-9 sm:w-9" />
+            <span className="font-serif text-sm tracking-[0.08em] sm:text-xl md:text-2xl md:tracking-[0.16em]">
               GALISTA <span className="text-iznik">CAFÉ</span>
             </span>
           </a>
@@ -82,7 +82,7 @@ export default function Nav({ lenisRef }) {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
             <div
               className="flex items-center rounded-full border border-brun/20 p-0.5"
               role="group"
@@ -94,7 +94,7 @@ export default function Nav({ lenisRef }) {
                   onClick={() => switchLang(lng)}
                   data-testid={`lang-switcher-${lng}`}
                   aria-pressed={i18n.language === lng}
-                  className={`rounded-full px-2.5 py-1 text-[0.7rem] font-bold uppercase tracking-widest transition-colors duration-300 ${
+                  className={`rounded-full px-2 py-1 text-[0.64rem] font-bold uppercase tracking-widest transition-colors duration-300 sm:px-2.5 sm:text-[0.7rem] ${
                     i18n.language === lng
                       ? "bg-iznik text-blanccasse"
                       : "opacity-70 hover:opacity-100"
@@ -110,7 +110,7 @@ export default function Nav({ lenisRef }) {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="nav-find-btn"
-              className="btn btn-dark hidden !py-2.5 !px-5 !text-[0.8rem] md:inline-flex"
+              className="btn btn-dark !hidden !py-2.5 !px-5 !text-[0.8rem] md:!inline-flex"
             >
               <MapPin className="h-4 w-4" />
               <span>{t("nav.find_us")}</span>

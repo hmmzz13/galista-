@@ -36,9 +36,9 @@ export default function Hero() {
           loading="eager"
         />
       )}
-      {/* Voile léger pour garder le texte lisible sans masquer la photo */}
+      {/* Voile léger, un peu plus présent derrière le texte pour la lisibilité */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-brunprofond/55 via-brunprofond/35 to-brunprofond/15"
+        className="absolute inset-0 bg-gradient-to-r from-brunprofond/70 via-brunprofond/45 to-brunprofond/15"
         aria-hidden="true"
       />
       <div
@@ -47,7 +47,7 @@ export default function Hero() {
       />
 
       {/* Contenu */}
-      <div className="relative z-[5] mx-auto w-full max-w-[1500px] px-6 py-24 [text-shadow:0_2px_18px_rgba(36,26,22,0.55)] md:px-14">
+      <div className="relative z-[5] mx-auto w-full max-w-[1500px] px-6 py-24 [text-shadow:0_2px_26px_rgba(36,26,22,0.72)] md:px-14">
         <div className="max-w-xl text-center md:text-left">
           <motion.div
             initial={{ opacity: 0 }}

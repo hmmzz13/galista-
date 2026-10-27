@@ -2,11 +2,10 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-const SLICE_COUNT = 20;
 const EASE = [0.22, 1, 0.36, 1];
 
-// Écran de chargement : logo officiel + tasse en rotation construite
-// uniquement en CSS (perspective + preserve-3d), sans WebGL ni librairie 3D.
+// Écran de chargement : logo officiel turquoise + tagline + barre de
+// progression — pur CSS, sans WebGL ni librairie 3D.
 export default function Loader() {
   const { t } = useTranslation();
 
@@ -26,43 +25,14 @@ export default function Loader() {
       exit={{ opacity: 0, transition: { duration: 0.45, ease: "easeOut" } }}
     >
       <motion.img
-        src="/logo.png"
+        src="/photos/logo-teal.jpg"
         alt="Galista Café"
-        initial={{ opacity: 0, scale: 0.88, y: 10 }}
+        initial={{ opacity: 0, scale: 0.85, y: 12 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.7, ease: EASE }}
         className="loader-logo"
         data-testid="loader-logo"
       />
-
-      <div className="loader-scene" aria-hidden="true">
-        <div className="loader-steam">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="loader-world">
-          <span className="loader-bean loader-bean--1" />
-          <span className="loader-bean loader-bean--2" />
-          <span className="loader-bean loader-bean--3" />
-          <div className="loader-cup">
-            {Array.from({ length: SLICE_COUNT }).map((_, i) => (
-              <span
-                key={i}
-                className="loader-cup-slice"
-                style={{
-                  transform: `rotateY(${(360 / SLICE_COUNT) * i}deg) translateZ(28px)`,
-                  filter: `brightness(${(0.62 + 0.38 * Math.abs(Math.cos((Math.PI / SLICE_COUNT) * (i + 0.5)))).toFixed(3)})`,
-                }}
-              />
-            ))}
-            <span className="loader-coffee" />
-            <span className="loader-handle" />
-          </div>
-          <span className="loader-saucer" />
-        </div>
-      </div>
-
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

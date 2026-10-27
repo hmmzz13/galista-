@@ -75,6 +75,9 @@ function App() {
 
   useEffect(() => {
     if (!booting) return undefined;
+    // Le site démarre toujours en haut de page (pas de restauration de scroll).
+    if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const timer = setTimeout(() => {
       try {

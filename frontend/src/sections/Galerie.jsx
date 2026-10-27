@@ -16,7 +16,7 @@ const SPANS = [
 
 // Photographies officielles de l'établissement.
 const PHOTOS = [
-  { src: "/photos/cafe-interior.jpg", key: 0 },
+  { src: "/photos/galerie-cookies.jpg", key: 0 },
   { src: "/photos/galerie-ambiance.jpg", key: 1 },
   { src: "/photos/galerie-boissons.jpg", key: 2 },
   { src: "/photos/galerie-patisseries.jpg", key: 3 },
