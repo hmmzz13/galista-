@@ -25,7 +25,7 @@ export default function Loader() {
       exit={{ opacity: 0, transition: { duration: 0.45, ease: "easeOut" } }}
     >
       <motion.img
-        src="/photos/logo-teal.jpg"
+        src="/photos/logo-teal.png"
         alt="Galista Café"
         initial={{ opacity: 0, scale: 0.85, y: 12 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}

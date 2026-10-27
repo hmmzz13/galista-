@@ -189,3 +189,16 @@ SEO/technique (skill farm-seo-setup) :
 - P0 : remplacer les emplacements réservés par les photographies officielles ; faire confirmer par l'établissement prix, horaires, ingrédients détaillés (böreks, sauces) et allergènes ; confirmer le compte Instagram officiel puis l'ajouter.
 - P1 : canonical + sitemap.xml + hreflang à générer dès que le domaine de production est connu ; balises hreflang /fr/ /de/ /en/.
 - P2 : formulaire de contact éventuel (Resend), données structurées d'horaires après confirmation, JSON-LD aggregateRating après vérification des chiffres réels.
+
+## CHANGELOG (ajouts récents)
+- 27/10/2026 — Lisibilité hero + qualité du loader :
+  - Loader : logo officiel reconstruit en haute qualité (600×600 net, 4× upscale LANCZOS + median filter + quantisation -> /photos/logo-teal.png, remplace le JPEG 150×150 flou).
+  - Hero : halo sombre ciblé derrière le bloc de texte (.hero-text-scrim, radial ellipse centrée mobile / à gauche desktop) — photo toujours claire, titre toujours lisible.
+  - Typo hero : titre en Cormorant Garamond 700 (font-bold), ligne italique 600 (#9BD9D6 plus claire), italique 600 ajouté au lien Google Fonts, sous-titre font-medium text-creme, ombre de texte renforcée.
+- 27/10/2026 (plus tôt) — Lot logo/header mobile/galerie : loader logo officiel sans tasse 3D, header mobile réparé (bouton « Nous trouver » masqué <md via règle CSS prioritaire), espacement nom/langues, démarrage scrollY=0 (scrollRestoration manual), galerie photo cookies en 1re position, image salade_poulet 404 remplacée (URL validée HTTP 200).
+- Antérieur — Menu flyer 3 colonnes + onglets sticky, carrousel d'avis auto 3 s + swipe, Instagram embed consentement + fallback @galistacafe, badge Ouvert/Fermé contraste AA (horaires officiels lun-jeu 07-17, ven-dim 07-16), SEO complet (OG 1200×630 salle, JSON-LD CafeOrCoffeeShop, canonical/hreflang https://www.galistacafe.fr/, robots, sitemap, llms.txt, favicon), allergènes, prix confirmés (mention retirée), photos officielles galerie, cartes MapLibre plate 46 rue du Faubourg-National, barre mobile Appeler/Itinéraire.
+
+## Backlog restant
+- P0 : intégrer les photos officielles de chaque plat dans la carte (annoncees par l'utilisateur, pas encore envoyées — le menu flyer est déjà prévu pour les photos latérales).
+- P1 : rien (SEO en place sur le domaine https://www.galistacafe.fr/ en balises uniquement — ne PAS connecter le DNS, l'ancien site est actif).
+- P2 : formulaire de contact éventuel (Resend), JSON-LD aggregateRating après vérification.

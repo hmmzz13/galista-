@@ -300,6 +300,22 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   to { transform: scaleX(1); }
 }
 
+/* --- Hero : halo sombre ciblé derrière le texte (mobile centré, desktop à gauche) --- */
+.hero-text-scrim {
+  background: radial-gradient(ellipse 110% 66% at 50% 50%,
+    rgba(36, 26, 22, 0.68) 0%,
+    rgba(36, 26, 22, 0.44) 46%,
+    rgba(36, 26, 22, 0) 74%);
+}
+@media (min-width: 768px) {
+  .hero-text-scrim {
+    background: radial-gradient(ellipse 31% 88% at 16% 50%,
+      rgba(36, 26, 22, 0.72) 0%,
+      rgba(36, 26, 22, 0.44) 50%,
+      rgba(36, 26, 22, 0) 76%);
+  }
+}
+
 /* --- Carrousel d'avis --- */
 .carousel-arrow {
   display: flex;
