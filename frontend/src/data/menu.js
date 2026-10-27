@@ -113,7 +113,7 @@ export const CATEGORIES = [
     photo: CAT_IMG.salades,
     items: [
       { id: "salade_saison", price: 6.9 },
-      { id: "salade_poulet", price: 7.9, photo: "https://images.pexels.com/photos/1540420773420-31ed25ee0cdf.jpeg?auto=compress&cs=tinysrgb&w=600" },
+      { id: "salade_poulet", price: 7.9, photo: "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600" },
       { id: "salade_thon", price: 7.9 },
     ],
   },

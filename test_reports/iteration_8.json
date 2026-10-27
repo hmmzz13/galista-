@@ -1,0 +1,23 @@
+{
+  "summary": "Frontend-only regression after 5 fixes (mobile language overlap, hero legibility, start-at-top scroll, new loader logo, galerie cookies frame). All targeted behaviours verified at mobile 375 and desktop 1440. 100% PASS.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Spec in review request references testids 'nav-wordmark' and 'lang-pill-*' but the code uses the span inside 'nav-logo' as wordmark and 'lang-switcher-fr/de/en' for pills. Functionally identical, but consider aligning testid naming across spec and code for clarity.",
+    "Preexisting 404 on a pexels image appears in console (as noted by main agent) — can be removed to keep console clean."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "test_credentials": "none (public site)",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Loader logo testid = loader-logo (src /photos/logo-teal.jpg). Language pills testids = lang-switcher-{fr,de,en} (NOT lang-pill-*). Wordmark = span inside [data-testid=nav-logo] (no dedicated nav-wordmark testid). To see loader again: clear sessionStorage key 'galista-loader-seen'. Measured mobile 375 gap wordmark↔FR pill = 57.36px, scrollWidth=375 (no overflow). nav-find-btn display:none at 375, visible with text 'Nous trouver' at 1440. scrollY=0 after loader on both viewports. Galerie frame-0 image = /photos/galerie-cookies.jpg and lightbox opens it. EN pill navigates to /en with translated hero 'A coffee break, the Istanbul way.' Mobile burger menu renders its own FR/DE/EN switcher + phone + 'Nous trouver' CTA. Mobile sticky Appeler/Itinéraire bar present.",
+  "rca of the issue": "N/A — all 5 fixes confirmed working on the live preview URL."
+}
