@@ -202,3 +202,7 @@ SEO/technique (skill farm-seo-setup) :
 - P0 : intégrer les photos officielles de chaque plat dans la carte (annoncees par l'utilisateur, pas encore envoyées — le menu flyer est déjà prévu pour les photos latérales).
 - P1 : rien (SEO en place sur le domaine https://www.galistacafe.fr/ en balises uniquement — ne PAS connecter le DNS, l'ancien site est actif).
 - P2 : formulaire de contact éventuel (Resend), JSON-LD aggregateRating après vérification.
+- 28/10/2026 — Démarrage en haut + rapidité du menu :
+  - Scroll : script inline dans index.html (history.scrollRestoration=manual + scrollTo(0,0) + pageshow BFCache) + remontée sous le loader à la sortie + forçage top au retour sans loader — le site s'ouvre toujours tout en haut.
+  - Menu : 61 photos Pexels/Unsplash téléchargées, redimensionnées en 480 px et compressées (q=72, ~1,8 Mo au total) dans public/photos/menu/ ; menu.js réécrit en chemins locaux — plus de dépendance aux CDN externes lents.
+  - ProductImage : manifeste /photos/manifest.json (une seule requête partagée, régénérable via scripts/gen_photo_manifest.py) remplace 77 requêtes 404 ; decoding=async ajouté. Les futures photos officielles des plats restent prioritaires.

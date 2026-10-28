@@ -74,7 +74,11 @@ function App() {
   });
 
   useEffect(() => {
-    if (!booting) return undefined;
+    if (!booting) {
+      // Retour sur le site (loader déjà vu) : toujours tout en haut.
+      window.scrollTo({ top: 0, behavior: "instant" });
+      return undefined;
+    }
     // Le site démarre toujours en haut de page (pas de restauration de scroll).
     if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
     window.scrollTo(0, 0);
@@ -85,6 +89,8 @@ function App() {
       } catch (e) {
         /* storage unavailable */
       }
+      // Remontée sous le loader : invisible pour l'utilisateur.
+      window.scrollTo(0, 0);
       setBooting(false);
     }, reduced ? 500 : 2000);
     return () => clearTimeout(timer);

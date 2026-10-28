@@ -2,6 +2,14 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
+        <script>
+            // Le site démarre toujours tout en haut : on coupe la restauration
+            // de scroll du navigateur avant le moindre rendu, et on remonte
+            // aussi quand on revient sur l'onglet via le cache (retour arrière).
+            if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+            window.scrollTo(0, 0);
+            window.addEventListener("pageshow", function (e) { if (e.persisted) window.scrollTo(0, 0); });
+        </script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#241A16" />
         <meta name="description" content="Galista Café, café de spécialité à Strasbourg : petits déjeuners, café turc, böreks, pâtisseries et glaces. 46 rue du Faubourg-National — découvrez la carte." />

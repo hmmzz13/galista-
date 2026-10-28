@@ -6,12 +6,40 @@ import { BeanMark } from "@/components/Nav";
 import { Reveal } from "@/components/SectionHeading";
 
 // Photo d'un plat : d'abord /photos/<id>.jpg (photos officielles de
-// l'établissement), puis l'illustration du produit, puis celle de la
-// catégorie. Si tout échoue, un marqueur discret.
+// l'établissement, listées dans photos/manifest.json), puis l'illustration
+// du produit, puis celle de la catégorie. Si tout échoue, un marqueur discret.
+// Le manifeste est une toute petite requête partagée : elle évite des
+// dizaines de 404 au chargement du menu (un essai par plat sinon).
+let officialPhotos = null;
+function loadOfficialPhotos() {
+  if (!officialPhotos) {
+    officialPhotos = fetch("/photos/manifest.json")
+      .then((r) => (r.ok ? r.json() : { items: [] }))
+      .then((m) => new Set(m.items || []))
+      .catch(() => new Set());
+  }
+  return officialPhotos;
+}
+
 function ProductImage({ id, itemPhoto, catPhoto, alt }) {
-  const sources = [`/photos/${id}.jpg`, itemPhoto, catPhoto].filter(Boolean);
+  const [officialOk, setOfficialOk] = useState(null); // null = manifeste en cours
   const [step, setStep] = useState(0);
 
+  useEffect(() => {
+    let alive = true;
+    loadOfficialPhotos().then((set) => {
+      if (alive) setOfficialOk(set.has(id));
+    });
+    return () => {
+      alive = false;
+    };
+  }, [id]);
+
+  const sources = [officialOk ? `/photos/${id}.jpg` : null, itemPhoto, catPhoto].filter(Boolean);
+
+  if (officialOk === null) {
+    return <div className="h-full w-full bg-beige" />;
+  }
   if (step >= sources.length) {
     return (
       <div className="flex h-full w-full items-center justify-center bg-beige">
@@ -24,6 +52,7 @@ function ProductImage({ id, itemPhoto, catPhoto, alt }) {
       src={sources[step]}
       alt={alt}
       loading="lazy"
+      decoding="async"
       onError={() => setStep((s) => s + 1)}
       className="h-full w-full object-cover"
     />
