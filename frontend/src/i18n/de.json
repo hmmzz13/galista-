@@ -104,7 +104,7 @@
       "ing": "Ein großer Teller salzig-süß: hartgekochtes Ei, Feta und geriebener Emmentaler, Salami, Oliven, saftige Tomaten und Gurken, frische Kräuter, Honig oder Konfitüre — dazu Brot, ein heißes Getränk und Orangensaft. Reichhaltiger Genuss wie in Istanbul."
     },
     "omelette_aneth": {
-      "name": "Omelette mit Dill",
+      "name": "Omelette natur oder mit Dill",
       "desc": "Omelette aus zwei Eiern mit Dill, serviert mit Brot.",
       "ing": "Zwei Eier, sanft in der Pfanne gegart und mit frischem Dill fein aromatisiert. Innen weich, außen goldbraun — serviert mit Brot."
     },
@@ -144,7 +144,7 @@
       "ing": "Ein kleiner frischer Teller zum Teilen: eine Auswahl an Käsen, knackige Tomaten und Gurken sowie Oliven. Ideal als Vorspeise oder Ergänzung zum Frühstück."
     },
     "frites": {
-      "name": "Pommes frites",
+      "name": "Pommes / kleiner Salat",
       "desc": "",
       "ing": "Goldbraune, knusprige Pommes frites, heiß serviert mit einer Prise Salz. Die perfekte Beilage zum Gericht — oder zum Knabbern in geselliger Runde."
     },
@@ -204,7 +204,7 @@
       "ing": "Ein großzügig gefüllter Börek mit nach türkischer Art gewürztem Hackfleisch in goldbraunem, knusprigem Teig. Perfekt für eine herzhafte Pause zwischendurch."
     },
     "toast_kasar": {
-      "name": "Toast mit Kaşar-Käse",
+      "name": "Käsetoast",
       "desc": "",
       "ing": "Geröstetes Brot mit türkischem Kaşar-Käse, geschmolzen bis er schön fädelt. Einfach und unwiderstehlich — heiß serviert."
     },
@@ -322,11 +322,6 @@
       "name": "Mille-feuille",
       "desc": "",
       "ing": "Der klassische Mille-feuille: knusprige Blätterteigschichten, abwechselnd mit samtiger Creme, gekrönt mit Zuckerguss. Französischer Genuss schlechthin."
-    },
-    "macarons_framboise": {
-      "name": "Macarons mit Himbeere",
-      "desc": "",
-      "ing": "Macarons mit Himbeere: feine, knusprige Schale, weicher Kern und fruchtig-frischer Geschmack. Die perfekte Verbindung von Süße und Frische."
     },
     "glace_cone": {
       "name": "Waffel oder Tulpe",
@@ -449,7 +444,7 @@
       "ing": "Noch cremigere heiße Schokolade mit mehr Milch: leicht und samtig. Mild und genussvoll — für jedes Alter."
     },
     "eau_cristaline_volvic": {
-      "name": "Wasser Cristaline / Volvic",
+      "name": "Wasser Cristaline",
       "desc": "",
       "ing": "Stilles Mineralwasser, Cristaline oder Volvic, frisch serviert. Der ideale Begleiter zu Kaffee und Mahlzeit."
     },
@@ -464,12 +459,12 @@
       "ing": "Eine Bio-Limonade mit fairen Zutaten: Lemonaid mit Zitrone, Limette oder Maracuja, oder Charitea als Eistee. Frisch, fruchtig und mit Haltung."
     },
     "jus_granini_pago": {
-      "name": "Fruchtsaft Granini / Pago",
+      "name": "Granini / Pago / Mineralwasser",
       "desc": "",
       "ing": "Ein Fruchtsaft von Granini oder Pago nach Wahl, fruchtig und frisch serviert."
     },
     "sodas": {
-      "name": "Coca-Cola / Fanta / Sprite / Ice Tea",
+      "name": "Dose 33 cl",
       "desc": "",
       "ing": "Die großen Soda-Klassiker: Coca-Cola, Fanta, Sprite oder Ice Tea, frisch serviert. Die vertraute Prise Brause für alle."
     },
@@ -477,6 +472,58 @@
       "name": "Red Bull",
       "desc": "",
       "ing": "Eine gut gekühlte Dose Red Bull für den energiegeladenen Schub mitten am Tag."
+    },
+    "baklava": {
+      "name": "Baklava",
+      "ing": "Knusprige Filoteigschichten mit Walnüssen und Pistazien, großzügig mit leichtem Sirup getränkt. Der große osmanische Klassiker."
+    },
+    "trilece": {
+      "name": "Trileçe",
+      "ing": "Ein weicher Kuchen, getränkt in drei Milchsorten, mit zartem Karamell überzogen. Ein Dessert, das auf der Zunge zergeht."
+    },
+    "tarte_citron": {
+      "name": "Zitronentarte",
+      "ing": "Knuspriger Mürbeteig mit sämig-frischer Zitronencreme. Frisch und spritzig."
+    },
+    "sutlac": {
+      "name": "Sütlaç",
+      "ing": "Der türkische Milchreis: cremig und vanillig, im Ofen gratiniert und mit Zimt bestreut. Wohltuend warm oder gekühlt."
+    },
+    "cake_pistache": {
+      "name": "Pistazienkuchen",
+      "ing": "Ein weicher Pistazienkuchen, fein parfümiert. Der perfekte Begleiter zu Kaffee oder Tee."
+    },
+    "cake_choco": {
+      "name": "Schokoladenkuchen",
+      "ing": "Ein weicher Schokoladenkuchen, intensiv ohne zu beschweren. Einfach, großzügig, wohltuend."
+    },
+    "cake_citron": {
+      "name": "Zitronenkuchen",
+      "ing": "Ein weicher Zitronenkuchen, frisch säuerlich. Leicht und aromatisch — ideal zum Tee."
+    },
+    "cake_carotte": {
+      "name": "Karottenkuchen",
+      "ing": "Ein weicher Karottenkuchen mit milden Gewürzen, wie ein Carrot Cake. Innen saftig, oben leicht knusprig."
+    },
+    "tiramisu": {
+      "name": "Tiramisu",
+      "ing": "Seidiges Mascarpone, mit Kaffee getränkter Biskuit und eine Haube aus Kakao. Der zeitlose italienische Klassiker."
+    },
+    "san_pellegrino": {
+      "name": "San Pellegrino",
+      "ing": "Italiens berühmtes Mineralwasser mit Kohlensäure, gut gekühlt serviert. Elegant und erfrischend."
+    },
+    "pulco": {
+      "name": "Pulco",
+      "ing": "Zitrone oder Minze, in frisches kaltes Wasser eingerührt. Frisch und säuerlich — in Ihrem Tempo."
+    },
+    "supplement_oeuf": {
+      "name": "Extra Ei",
+      "ing": "Ein zusätzliches Ei für Ihre Omelette, Ihren Salat oder Teller, perfekt zubereitet."
+    },
+    "supplement_chorizo": {
+      "name": "Extra Chorizo",
+      "ing": "Eine großzügige Portion Chorizo, würzig und leicht scharf — zu Ihrem Gericht oder Salat."
     }
   },
   "specialites": {

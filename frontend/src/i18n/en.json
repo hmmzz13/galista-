@@ -104,7 +104,7 @@
       "ing": "A grand savoury-and-sweet platter: hard-boiled egg, shredded feta and emmental, salami, olives, juicy tomatoes and cucumbers, fresh herbs, honey or jam — all served with bread, a hot drink and orange juice. A generous Turkish-style feast."
     },
     "omelette_aneth": {
-      "name": "Dill omelette",
+      "name": "Plain or dill omelette",
       "desc": "Omelette made with two eggs and dill, served with bread.",
       "ing": "Two eggs gently pan-cooked and delicately flavoured with fresh dill for a subtle aniseed note. Soft inside, golden at the edges, served with bread."
     },
@@ -144,7 +144,7 @@
       "ing": "A small fresh platter to share: a selection of cheeses, crunchy tomatoes and cucumbers, and olives. Perfect as a starter or alongside a breakfast."
     },
     "frites": {
-      "name": "Fries",
+      "name": "Fries / small salad",
       "desc": "",
       "ing": "Golden, crispy fries served hot with a pinch of salt. The perfect side dish — or something to nibble together."
     },
@@ -204,7 +204,7 @@
       "ing": "A generously filled börek with Turkish-spiced minced meat inside golden, crispy pastry. Perfect for a savoury break on the go."
     },
     "toast_kasar": {
-      "name": "Kaşar cheese toast",
+      "name": "Cheese toast",
       "desc": "",
       "ing": "Toasted bread topped with Turkish kaşar cheese, melted until deliciously stretchy. Simple and irresistible, served piping hot."
     },
@@ -322,11 +322,6 @@
       "name": "Mille-feuille",
       "desc": "",
       "ing": "A classic mille-feuille: crispy layers of puff pastry alternating with velvety cream, crowned with fondant icing. French indulgence at its finest."
-    },
-    "macarons_framboise": {
-      "name": "Raspberry macarons",
-      "desc": "",
-      "ing": "Raspberry macarons with a fine, crisp shell and a soft heart — fruity and tangy. The perfect union of sweetness and freshness."
     },
     "glace_cone": {
       "name": "Cone or tulip cup",
@@ -449,7 +444,7 @@
       "ing": "An even creamier hot chocolate, made with more milk for a light, silky texture. Soft and indulgent — loved by every age."
     },
     "eau_cristaline_volvic": {
-      "name": "Water Cristaline / Volvic",
+      "name": "Cristaline water",
       "desc": "",
       "ing": "Still mineral water, Cristaline or Volvic, served well chilled. The ideal companion to your coffee or meal."
     },
@@ -464,12 +459,12 @@
       "ing": "An organic, fair-trade soft drink: Lemonaid with lemon, lime or passion fruit, or Charitea iced tea. Fresh, fruity and made with purpose."
     },
     "jus_granini_pago": {
-      "name": "Granini / Pago fruit juice",
+      "name": "Granini / Pago / mineral water",
       "desc": "",
       "ing": "A Granini or Pago fruit juice in the flavour of your choice, fruity and served well chilled."
     },
     "sodas": {
-      "name": "Coca-Cola / Fanta / Sprite / Ice Tea",
+      "name": "33 cl can",
       "desc": "",
       "ing": "The great soda classics: Coca-Cola, Fanta, Sprite or Ice Tea, served well chilled. The familiar fizz everyone loves."
     },
@@ -477,6 +472,58 @@
       "name": "Red Bull",
       "desc": "",
       "ing": "A well-chilled can of Red Bull for an energising boost in the middle of the day."
+    },
+    "baklava": {
+      "name": "Baklava",
+      "ing": "Crisp layers of filo pastry with walnuts and pistachios, generously soaked in a light syrup. The great Ottoman classic."
+    },
+    "trilece": {
+      "name": "Trileçe",
+      "ing": "A soft sponge cake soaked in three milks, topped with melting caramel. A dessert that literally melts in your mouth."
+    },
+    "tarte_citron": {
+      "name": "Lemon tart",
+      "ing": "A crisp buttery pastry shell filled with lemon cream, both tangy and mellow. Fresh and sparkling."
+    },
+    "sutlac": {
+      "name": "Sütlaç",
+      "ing": "Turkish rice pudding: creamy and vanilla-kissed, oven-gratinated and dusted with cinnamon. Comforting warm or chilled."
+    },
+    "cake_pistache": {
+      "name": "Pistachio loaf cake",
+      "ing": "A soft pistachio loaf, delicately perfumed. The perfect partner for a coffee or a tea."
+    },
+    "cake_choco": {
+      "name": "Chocolate loaf cake",
+      "ing": "A soft chocolate loaf, intense without being overwhelming. Simple, generous, comforting."
+    },
+    "cake_citron": {
+      "name": "Lemon loaf cake",
+      "ing": "A soft lemon loaf, freshly tangy. Light and fragrant — ideal with a tea."
+    },
+    "cake_carotte": {
+      "name": "Carrot loaf cake",
+      "ing": "A soft carrot loaf with warm spices, carrot-cake style. Moist inside, lightly crisp on top."
+    },
+    "tiramisu": {
+      "name": "Tiramisu",
+      "ing": "Silky mascarpone, coffee-soaked biscuit and a veil of cocoa. Italy's timeless classic, made with care."
+    },
+    "san_pellegrino": {
+      "name": "San Pellegrino",
+      "ing": "Italy's iconic sparkling water, served well chilled. Elegant and refreshing."
+    },
+    "pulco": {
+      "name": "Pulco",
+      "ing": "Lemon or mint, to mix into fresh cold water. Crisp and tangy, sipped at your own pace."
+    },
+    "supplement_oeuf": {
+      "name": "Extra egg",
+      "ing": "An extra egg to complete your omelette, salad or plate, cooked just right."
+    },
+    "supplement_chorizo": {
+      "name": "Extra chorizo",
+      "ing": "A generous portion of chorizo, flavourful and slightly spicy, to add to your dish or salad."
     }
   },
   "specialites": {

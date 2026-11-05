@@ -207,3 +207,9 @@ SEO/technique (skill farm-seo-setup) :
   - Menu : 61 photos Pexels/Unsplash téléchargées, redimensionnées en 480 px et compressées (q=72, ~1,8 Mo au total) dans public/photos/menu/ ; menu.js réécrit en chemins locaux — plus de dépendance aux CDN externes lents.
   - ProductImage : manifeste /photos/manifest.json (une seule requête partagée, régénérable via scripts/gen_photo_manifest.py) remplace 77 requêtes 404 ; decoding=async ajouté. Les futures photos officielles des plats restent prioritaires.
 - 28/10/2026 (logo) — Loader vectorisé : logo officiel tracé en vraies courbes vectorielles via potracer (public/photos/logo-teal.svg, 15 Ko, 30 contours, teal #2C8A8A / crème, fill-rule evenodd) — netteté parfaite à toute taille, remplace le PNG agrandi. Nota : potracer inverse le masque dans Bitmap.__init__, passer ~mask.
+- 05/11/2026 — Prix officiels de la carte (liste transmise par l'établissement) :
+  - 23 prix corrigés (böreks 3,9-4,2 / omelettes 7,9-11,9 / toasts 4,5-6,5 / petit déj Galista 13,9 / salades 7,9-8,9 / moka & éclair 3,9 / eau 1,5).
+  - 13 nouveaux plats : baklava 4,9, trileçe 5,5, tarte citron 4, sütlaç 4,5, cakes pistache/choco 3,5, citron/carotte 3, tiramisu 4,5, San Pellegrino 3, Pulco 3, supplément œuf 1,5, supplément chorizo 2 — avec descriptions FR/DE/EN.
+  - Regroupements du flyer : assiette mezze -> Petit déjeuner ; frite/mini salade + suppléments -> Salades. Ordre des plats aligné sur le flyer.
+  - Renommages : Omelette nature ou aneth, Toast au fromage, Canette 33 cl, Eau Cristaline, Granini/Pago/eau minérale. Macarons framboise retiré (absent de la carte officielle — à réintégrer sur demande).
+  - Sections non listées (sandwichs, viennoiseries, glaces, milk-shakes, cafés, boissons chaudes) inchangées.

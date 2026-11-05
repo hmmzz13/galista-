@@ -104,7 +104,7 @@
       "ing": "Un grand plateau salé-sucré : œuf dur, feta et emmental effilochés, salami, olives, tomates et concombres croquants, herbes fraîches, miel ou confiture — le tout servi avec du pain, une boisson chaude et un jus d'orange. Un festin généreux, à la turque."
     },
     "omelette_aneth": {
-      "name": "Omelette à l'aneth",
+      "name": "Omelette nature ou aneth",
       "desc": "Omelette préparée avec deux œufs et de l'aneth, servie avec du pain.",
       "ing": "Deux œufs battus, cuits doucement à la poêle et parfumés à l'aneth fraîche pour une délicate note anisée. Moelleuse au cœur, dorée sur les bords, servie avec du pain."
     },
@@ -144,7 +144,7 @@
       "ing": "Une petite assiette fraîcheur à partager : assortiment de fromages, tomates et concombres croquants, olives. Parfaite en entrée ou pour compléter un petit déjeuner."
     },
     "frites": {
-      "name": "Frites",
+      "name": "Frite / mini salade",
       "desc": "",
       "ing": "Des frites dorées et croustillantes, servies bien chaudes avec une pincée de sel. L'accompagnement parfait d'un plat, ou à grignoter entre amis."
     },
@@ -204,7 +204,7 @@
       "ing": "Un börek généreusement garni de viande hachée épicée à la turque, enveloppée dans une pâte dorée et croustillante. Parfait pour une pause salée sur le pouce."
     },
     "toast_kasar": {
-      "name": "Toast au fromage kaşar",
+      "name": "Toast au fromage",
       "desc": "",
       "ing": "Du pain grillé garni de fromage kaşar turc, fondu jusqu'à devenir délicieusement filandreux. Simple et irrésistible, servi bien chaud."
     },
@@ -322,11 +322,6 @@
       "name": "Mille-feuille",
       "desc": "",
       "ing": "Un mille-feuille classique : des feuilles de pâte feuilletée croustillantes alternées avec une crème veloutée, le tout nappé de fondant. La gourmandise française par excellence."
-    },
-    "macarons_framboise": {
-      "name": "Macarons framboise",
-      "desc": "",
-      "ing": "Des macarons à la framboise, à la coque fine et croquante et au cœur fondant, à la saveur fruitée et acidulée. L'alliance parfaite entre douceur et fraîcheur."
     },
     "glace_cone": {
       "name": "Cornet ou tulipe",
@@ -449,7 +444,7 @@
       "ing": "Un chocolat chaud encore plus onctueux, préparé avec davantage de lait pour une texture légère et crémeuse. Doux et gourmand, il plaît à tous les âges."
     },
     "eau_cristaline_volvic": {
-      "name": "Eau Cristaline / Volvic",
+      "name": "Eau Cristaline",
       "desc": "",
       "ing": "Une eau minérale plate, Cristaline ou Volvic, servie bien fraîche. Pour s'hydrater tout en accompagnant votre repas."
     },
@@ -464,12 +459,12 @@
       "ing": "Une limonade bio et équitable : Lemonaid au citron, à la lime ou au fruit de la passion, ou Charitea au thé glacé. Frais, fruité et engagé."
     },
     "jus_granini_pago": {
-      "name": "Jus de fruits Granini / Pago",
+      "name": "Granini / Pago / eau minérale",
       "desc": "",
       "ing": "Un jus de fruits Granini ou Pago au parfum de votre choix, fruité et servi bien frais."
     },
     "sodas": {
-      "name": "Coca-Cola / Fanta / Sprite / Ice Tea",
+      "name": "Canette 33 cl",
       "desc": "",
       "ing": "Les grands classiques des sodas : Coca-Cola, Fanta, Sprite ou Ice Tea, servis bien frais. La bulle familière qui plaît à tout le monde."
     },
@@ -477,6 +472,58 @@
       "name": "Red Bull",
       "desc": "",
       "ing": "Une canette de Red Bull bien fraîche, pour un coup de fouet énergisant en pleine journée."
+    },
+    "baklava": {
+      "name": "Baklava",
+      "ing": "Feuilles de filo croustillantes, noix et pistaches, généreusement nappées d'un sirop léger. Le grand classique des douceurs ottomanes."
+    },
+    "trilece": {
+      "name": "Trileçe",
+      "ing": "Gâteau moelleux imbibé des trois laits, nappé d'un caramel fondant. Un dessert qui fond littéralement en bouche."
+    },
+    "tarte_citron": {
+      "name": "Tarte au citron",
+      "ing": "Une pâte sablée croustillante accueillant une crème citron acidulée et douce à la fois. Fraîche et pétillante."
+    },
+    "sutlac": {
+      "name": "Sütlaç",
+      "ing": "Le riz au lait turc, crémeux et vanillé, gratiné au four et saupoudré de cannelle. Une douceur réconfortante, tiède ou fraîche."
+    },
+    "cake_pistache": {
+      "name": "Cake pistache",
+      "ing": "Un cake moelleux à la pistache, parfumé juste comme il faut. Le compagnon parfait d'un café ou d'un thé."
+    },
+    "cake_choco": {
+      "name": "Cake chocolat",
+      "ing": "Un cake moelleux au chocolat, intense sans être écœurant. Simple, généreux, réconfortant."
+    },
+    "cake_citron": {
+      "name": "Cake citron",
+      "ing": "Un cake moelleux au citron, fraîchement acidulé. Léger et parfumé, idéal avec un thé."
+    },
+    "cake_carotte": {
+      "name": "Cake carotte",
+      "ing": "Un cake moelleux à la carotte et aux épices douces, façon carrot cake. Fondant à l'intérieur, légèrement croustillant dessus."
+    },
+    "tiramisu": {
+      "name": "Tiramisu",
+      "ing": "Mascarpone onctueux, biscuit imbibé de café et voile de cacao. L'intemporel de l'Italie, préparé avec soin."
+    },
+    "san_pellegrino": {
+      "name": "San Pellegrino",
+      "ing": "L'eau pétillante italienne de référence, servie bien fraîche. Élégante et désaltérante."
+    },
+    "pulco": {
+      "name": "Pulco",
+      "ing": "Citron ou menthe, à diluer dans une eau bien fraîche. Frais et acidulé, à siroter à votre rythme."
+    },
+    "supplement_oeuf": {
+      "name": "Supplément œuf",
+      "ing": "Un œuf supplémentaire pour compléter votre omelette, votre salade ou votre assiette, préparé comme il faut."
+    },
+    "supplement_chorizo": {
+      "name": "Supplément chorizo",
+      "ing": "Une portion généreuse de chorizo, parfumée et légèrement relevée, à ajouter à votre plat ou votre salade."
     }
   },
   "specialites": {
