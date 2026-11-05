@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { X, ZoomIn } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { CATEGORIES } from "@/data/menu";
 import { formatPrice } from "@/i18n";
@@ -22,8 +25,10 @@ function loadOfficialPhotos() {
 }
 
 function ProductImage({ id, itemPhoto, catPhoto, alt }) {
+  const { t } = useTranslation();
   const [officialOk, setOfficialOk] = useState(null); // null = manifeste en cours
   const [step, setStep] = useState(0);
+  const [zoom, setZoom] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -34,6 +39,15 @@ function ProductImage({ id, itemPhoto, catPhoto, alt }) {
       alive = false;
     };
   }, [id]);
+
+  useEffect(() => {
+    if (!zoom) return undefined;
+    const onKey = (e) => {
+      if (e.key === "Escape") setZoom(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoom]);
 
   const sources = [officialOk ? `/photos/${id}.jpg` : null, itemPhoto, catPhoto].filter(Boolean);
 
@@ -47,15 +61,75 @@ function ProductImage({ id, itemPhoto, catPhoto, alt }) {
       </div>
     );
   }
+  const src = sources[step];
   return (
-    <img
-      src={sources[step]}
-      alt={alt}
-      loading="lazy"
-      decoding="async"
-      onError={() => setStep((s) => s + 1)}
-      className="h-full w-full object-cover"
-    />
+    <>
+      <button
+        type="button"
+        onClick={() => setZoom(true)}
+        aria-label={`${alt} — ${t("galerie.open")}`}
+        title={t("galerie.open")}
+        data-testid={`menu-photo-zoom-${id}`}
+        className="group relative block h-full w-full cursor-zoom-in"
+      >
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          onError={() => setStep((s) => s + 1)}
+          className="h-full w-full object-cover"
+        />
+        <span className="absolute inset-0 flex items-center justify-center bg-brunprofond/45 opacity-0 transition-opacity duration-300 group-focus-visible:opacity-100 group-hover:opacity-100">
+          <ZoomIn className="h-5 w-5 text-creme" />
+        </span>
+      </button>
+      {createPortal(
+        <AnimatePresence>
+          {zoom && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-[80] flex items-center justify-center bg-brunprofond/95 p-5 md:p-10"
+              onClick={() => setZoom(false)}
+              data-testid="menu-lightbox"
+              role="dialog"
+              aria-modal="true"
+              aria-label={alt}
+            >
+              <button
+                onClick={() => setZoom(false)}
+                data-testid="menu-lightbox-close"
+                aria-label={t("galerie.close")}
+                className="absolute right-5 top-5 rounded-full border border-creme/30 p-2.5 text-creme transition-colors hover:border-iznik hover:bg-iznik"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              <motion.figure
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                onClick={(e) => e.stopPropagation()}
+                className="w-full max-w-3xl"
+              >
+                <img
+                  src={src}
+                  alt={alt}
+                  className="img-soft max-h-[80vh] w-full object-contain"
+                  data-testid="menu-lightbox-image"
+                />
+                <figcaption className="mt-4 text-center font-serif text-2xl text-creme">
+                  {alt}
+                </figcaption>
+              </motion.figure>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
+    </>
   );
 }
 

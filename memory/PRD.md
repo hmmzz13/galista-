@@ -213,3 +213,4 @@ SEO/technique (skill farm-seo-setup) :
   - Regroupements du flyer : assiette mezze -> Petit déjeuner ; frite/mini salade + suppléments -> Salades. Ordre des plats aligné sur le flyer.
   - Renommages : Omelette nature ou aneth, Toast au fromage, Canette 33 cl, Eau Cristaline, Granini/Pago/eau minérale. Macarons framboise retiré (absent de la carte officielle — à réintégrer sur demande).
   - Sections non listées (sandwichs, viennoiseries, glaces, milk-shakes, cafés, boissons chaudes) inchangées.
+- 05/11/2026 (zoom menu) — Photos du menu cliquables : clic sur la vignette d'un plat -> visionneuse plein écran (portal, fond brun profond, cadre crème img-soft, nom du plat en légende, fermeture × / clic extérieur / Échap). Photos re-téléchargées en 800 px (61 images, 4,1 Mo, lazy) pour un zoom net. Icône ZoomIn au survol, cursor-zoom-in. data-testids : menu-photo-zoom-<id>, menu-lightbox, menu-lightbox-close, menu-lightbox-image.
