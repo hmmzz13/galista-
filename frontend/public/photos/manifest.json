@@ -1,3 +1,31 @@
 {
- "items": []
+ "items": [
+  "baklava",
+  "brownie",
+  "cafe_long",
+  "cookies",
+  "croissant_framboise",
+  "croissant_pain_chocolat",
+  "croissant_sale",
+  "eclair_choco_vanille_cafe",
+  "espresso",
+  "mini_macarons",
+  "moka_cafe",
+  "muffin_maxi_choco",
+  "muffin_pepites",
+  "oeufs_sucuk",
+  "omelette_aneth",
+  "omelette_fromage",
+  "omelette_simit",
+  "petit_dej_galista",
+  "pogaca_fromage",
+  "salade_poulet",
+  "sandwich_simit_acma",
+  "sandwich_tomate_mozza",
+  "simit_acma",
+  "suisse_torsade_triangle",
+  "sutlac",
+  "toast_salami_fromage",
+  "trilece"
+ ]
 }
