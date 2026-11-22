@@ -78,8 +78,6 @@
       "viennoiseries": "Viennoiseries",
       "salades": "Salades",
       "patisseries": "Pâtisseries",
-      "glaces": "Glaces",
-      "milkshakes": "Milk-shakes",
       "cafes": "Cafés",
       "boissons_chaudes": "Boissons chaudes",
       "boissons_froides": "Boissons froides"
@@ -143,15 +141,8 @@
       "desc": "",
       "ing": "Une petite assiette fraîcheur à partager : assortiment de fromages, tomates et concombres croquants, olives. Parfaite en entrée ou pour compléter un petit déjeuner."
     },
-    "frites": {
-      "name": "Frite / mini salade",
-      "desc": "",
-      "ing": "Des frites dorées et croustillantes, servies bien chaudes avec une pincée de sel. L'accompagnement parfait d'un plat, ou à grignoter entre amis."
-    },
     "supplement_fromage": {
-      "name": "Supplément fromage",
-      "desc": "",
-      "ing": "Une portion de fromage supplémentaire pour enrichir votre omelette ou votre assiette : plus de fondant, plus de saveur."
+      "name": "Supplément fromage"
     },
     "croissant_sale": {
       "name": "Croissant salé",
@@ -269,49 +260,31 @@
       "ing": "Le poğaça turc : un petit pain moelleux et doré garni de fromage fondant. La bouchée salée parfaite avec un thé ou un café turc."
     },
     "salade_saison": {
-      "name": "Salade de saison",
-      "desc": "",
-      "ing": "Une salade croquante de saison : salade verte, tomates cerises juteuses, concombres, maïs doux et carottes râpées, le tout relevé d'une sauce balsamique. Fraîche et légère."
+      "name": "Salade de saison"
     },
     "salade_poulet": {
-      "name": "Salade au poulet",
-      "desc": "",
-      "ing": "Une salade complète : salade verte, tomates cerises, maïs, carottes râpées, croûtons dorés, parmesan et poulet tendre, nappée d'une sauce César onctueuse. Un vrai repas dans une assiette."
+      "name": "Salade au poulet"
     },
     "salade_thon": {
-      "name": "Salade au thon",
-      "desc": "",
-      "ing": "Une salade fraîche et rassasiante : salade verte, tomates cerises, concombres, oignons rouges, maïs, olives et œufs durs, avec du thon. Simple et bien garnie."
+      "name": "Salade au thon"
     },
     "mini_macarons": {
-      "name": "Mini macarons",
-      "desc": "",
-      "ing": "De délicats macarons mini-format à la coque lisse et au cœur moelleux, déclinés selon les parfums du moment. À croquer en une ou deux bouchées."
+      "name": "Mini macarons"
     },
     "cookies": {
-      "name": "Cookies",
-      "desc": "",
-      "ing": "Un cookie aux pépites de chocolat, croustillant sur les bords et moelleux au centre. Le compagnon idéal d'un café latte."
+      "name": "Cookies"
     },
     "muffin_pepites": {
-      "name": "Muffin aux pépites de chocolat",
-      "desc": "",
-      "ing": "Un muffin aéré et doré, généreusement parsemé de pépites de chocolat fondantes. Parfait pour une douce pause sucrée."
+      "name": "Muffin aux pépites de chocolat"
     },
     "muffin_maxi_choco": {
-      "name": "Muffin maxi choco",
-      "desc": "",
-      "ing": "Un muffin généreux tout chocolat, intensément cacaoté et bien moelleux. Pour les vrais amateurs de chocolat."
+      "name": "Muffin maxi choco"
     },
     "eclair_choco_vanille_cafe": {
-      "name": "Éclair au chocolat, à la vanille ou au café",
-      "desc": "",
-      "ing": "Un éclair à la pâte à choux dorée, garni d'une crème onctueuse au chocolat, à la vanille ou au café, et nappé d'un glaçage brillant. L'élégance pâtissière à la française."
+      "name": "Éclair au chocolat, à la vanille ou au café"
     },
     "brownie": {
-      "name": "Brownie",
-      "desc": "",
-      "ing": "Un brownie intense au chocolat, avec une croûte craquelée et un cœur fondant. Riche, dense et profondément chocolaté."
+      "name": "Brownie"
     },
     "moka_cafe": {
       "name": "Moka café",
@@ -319,159 +292,85 @@
       "ing": "Une pâtisserie café-chocolat : des saveurs de moka entremêlées dans un dessert moelleux et parfumé. Le plaisir des amateurs de café, en version sucrée."
     },
     "mille_feuille": {
-      "name": "Mille-feuille",
-      "desc": "",
-      "ing": "Un mille-feuille classique : des feuilles de pâte feuilletée croustillantes alternées avec une crème veloutée, le tout nappé de fondant. La gourmandise française par excellence."
-    },
-    "glace_cone": {
-      "name": "Cornet ou tulipe",
-      "desc": "",
-      "ing": "Notre glace servie en cornet croustillant ou en tulipe : choisissez une, deux ou trois boules parmi quatorze parfums, du caramel beurre salé à la pistache. Une douceur fraîche à déguster sur le pouce."
-    },
-    "glace_pot": {
-      "name": "Pot",
-      "desc": "",
-      "ing": "Notre glace servie en pot, à déguster à la cuillère : une, deux ou trois boules parmi quatorze parfums onctueux. La pause fraîcheur à votre rythme."
-    },
-    "glace_supplement": {
-      "name": "Supplément chantilly ou coulis",
-      "desc": "",
-      "ing": "Ajoutez une touche de gourmandise à votre glace : une chantilly aérienne ou un coulis de fruits parfumé."
-    },
-    "milkshake": {
-      "name": "Milk-shake",
-      "desc": "",
-      "ing": "Un milk-shake onctueux et velouté, préparé avec la glace de votre parfum préféré. Frais, gourmand et irrésistiblement crémeux."
+      "name": "Mille-feuille"
     },
     "espresso": {
-      "name": "Espresso",
-      "desc": "",
-      "ing": "Un espresso intense et velouté, extrait avec soin pour révéler une crema dense et des arômes équilibrés de cacao et de fruits secs. Servi dans une petite tasse, à savourer en quelques gorgées."
+      "name": "Espresso"
     },
     "double_espresso": {
-      "name": "Double espresso",
-      "desc": "",
-      "ing": "Le même espresso signature, en double dose : deux fois plus d'intensité, de crema et d'arômes. Pour les palais qui aiment le café serré."
+      "name": "Double espresso"
     },
     "cafe_long": {
-      "name": "Café long",
-      "desc": "",
-      "ing": "Un café allongé, plus doux et léger que l'espresso, qui révèle des notes rondes et équilibrées. À savourer lentement, seul ou avec une viennoiserie."
+      "name": "Café long"
     },
     "cafe_latte": {
-      "name": "Café latte",
-      "desc": "",
-      "ing": "Un café doux et crémeux : un espresso délicat allongé de lait onctueux et d'une fine couche de mousse. L'équilibre parfait entre la force du café et la douceur du lait."
+      "name": "Café latte"
     },
     "cappuccino": {
-      "name": "Cappuccino",
-      "desc": "",
-      "ing": "Le classique italien : un espresso intense coiffé d'une mousse de lait dense et veloutée, saupoudrée d'une touche de cacao. Riche, rond et réconfortant."
+      "name": "Cappuccino"
     },
     "americano": {
-      "name": "Americano",
-      "desc": "",
-      "ing": "Un espresso allongé d'eau chaude pour un café long, léger et aromatique. Le choix de ceux qui aiment savourer une grande tasse au corps doux et aux arômes préservés."
+      "name": "Americano"
     },
     "latte_macchiato": {
-      "name": "Latte macchiato",
-      "desc": "",
-      "ing": "Un latte macchiato servi en grand verre : du lait onctueux « taché » d'un espresso intense, avec trois couches bien distinctes. Doux, crémeux et un régal pour les yeux."
+      "name": "Latte macchiato"
     },
     "cafe_turc": {
-      "name": "Café turc",
-      "desc": "",
-      "ing": "Le café à la turque, préparé dans un cezve : une mouture très fine, portée lentement à ébullition avec de l'eau et du sucre, pour un café dense et parfumé coiffé d'une mousse délicate. Une institution stambouliote à savourer lentement, jusqu'à la dernière gorgée (sans le fond de tasse !)."
+      "name": "Café turc"
     },
     "cafe_noisette": {
-      "name": "Café noisette",
-      "desc": "",
-      "ing": "Un espresso agrémenté d'une touche de lait qui lui donne sa teinte « noisette ». Doux et rapide : le café des pauses courtes mais savoureuses."
+      "name": "Café noisette"
     },
     "ice_coffee": {
-      "name": "Ice coffee",
-      "desc": "",
-      "ing": "Un café frais et rafraîchissant, servi bien glacé avec des glaçons : tout le plaisir du café, en version estivale. Idéal pour les pauses ensoleillées."
+      "name": "Ice coffee"
     },
     "ice_latte": {
-      "name": "Ice latte",
-      "desc": "",
-      "ing": "Un latte glacé : du lait froid onctueux sur des glaçons, « taché » d'un espresso intense. Crémeux, doux et désaltérant à la fois."
+      "name": "Ice latte"
     },
     "ice_cappuccino": {
-      "name": "Ice cappuccino",
-      "desc": "",
-      "ing": "Un cappuccino version glacée : espresso intense, lait froid et mousse veloutée sur un lit de glaçons. La mousse du classique italien, la fraîcheur en plus."
+      "name": "Ice cappuccino"
     },
     "supplement_lait_avoine": {
-      "name": "Supplément lait d'avoine",
-      "desc": "",
-      "ing": "Remplacez ou complétez le lait de votre boisson par du lait d'avoine : une alternative végétale douce et légèrement sucrée."
+      "name": "Supplément lait d'avoine"
     },
     "saveur_gourmande": {
-      "name": "Saveur gourmande",
-      "desc": "",
-      "ing": "Ajoutez une touche de saveur gourmande à votre boisson chaude préférée : un sirop parfumé pour une pause encore plus douce."
+      "name": "Saveur gourmande"
     },
     "the_turc": {
-      "name": "Thé turc",
-      "desc": "",
-      "ing": "Le thé turc traditionnel, servi dans le fameux verre en forme de tulipe : un thé noir infusé lentement, à la robe ambrée et au goût prononcé. À siroter à petites gorgées, comme à Istanbul."
+      "name": "Thé turc"
     },
     "tisane_palais": {
-      "name": "Tisane Palais des Thés",
-      "desc": "",
-      "ing": "Une infusion délicate de la maison Palais des Thés, aux arômes doux et apaisants. La boisson réconfortante des fins de journée et des pauses détente."
+      "name": "Tisane Palais des Thés"
     },
     "lait_nature": {
-      "name": "Lait nature",
-      "desc": "",
-      "ing": "Un lait nature servi chaud ou froid, simple et doux. Pour les pauses tout en délicatesse."
+      "name": "Lait nature"
     },
     "lait_miel": {
-      "name": "Lait au miel",
-      "desc": "",
-      "ing": "Un lait chaud au miel, doux et réconfortant : la douceur du miel qui se mélange lentement au lait onctueux. La boisson câline par excellence."
+      "name": "Lait au miel"
     },
     "chocolat_chaud": {
-      "name": "Chocolat chaud",
-      "desc": "",
-      "ing": "Un chocolat chaud intense et velouté, au goût profond de cacao. Un vrai câlin dans une tasse pour les moments où l'on a besoin de douceur."
+      "name": "Chocolat chaud"
     },
     "chocolat_chaud_lait": {
-      "name": "Chocolat chaud au lait",
-      "desc": "",
-      "ing": "Un chocolat chaud encore plus onctueux, préparé avec davantage de lait pour une texture légère et crémeuse. Doux et gourmand, il plaît à tous les âges."
+      "name": "Chocolat chaud au lait"
     },
     "eau_cristaline_volvic": {
-      "name": "Eau Cristaline",
-      "desc": "",
-      "ing": "Une eau minérale plate, Cristaline ou Volvic, servie bien fraîche. Pour s'hydrater tout en accompagnant votre repas."
+      "name": "Eau Cristaline"
     },
     "carola_rouge_verte": {
-      "name": "Carola rouge / verte",
-      "desc": "",
-      "ing": "Une eau minérale Carola, plate ou gazeuse, servie bien fraîche. Sa bulle fine et légère accompagne à merveille un café ou un repas."
+      "name": "Carola rouge / verte"
     },
     "lemonaid_charitea": {
-      "name": "Lemonaid / Charitea",
-      "desc": "",
-      "ing": "Une limonade bio et équitable : Lemonaid au citron, à la lime ou au fruit de la passion, ou Charitea au thé glacé. Frais, fruité et engagé."
+      "name": "Lemonaid / Charitea"
     },
     "jus_granini_pago": {
-      "name": "Granini / Pago / eau minérale",
-      "desc": "",
-      "ing": "Un jus de fruits Granini ou Pago au parfum de votre choix, fruité et servi bien frais."
+      "name": "Granini / Pago / eau minérale"
     },
     "sodas": {
-      "name": "Canette 33 cl",
-      "desc": "",
-      "ing": "Les grands classiques des sodas : Coca-Cola, Fanta, Sprite ou Ice Tea, servis bien frais. La bulle familière qui plaît à tout le monde."
+      "name": "Canette 33 cl"
     },
     "red_bull": {
-      "name": "Red Bull",
-      "desc": "",
-      "ing": "Une canette de Red Bull bien fraîche, pour un coup de fouet énergisant en pleine journée."
+      "name": "Red Bull"
     },
     "baklava": {
       "name": "Baklava",
@@ -482,48 +381,38 @@
       "ing": "Gâteau moelleux imbibé des trois laits, nappé d'un caramel fondant. Un dessert qui fond littéralement en bouche."
     },
     "tarte_citron": {
-      "name": "Tarte au citron",
-      "ing": "Une pâte sablée croustillante accueillant une crème citron acidulée et douce à la fois. Fraîche et pétillante."
+      "name": "Tarte au citron"
     },
     "sutlac": {
       "name": "Sütlaç",
       "ing": "Le riz au lait turc, crémeux et vanillé, gratiné au four et saupoudré de cannelle. Une douceur réconfortante, tiède ou fraîche."
     },
     "cake_pistache": {
-      "name": "Cake pistache",
-      "ing": "Un cake moelleux à la pistache, parfumé juste comme il faut. Le compagnon parfait d'un café ou d'un thé."
+      "name": "Cake pistache"
     },
     "cake_choco": {
-      "name": "Cake chocolat",
-      "ing": "Un cake moelleux au chocolat, intense sans être écœurant. Simple, généreux, réconfortant."
+      "name": "Cake chocolat"
     },
     "cake_citron": {
-      "name": "Cake citron",
-      "ing": "Un cake moelleux au citron, fraîchement acidulé. Léger et parfumé, idéal avec un thé."
+      "name": "Cake citron"
     },
     "cake_carotte": {
-      "name": "Cake carotte",
-      "ing": "Un cake moelleux à la carotte et aux épices douces, façon carrot cake. Fondant à l'intérieur, légèrement croustillant dessus."
+      "name": "Cake carotte"
     },
     "tiramisu": {
-      "name": "Tiramisu",
-      "ing": "Mascarpone onctueux, biscuit imbibé de café et voile de cacao. L'intemporel de l'Italie, préparé avec soin."
+      "name": "Tiramisu"
     },
     "san_pellegrino": {
-      "name": "San Pellegrino",
-      "ing": "L'eau pétillante italienne de référence, servie bien fraîche. Élégante et désaltérante."
+      "name": "San Pellegrino"
     },
     "pulco": {
-      "name": "Pulco",
-      "ing": "Citron ou menthe, à diluer dans une eau bien fraîche. Frais et acidulé, à siroter à votre rythme."
+      "name": "Pulco"
     },
     "supplement_oeuf": {
-      "name": "Supplément œuf",
-      "ing": "Un œuf supplémentaire pour compléter votre omelette, votre salade ou votre assiette, préparé comme il faut."
+      "name": "Supplément œuf"
     },
     "supplement_chorizo": {
-      "name": "Supplément chorizo",
-      "ing": "Une portion généreuse de chorizo, parfumée et légèrement relevée, à ajouter à votre plat ou votre salade."
+      "name": "Supplément chorizo"
     }
   },
   "specialites": {

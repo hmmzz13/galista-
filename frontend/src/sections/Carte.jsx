@@ -181,7 +181,7 @@ function MenuRow({ item, cat, t, i18n }) {
   );
 }
 
-// Menu « tout sur une page » : les 13 catégories se suivent, la barre
+// Menu « tout sur une page » : les 11 catégories se suivent, la barre
 // collante sert de navigation (saut direct + surlignage automatique).
 export default function Carte({ lenisRef }) {
   const { t, i18n } = useTranslation();

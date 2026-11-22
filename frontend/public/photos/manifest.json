@@ -1,8 +1,11 @@
 {
  "items": [
   "baklava",
+  "bretzel",
+  "bretzel_gratine",
   "brownie",
   "cafe_long",
+  "chausson_pommes",
   "cookies",
   "croissant_framboise",
   "croissant_pain_chocolat",
@@ -17,6 +20,7 @@
   "omelette_aneth",
   "omelette_fromage",
   "omelette_simit",
+  "pain_raisins",
   "petit_dej_galista",
   "pogaca_fromage",
   "salade_poulet",

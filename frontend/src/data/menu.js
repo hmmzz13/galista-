@@ -15,19 +15,15 @@ const CAT_IMG = {
   sandwichs:
     "/photos/menu/pexels-5555754.jpg",
   boreks:
-    "/photos/menu/pexels-38356208.jpg",
+    "/photos/borek.jpg",
   toasts:
-    "/photos/menu/pexels-5840412.jpg",
+    "/photos/toast_salami_fromage.jpg",
   viennoiseries:
     "/photos/menu/pexels-19642548.jpg",
   salades:
     "/photos/menu/unsplash-1546069901-.jpg",
   patisseries:
     "/photos/menu/unsplash-1760124056928-.jpg",
-  glaces:
-    "/photos/menu/unsplash-1497034825429-.jpg",
-  milkshakes:
-    "/photos/menu/pexels-27626320.jpg",
   cafes:
     "/photos/menu/unsplash-1559001724-.jpg",
   boissons_chaudes:
@@ -75,20 +71,20 @@ export const CATEGORIES = [
     id: "boreks",
     photo: CAT_IMG.boreks,
     items: [
-      { id: "borek_epinards", price: 3.9 },
-      { id: "borek_pommes_terre", price: 3.9 },
-      { id: "borek_fromage", price: 3.9 },
-      { id: "borek_viande_hachee", price: 4.2 },
+      { id: "borek_epinards", price: 3.9, photo: "/photos/borek.jpg" },
+      { id: "borek_pommes_terre", price: 3.9, photo: "/photos/borek.jpg" },
+      { id: "borek_fromage", price: 3.9, photo: "/photos/borek.jpg" },
+      { id: "borek_viande_hachee", price: 4.2, photo: "/photos/borek.jpg" },
     ],
   },
   {
     id: "toasts",
     photo: CAT_IMG.toasts,
     items: [
-      { id: "toast_kasar", price: 4.5, photo: "/photos/menu/unsplash-1612827788868-.jpg" },
-      { id: "toast_salami_fromage", price: 5.5, photo: "/photos/menu/unsplash-1475090169767-40.jpg" },
-      { id: "toast_chorizo_fromage", price: 5.5, photo: "/photos/menu/pexels-13995302.jpg" },
-      { id: "toast_galista", price: 6.5, photo: "/photos/menu/unsplash-1528735602780-2552.jpg" },
+      { id: "toast_kasar", price: 4.5, photo: "/photos/toast_salami_fromage.jpg" },
+      { id: "toast_salami_fromage", price: 5.5, photo: "/photos/toast_salami_fromage.jpg" },
+      { id: "toast_chorizo_fromage", price: 5.5, photo: "/photos/toast_salami_fromage.jpg" },
+      { id: "toast_galista", price: 6.5, photo: "/photos/toast_salami_fromage.jpg" },
     ],
   },
   {
@@ -114,7 +110,6 @@ export const CATEGORIES = [
 { id: "salade_poulet", price: 8.9, photo: "/photos/menu/pexels-1211887.jpg" },
 { id: "salade_thon", price: 8.9 },
 { id: "supplement_fromage", price: 1.0 },
-{ id: "frites", price: 3.5, photo: "/photos/menu/pexels-19297802.jpg" },
 { id: "supplement_oeuf", price: 1.5 },
 { id: "supplement_chorizo", price: 2.0 },
     ],
@@ -141,35 +136,6 @@ export const CATEGORIES = [
 { id: "muffin_maxi_choco", price: 3.9, photo: "/photos/menu/pexels-7190694.jpg" },
 { id: "tiramisu", price: 4.5 },
     ],
-  },
-  {
-    id: "glaces",
-    photo: CAT_IMG.glaces,
-    flavorsNote: true,
-    items: [
-      {
-        id: "glace_cone",
-        variants: [
-          { key: "scoop_1", price: 2.5 },
-          { key: "scoop_2", price: 5.0 },
-          { key: "scoop_3", price: 7.0 },
-        ],
-      },
-      {
-        id: "glace_pot",
-        variants: [
-          { key: "scoop_1", price: 2.2 },
-          { key: "scoop_2", price: 4.4 },
-          { key: "scoop_3", price: 6.0 },
-        ],
-      },
-      { id: "glace_supplement", price: 0.5 },
-    ],
-  },
-  {
-    id: "milkshakes",
-    photo: CAT_IMG.milkshakes,
-    items: [{ id: "milkshake", price: 6.0 }],
   },
   {
     id: "cafes",
