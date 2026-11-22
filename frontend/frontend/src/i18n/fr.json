@@ -1,0 +1,558 @@
+{
+  "meta": {
+    "title": "Café de spécialité à Strasbourg — Galista Café",
+    "description": "Galista Café, café de spécialité à Strasbourg : petits déjeuners, café turc, böreks, pâtisseries et glaces. 46 rue du Faubourg-National — découvrez la carte."
+  },
+  "a11y": {
+    "skip": "Aller au contenu principal",
+    "lang_switch": "Changer de langue"
+  },
+  "loader": {
+    "tagline": "La pause istanbulienne vous attend",
+    "aria": "Chargement du site"
+  },
+  "nav": {
+    "home": "Accueil",
+    "univers": "Notre univers",
+    "carte": "La carte",
+    "specialites": "Nos spécialités",
+    "galerie": "Galerie",
+    "avis": "Avis clients",
+    "contact": "Contact",
+    "find_us": "Nous trouver",
+    "open_menu": "Ouvrir le menu",
+    "close_menu": "Fermer le menu",
+    "lang_label": "Langue"
+  },
+  "hero": {
+    "kicker": "Du grain à la tasse",
+    "brand_tagline": "Café de spécialité — Strasbourg",
+    "quick": "Accès rapide",
+    "title_line1": "La pause",
+    "title_line2": "istanbulienne.",
+    "subtitle": "Café de spécialité, saveurs d'Istanbul et douceurs gourmandes : accordez-vous une vraie pause, au cœur de Strasbourg.",
+    "scroll_cue": "Faire défiler",
+    "fallback_note": "Votre navigateur ne prend pas en charge WebGL — voici la version classique de notre accueil."
+  },
+  "univers": {
+    "kicker": "Notre univers",
+    "title": "Un lieu pour savourer l'instant.",
+    "text": "Situé à Strasbourg, Galista Café vous accueille dans une ambiance chaleureuse et conviviale. Du premier café du matin à la pause gourmande, découvrez une sélection de boissons, de pâtisseries et de spécialités inspirées d'Istanbul.",
+    "tags": [
+      "Café de spécialité",
+      "Spécialités d'Istanbul",
+      "Pâtisseries & glaces"
+    ],
+    "photo_label": "Photographie du café",
+    "photo_pending": "Photographie officielle à venir"
+  },
+  "marquee": {
+    "words": [
+      "Café turc",
+      "Simit",
+      "Börek",
+      "Menemen",
+      "Cappuccino",
+      "Latte art",
+      "Pâtisseries",
+      "Glaces",
+      "Petits déjeuners",
+      "Milk-shakes"
+    ]
+  },
+  "carte": {
+    "kicker": "La carte",
+    "ingredients_label": "Ingrédients",
+    "confirm_badge": "",
+    "allergens_note": "Pour toute information sur les allergènes, demandez à notre équipe.",
+    "flavors_label": "Parfums recensés",
+    "flavors": "Vanille, chocolat, chocolat craquant, café, pistache, fraise, stracciatella, melon, citron, mangue, caramel beurre salé, cookies, fruits rouges, noix de coco.",
+    "glossary_title": "",
+    "glossary": {},
+    "categories": {
+      "petits_dejeuners": "Petits déjeuners",
+      "oeufs_omelettes": "Œufs et omelettes",
+      "sandwichs": "Sandwichs",
+      "boreks": "Böreks",
+      "toasts": "Toasts",
+      "viennoiseries": "Viennoiseries",
+      "salades": "Salades",
+      "patisseries": "Pâtisseries",
+      "cafes": "Cafés",
+      "boissons_chaudes": "Boissons chaudes",
+      "boissons_froides": "Boissons froides"
+    },
+    "glaces": {
+      "cone": "Cornet ou tulipe",
+      "pot": "Pot",
+      "scoop_1": "1 boule",
+      "scoop_2": "2 boules",
+      "scoop_3": "3 boules"
+    }
+  },
+  "items": {
+    "petit_dej_classique": {
+      "name": "Petit déjeuner Classique",
+      "desc": "Une formule simple et gourmande pour bien commencer la journée.",
+      "ing": "Du pain croustillant servi avec du beurre et de la confiture ou du miel, accompagné d'une boisson chaude au choix et d'un jus d'orange bien frais. La formule simple et complète pour commencer la journée en douceur."
+    },
+    "petit_dej_galista": {
+      "name": "Petit déjeuner Galista",
+      "desc": "Une formule généreuse associant saveurs salées et touches sucrées.",
+      "ing": "Un grand plateau salé-sucré : œuf dur, feta et emmental effilochés, salami, olives, tomates et concombres croquants, herbes fraîches, miel ou confiture — le tout servi avec du pain, une boisson chaude et un jus d'orange. Un festin généreux, à la turque."
+    },
+    "omelette_aneth": {
+      "name": "Omelette nature ou aneth",
+      "desc": "Omelette préparée avec deux œufs et de l'aneth, servie avec du pain.",
+      "ing": "Deux œufs battus, cuits doucement à la poêle et parfumés à l'aneth fraîche pour une délicate note anisée. Moelleuse au cœur, dorée sur les bords, servie avec du pain."
+    },
+    "omelette_tomate_fromage": {
+      "name": "Omelette tomate et fromage",
+      "desc": "Omelette aux tomates et à l'emmental, accompagnée de pain.",
+      "ing": "Deux œufs moelleux garnis de tomates fondantes et d'emmental filandreux, le tout doré à la poêle. Servie avec du pain frais pour un repas simple et rassasiant."
+    },
+    "omelette_fromage": {
+      "name": "Omelette au fromage",
+      "desc": "Omelette généreuse à l'emmental.",
+      "ing": "Une omelette généreuse à l'emmental, cuite lentement pour rester bien onctueuse au cœur, avec une croûte dorée qui sent bon le fromage fondu."
+    },
+    "omelette_simit": {
+      "name": "Omelette au simit",
+      "desc": "Une association d'œufs, de simit et de fromage.",
+      "ing": "Une association typiquement stambouliote : deux œufs, des morceaux de simit au sésame et de l'emmental fondant. Une omelette croustillante et fondante à la fois, servie bien chaude."
+    },
+    "menemen": {
+      "name": "Menemen",
+      "desc": "Spécialité turque composée d'œufs brouillés aux tomates et aux poivrons, servie avec du pain.",
+      "ing": "Le grand classique du petit déjeuner turc : des œufs brouillés cuits lentement avec des tomates mûres et des poivrons doux fondus à l'huile d'olive. À savourer bien chaud, avec du pain frais pour saucer jusqu'à la dernière goutte."
+    },
+    "oeufs_kavurma": {
+      "name": "Œufs au kavurma",
+      "desc": "Deux œufs accompagnés de simit et de kavurma, une préparation de viande cuite.",
+      "ing": "Deux œufs servis avec du kavurma, une viande de bœuf poêlée à la turque, légèrement épicée et très parfumée, et du simit croustillant au sésame. Un plat généreux qui tient au corps."
+    },
+    "oeufs_sucuk": {
+      "name": "Œufs au sucuk",
+      "desc": "Deux œufs accompagnés de sucuk, une saucisse turque épicée, et de pain.",
+      "ing": "Deux œufs cuits avec des rondelles de sucuk, la saucisse turque relevée à l'ail et au piment dont le parfum enveloppe délicatement les œufs. Servis avec du pain pour une assiette complète et gourmande."
+    },
+    "assiette_mezze": {
+      "name": "Assiette mezze",
+      "desc": "",
+      "ing": "Une petite assiette fraîcheur à partager : assortiment de fromages, tomates et concombres croquants, olives. Parfaite en entrée ou pour compléter un petit déjeuner."
+    },
+    "supplement_fromage": {
+      "name": "Supplément fromage"
+    },
+    "croissant_sale": {
+      "name": "Croissant salé",
+      "desc": "Un croissant garni de tomate, de laitue, de fromage frais et de salami.",
+      "ing": "Un croissant feuilleté garni de tomate, de laitue croquante, de fromage frais onctueux et de salami. Le contraste du feuilletage doré et de la garniture fraîche et savoureuse."
+    },
+    "sandwich_simit_acma": {
+      "name": "Sandwich simit / açma",
+      "desc": "Spécialité turque garnie de fromages, de légumes frais et de tapenade d'olives.",
+      "ing": "Le fameux sandwich stambouliote : un simit au sésame ou un açma moelleux garni de feta, de fromage kaşar fondant, de tomates, de laitue et d'une tapenade d'olives parfumée. Frais, généreux et plein de saveurs turques."
+    },
+    "sandwich_tomate_mozza": {
+      "name": "Sandwich tomate mozzarella",
+      "desc": "Une association de tomate, mozzarella, basilic et laitue.",
+      "ing": "Un sandwich tout en fraîcheur : tomates juteuses, mozzarella fondante, basilic parfumé et laitue croquante dans un pain moelleux. L'Italie rencontre la Turquie en une bouchée."
+    },
+    "sandwich_thon": {
+      "name": "Sandwich au thon",
+      "desc": "Sandwich au thon avec mayonnaise, œuf dur, tomate et laitue.",
+      "ing": "Un sandwich gourmand au thon crémeux lié à la mayonnaise, agrémenté d'œuf dur, de tomate et de laitue croustillante. Simple, frais et rassasiant."
+    },
+    "sandwich_poulet_curry": {
+      "name": "Sandwich poulet curry",
+      "desc": "Sandwich au poulet assaisonné au curry, accompagné de mayonnaise et de laitue.",
+      "ing": "Du poulet tendre assaisonné au curry doux, marié à une mayonnaise onctueuse et à la laitue croquante. Un sandwich parfumé, doucement épicé."
+    },
+    "sandwich_vegetarien": {
+      "name": "Sandwich végétarien",
+      "desc": "Un sandwich aux légumes grillés, avec des noix et du fromage.",
+      "ing": "Un sandwich généreux aux légumes grillés — poivrons, courgettes et aubergines fondants — avec des noix croquantes et du fromage (feta ou fromage frais selon la variante servie)."
+    },
+    "borek_epinards": {
+      "name": "Börek aux épinards",
+      "desc": "Pâtisserie salée d'inspiration turque garnie d'épinards.",
+      "ing": "Un börek turc au feuilletage doré et croustillant, garni d'épinards fondants légèrement relevés. Prenant et savoureux, il accompagne à merveille un thé turc."
+    },
+    "borek_pommes_terre": {
+      "name": "Börek aux pommes de terre",
+      "desc": "Pâtisserie salée garnie de pommes de terre.",
+      "ing": "Un börek à la pâte dorée et croustillante, garni d'une préparation de pommes de terre douce et réconfortante. Le classique des vitrines d'Istanbul."
+    },
+    "borek_fromage": {
+      "name": "Börek au fromage",
+      "desc": "Pâtisserie salée garnie de fromage.",
+      "ing": "Un börek au feuilletage croustillant cachant un cœur de fromage fondu et filandreux. Servi tiède, c'est un pur moment de gourmandise salée."
+    },
+    "borek_viande_hachee": {
+      "name": "Börek à la viande hachée",
+      "desc": "Pâtisserie salée garnie de viande hachée.",
+      "ing": "Un börek généreusement garni de viande hachée épicée à la turque, enveloppée dans une pâte dorée et croustillante. Parfait pour une pause salée sur le pouce."
+    },
+    "toast_kasar": {
+      "name": "Toast au fromage",
+      "desc": "",
+      "ing": "Du pain grillé garni de fromage kaşar turc, fondu jusqu'à devenir délicieusement filandreux. Simple et irrésistible, servi bien chaud."
+    },
+    "toast_salami_fromage": {
+      "name": "Toast salami et fromage",
+      "desc": "",
+      "ing": "Un toast croustillant garni de salami et de fromage fondant, grillé jusqu'à ce que le pain soit bien doré. Le classique chaud qui réchauffe la pause."
+    },
+    "toast_chorizo_fromage": {
+      "name": "Toast chorizo et fromage",
+      "desc": "",
+      "ing": "Un toast gourmand au chorizo légèrement piquant et au fromage fondu, grillé à la perfection. Un mariage hispano-turc plein de caractère."
+    },
+    "toast_galista": {
+      "name": "Toast Galista (Yengen)",
+      "desc": "",
+      "ing": "Notre toast signature « Yengen » : fromage kaşar fondu, poivrons grillés et tomates sur un pain grillé croustillant. La spécialité de la maison, à ne pas manquer."
+    },
+    "croissant_pain_chocolat": {
+      "name": "Croissant ou pain au chocolat",
+      "desc": "",
+      "ing": "Une viennoiserie feuilletée et dorée : croissant pur beurre ou pain au chocolat au cœur fondant. Croustillant dehors, moelleux dedans."
+    },
+    "croissant_framboise": {
+      "name": "Croissant framboise",
+      "desc": "",
+      "ing": "Un croissant moelleux et fruité à la framboise, tout en équilibre entre gourmandise et fraîcheur acidulée."
+    },
+    "bretzel": {
+      "name": "Bretzel",
+      "desc": "",
+      "ing": "Le bretzel alsacien à la croûte brune et laquée, saupoudré de gros sel : tendre au cœur, croustillant sous la dent. L'incontournable gourmandise strasbourgeoise."
+    },
+    "bretzel_gratine": {
+      "name": "Bretzel gratiné au fromage",
+      "desc": "",
+      "ing": "Un bretzel gratiné au fromage, recouvert d'une couche dorée et filandreuse. Une version encore plus gourmande du classique alsacien."
+    },
+    "simit_acma": {
+      "name": "Simit / açma",
+      "desc": "",
+      "ing": "Les stars du petit déjeuner turc : le simit, pain en anneau enrobé de sésame doré, et l'açma, petite brioche tressée et moelleuse. À croquer tièdes, seuls ou en sandwich."
+    },
+    "pain_raisins": {
+      "name": "Pain aux raisins",
+      "desc": "",
+      "ing": "Un feuilletage croustillant roulé autour d'une crème onctueuse et de raisins secs moelleux. La viennoiserie classique qui ne déçoit jamais."
+    },
+    "chausson_pommes": {
+      "name": "Chausson aux pommes",
+      "desc": "",
+      "ing": "Un chausson doré à la pâte feuilletée croustillante, garni d'une compote de pommes douce et parfumée. Réconfortant à souhait."
+    },
+    "suisse_torsade_triangle": {
+      "name": "Suisse chocolat, torsade ou triangle aux amandes",
+      "desc": "",
+      "ing": "Choisissez votre viennoiserie : le suisse tout chocolat, la torsade feuilletée ou le triangle aux amandes. Trois classiques dorés et généreux pour la pause sucrée."
+    },
+    "pogaca_fromage": {
+      "name": "Poğaça au fromage",
+      "desc": "",
+      "ing": "Le poğaça turc : un petit pain moelleux et doré garni de fromage fondant. La bouchée salée parfaite avec un thé ou un café turc."
+    },
+    "salade_saison": {
+      "name": "Salade de saison"
+    },
+    "salade_poulet": {
+      "name": "Salade au poulet"
+    },
+    "salade_thon": {
+      "name": "Salade au thon"
+    },
+    "mini_macarons": {
+      "name": "Mini macarons"
+    },
+    "cookies": {
+      "name": "Cookies"
+    },
+    "muffin_pepites": {
+      "name": "Muffin aux pépites de chocolat"
+    },
+    "muffin_maxi_choco": {
+      "name": "Muffin maxi choco"
+    },
+    "eclair_choco_vanille_cafe": {
+      "name": "Éclair au chocolat, à la vanille ou au café"
+    },
+    "brownie": {
+      "name": "Brownie"
+    },
+    "moka_cafe": {
+      "name": "Moka café",
+      "desc": "",
+      "ing": "Une pâtisserie café-chocolat : des saveurs de moka entremêlées dans un dessert moelleux et parfumé. Le plaisir des amateurs de café, en version sucrée."
+    },
+    "mille_feuille": {
+      "name": "Mille-feuille"
+    },
+    "espresso": {
+      "name": "Espresso"
+    },
+    "double_espresso": {
+      "name": "Double espresso"
+    },
+    "cafe_long": {
+      "name": "Café long"
+    },
+    "cafe_latte": {
+      "name": "Café latte"
+    },
+    "cappuccino": {
+      "name": "Cappuccino"
+    },
+    "americano": {
+      "name": "Americano"
+    },
+    "latte_macchiato": {
+      "name": "Latte macchiato"
+    },
+    "cafe_turc": {
+      "name": "Café turc"
+    },
+    "cafe_noisette": {
+      "name": "Café noisette"
+    },
+    "ice_coffee": {
+      "name": "Ice coffee"
+    },
+    "ice_latte": {
+      "name": "Ice latte"
+    },
+    "ice_cappuccino": {
+      "name": "Ice cappuccino"
+    },
+    "supplement_lait_avoine": {
+      "name": "Supplément lait d'avoine"
+    },
+    "saveur_gourmande": {
+      "name": "Saveur gourmande"
+    },
+    "the_turc": {
+      "name": "Thé turc"
+    },
+    "tisane_palais": {
+      "name": "Tisane Palais des Thés"
+    },
+    "lait_nature": {
+      "name": "Lait nature"
+    },
+    "lait_miel": {
+      "name": "Lait au miel"
+    },
+    "chocolat_chaud": {
+      "name": "Chocolat chaud"
+    },
+    "chocolat_chaud_lait": {
+      "name": "Chocolat chaud au lait"
+    },
+    "eau_cristaline_volvic": {
+      "name": "Eau Cristaline"
+    },
+    "carola_rouge_verte": {
+      "name": "Carola rouge / verte"
+    },
+    "lemonaid_charitea": {
+      "name": "Lemonaid / Charitea"
+    },
+    "jus_granini_pago": {
+      "name": "Granini / Pago / eau minérale"
+    },
+    "sodas": {
+      "name": "Canette 33 cl"
+    },
+    "red_bull": {
+      "name": "Red Bull"
+    },
+    "baklava": {
+      "name": "Baklava",
+      "ing": "Feuilles de filo croustillantes, noix et pistaches, généreusement nappées d'un sirop léger. Le grand classique des douceurs ottomanes."
+    },
+    "trilece": {
+      "name": "Trileçe",
+      "ing": "Gâteau moelleux imbibé des trois laits, nappé d'un caramel fondant. Un dessert qui fond littéralement en bouche."
+    },
+    "tarte_citron": {
+      "name": "Tarte au citron"
+    },
+    "sutlac": {
+      "name": "Sütlaç",
+      "ing": "Le riz au lait turc, crémeux et vanillé, gratiné au four et saupoudré de cannelle. Une douceur réconfortante, tiède ou fraîche."
+    },
+    "cake_pistache": {
+      "name": "Cake pistache"
+    },
+    "cake_choco": {
+      "name": "Cake chocolat"
+    },
+    "cake_citron": {
+      "name": "Cake citron"
+    },
+    "cake_carotte": {
+      "name": "Cake carotte"
+    },
+    "tiramisu": {
+      "name": "Tiramisu"
+    },
+    "san_pellegrino": {
+      "name": "San Pellegrino"
+    },
+    "pulco": {
+      "name": "Pulco"
+    },
+    "supplement_oeuf": {
+      "name": "Supplément œuf"
+    },
+    "supplement_chorizo": {
+      "name": "Supplément chorizo"
+    }
+  },
+  "specialites": {
+    "kicker": "Nos spécialités",
+    "title": "Les incontournables de Galista Café.",
+    "intro": "Des spécialités turques aux grands classiques du café, voici ce que l'on aime retrouver chez nous.",
+    "view_menu": "Voir sur la carte",
+    "list": [
+      {
+        "id": "cafe_turc",
+        "cat": "cafes",
+        "title": "Le café turc",
+        "text": "Une institution à déguster lentement, emblème de l'hospitalité à l'orientale. Retrouvez-le sur notre carte, seul ou en pause gourmande."
+      },
+      {
+        "id": "cappuccinos",
+        "cat": "cafes",
+        "title": "Cappuccinos & cafés latte",
+        "text": "Espresso intense, lait onctueux et mousse délicate : les grands classiques du café, préparés avec soin."
+      },
+      {
+        "id": "simit_acma",
+        "cat": "viennoiseries",
+        "title": "Simit & açma",
+        "text": "Les gourmandises turques du matin : un pain en anneau au sésame et une brioche moelleuse, parfaits à toute heure."
+      },
+      {
+        "id": "boreks",
+        "cat": "boreks",
+        "title": "Böreks",
+        "text": "Pâtisseries salées d'inspiration turque : épinards, pommes de terre, fromage ou viande hachée."
+      },
+      {
+        "id": "petits_dejeuners",
+        "cat": "petits_dejeuners",
+        "title": "Petits déjeuners",
+        "text": "Du classique au généreux petit déjeuner Galista : de quoi commencer la journée en beauté."
+      },
+      {
+        "id": "patisseries",
+        "cat": "patisseries",
+        "title": "Pâtisseries",
+        "text": "Macarons, éclairs, mille-feuilles et brownies — une vitrine qui appelle la pause."
+      },
+      {
+        "id": "glaces_milkshakes",
+        "cat": "glaces",
+        "title": "Glaces & milk-shakes",
+        "text": "Quatorze parfums recensés, du caramel beurre salé à la pistache, en cornet, en pot ou en milk-shake."
+      }
+    ]
+  },
+  "galerie": {
+    "kicker": "Galerie",
+    "title": "Galista Café en images.",
+    "open": "Agrandir",
+    "close": "Fermer",
+    "prev": "Image précédente",
+    "next": "Image suivante",
+    "frames": [
+      "Les cookies & douceurs",
+      "L'ambiance",
+      "Les boissons",
+      "Les pâtisseries",
+      "Les petits déjeuners",
+      "Les spécialités turques"
+    ]
+  },
+  "instagram": {
+    "title": "Le café en direct sur Instagram",
+    "handle": "@galistacafe",
+    "intro": "Ambiance, nouveautés et douceurs du jour — suivez-nous au fil des publications.",
+    "follow": "Suivre le café",
+    "loading": "Chargement des publications…",
+    "open": "Voir sur Instagram"
+  },
+  "avis": {
+    "kicker": "Avis clients",
+    "title": "Votre expérience, notre plus belle récompense.",
+    "reviews_label": "avis Google",
+    "stars_alt": "Étoiles — note de 4,8 sur 5",
+    "verified": "Note et nombre d'avis vérifiés le {{date}} sur la fiche Google de l'établissement — valeurs indicatives, à confirmer avant publication.",
+    "cta": "Lire tous les avis Google",
+    "transparency": "Nous choisissons de ne pas reproduire de citations ici : retrouvez tous les avis authentiques directement sur Google.",
+    "prev": "Avis précédent",
+    "next": "Avis suivant",
+    "go": "Aller à l'avis {{n}}",
+    "counter": "{{current}} / {{total}}",
+    "pause": "Mettre en pause le défilement",
+    "play": "Reprendre le défilement"
+  },
+  "infos": {
+    "kicker": "Informations pratiques",
+    "title": "Nous trouver.",
+    "address_label": "Adresse",
+    "phone_label": "Téléphone",
+    "hours_label": "Horaires",
+    "days": [
+      "Lundi",
+      "Mardi",
+      "Mercredi",
+      "Jeudi",
+      "Vendredi",
+      "Samedi",
+      "Dimanche"
+    ],
+    "hours_note": "Horaires officiels — le café est ouvert 7 jours sur 7.",
+    "maps_cta": "Ouvrir dans Google Maps",
+    "call_cta": "Appeler le café"
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Une question, une envie de café ?",
+    "text": "Passez nous voir au 46 rue du Faubourg-National à Strasbourg ou appelez-nous : nous serons ravis de vous accueillir.",
+    "call_cta": "Appeler",
+    "maps_cta": "Itinéraire"
+  },
+  "footer": {
+    "tagline": "Café de spécialité, petits déjeuners et spécialités inspirées d'Istanbul, au cœur de Strasbourg.",
+    "nav_title": "Navigation",
+    "infos_title": "Informations",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "rights": "Tous droits réservés.",
+    "legal_title": "Mentions légales",
+    "legal_body": "Éditeur du site : Galista Café — 46 rue du Faubourg-National, 67000 Strasbourg, France. Téléphone : +33 6 31 11 95 83.\n\nLes informations juridiques complètes (raison sociale, SIRET, hébergeur, directeur de la publication) restent à compléter par l'établissement.",
+    "privacy_title": "Politique de confidentialité",
+    "privacy_body": "Ce site vitrine ne collecte aucune donnée personnelle : pas de formulaire, pas de compte, pas de traceur déposé par le site. Seules les données techniques de l'hébergement peuvent être enregistrées.\n\nCette politique sera complétée par l'établissement si nécessaire.\n\nLe flux Instagram intégré à la galerie n'est chargé que lorsque vous cliquez sur « Charger les publications » ; Instagram peut alors déposer ses propres éléments.",
+    "close": "Fermer"
+  },
+  "practical": {
+    "open_badge_open": "Ouvert · jusqu'à {{time}}",
+    "open_badge_closed": "Fermé · ouvre {{when}}",
+    "instagram": "Instagram",
+    "map_title": "Nous sommes ici",
+    "map_note": "Carte interactive — zoomez et déplacez-vous. © OpenStreetMap",
+    "quotes_note": "Extraits d'avis Google relayés par",
+    "quotes_lang_note": "Les avis sont publiés dans leur langue d'origine, sans modification.",
+    "anonymous": "Client Google",
+    "today": "Aujourd'hui",
+    "banner_label": "Notre café à Strasbourg"
+  }
+}
