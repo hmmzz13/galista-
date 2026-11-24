@@ -23,16 +23,16 @@ export default function Hero() {
       {/* Photographie de la salle du café, plein écran */}
       {reduced ? (
         <img
-          src="/photos/cafe-interior.jpg"
-          alt="La salle du café Galista à Strasbourg : arches turquoise, néon Galista et comptoir à pâtisseries"
-          className="absolute inset-0 h-full w-full object-cover"
+          src="/photos/banniere.jpg"
+          alt="Le néon Galista Café sur le mur végétal de la salle, à Strasbourg"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_20%]"
         />
       ) : (
         <motion.img
-          src="/photos/cafe-interior.jpg"
-          alt="La salle du café Galista à Strasbourg : arches turquoise, néon Galista et comptoir à pâtisseries"
+          src="/photos/banniere.jpg"
+          alt="Le néon Galista Café sur le mur végétal de la salle, à Strasbourg"
           style={{ y, scale }}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_20%]"
           loading="eager"
         />
       )}

@@ -20,16 +20,16 @@ export default function Banner() {
     >
       {reduced ? (
         <img
-          src="/photos/banniere.jpg"
-          alt="Le néon Galista Café sur le mur végétal de la salle, à Strasbourg"
-          className="absolute inset-0 h-full w-full object-cover object-[50%_15%]"
+          src="/photos/cafe-interior.jpg"
+          alt="L'intérieur du café Galista à Strasbourg : arches turquoise, néon Galista et vitrine à pâtisseries"
+          className="absolute inset-0 h-full w-full object-cover"
         />
       ) : (
         <motion.img
-          src="/photos/banniere.jpg"
-          alt="Le néon Galista Café sur le mur végétal de la salle, à Strasbourg"
+          src="/photos/cafe-interior.jpg"
+          alt="L'intérieur du café Galista à Strasbourg : arches turquoise, néon Galista et vitrine à pâtisseries"
           style={{ y, scale }}
-          className="absolute inset-0 h-full w-full object-cover object-[50%_15%]"
+          className="absolute inset-0 h-full w-full object-cover"
           loading="lazy"
         />
       )}
