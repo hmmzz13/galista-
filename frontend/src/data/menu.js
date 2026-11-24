@@ -52,7 +52,7 @@ export const CATEGORIES = [
 { id: "omelette_simit", price: 10.9, photo: "/photos/omelette_simit.jpg" },
 { id: "menemen", price: 10.9, photo: "/photos/menemen.jpg" },
 { id: "oeufs_sucuk", price: 10.9, photo: "/photos/menu/pexels-35611241.jpg" },
-{ id: "oeufs_kavurma", price: 11.9, photo: "/photos/menu/unsplash-1759216280661-.jpg" },
+{ id: "oeufs_kavurma", price: 11.9, photo: "/photos/oeufs_kavurma.jpg" },
     ],
   },
   {
@@ -63,8 +63,8 @@ export const CATEGORIES = [
       { id: "sandwich_simit_acma", price: 5.5, photo: "/photos/menu/pexels-29389139.jpg" },
       { id: "sandwich_tomate_mozza", price: 5.5, photo: "/photos/menu/pexels-13995330.jpg" },
       { id: "sandwich_thon", price: 6.5, photo: "/photos/sandwich_thon.jpg" },
-      { id: "sandwich_poulet_curry", price: 6.5, photo: "/photos/menu/unsplash-1558985250-27.jpg" },
-      { id: "sandwich_vegetarien", price: 6.5, photo: "/photos/menu/pexels-14410236.jpg" },
+      { id: "sandwich_poulet_curry", price: 6.5, photo: "/photos/sandwich_poulet_curry.jpg" },
+      { id: "sandwich_vegetarien", price: 6.5, photo: "/photos/sandwich_vegetarien.jpg" },
     ],
   },
   {
